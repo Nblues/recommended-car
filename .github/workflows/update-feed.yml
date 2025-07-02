@@ -5,6 +5,9 @@ on:
     - cron: '0 */3 * * *' # ทุก 3 ชั่วโมง
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -32,5 +35,4 @@ jobs:
           git commit -m "Update feed.xml [auto]" || echo "No changes to commit"
           git push
         env:
-          # ให้สิทธิ์ push กลับไปยัง repo เดิม
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
