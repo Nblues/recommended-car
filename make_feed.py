@@ -12,8 +12,21 @@ query = '''
       node {
         title
         handle
-        images(first:1) { edges { node { originalSrc altText } } }
-        variants(first:1) { edges { node { price } } }
+        images(first:1) {
+          edges {
+            node {
+              originalSrc
+              altText
+            }
+          }
+        }
+        variants(first:1) {
+          edges {
+            node {
+              price
+            }
+          }
+        }
       }
     }
   }
@@ -23,8 +36,8 @@ query = '''
 res = requests.post(
     f'https://{shop_domain}/api/2023-07/graphql.json',
     headers={
-        "Content-Type": "application/json",
-        "X-Shopify-Storefront-Access-Token": access_token
+      "Content-Type": "application/json",
+      "X-Shopify-Storefront-Access-Token": access_token
     },
     json={'query': query}
 )
@@ -45,10 +58,7 @@ for car in cars:
     item = ET.SubElement(channel, "item")
     ET.SubElement(item, "title").text = f"{car['title']} | {price} บาท"
     ET.SubElement(item, "link").text = link
-    desc = f'''<![CDATA[
-      <img src="{img}" alt="{alt} รถมือสองเชียงใหม่" /><br>
-      ราคา {price} บาท
-    ]]>'''
+    desc = f"<![CDATA[ ราคา {price} บาท ]]>"""
     ET.SubElement(item, "description").text = desc
     ET.SubElement(item, "guid").text = link
     ET.SubElement(item, "pubDate").text = datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0700")
