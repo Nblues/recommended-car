@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Honda CR-V ปี 2021",
+    "handle": "honda-crv-2021",
+    "image": "https://link.to/honda-crv-img.jpg",
+    "price": "839000"
+  },
+  {
+    "title": "Isuzu MU-X ปี 2018",
+    "handle": "isuzu-mux-2018",
+    "image": "https://link.to/isuzu-mux-img.jpg",
+    "price": "659000"
+  }
+]
