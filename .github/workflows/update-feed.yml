@@ -1,0 +1,27 @@
+name: Update RSS Feed
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'   # รันทุก 3 ชั่วโมง (เปลี่ยนเวลาได้)
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install requests
+      - name: Generate RSS feed
+        run: python make_feed.py
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name "AutoFeedBot"
+          git config --global user.email "autofeed@bot.com"
+          git add feed.xml
+          git commit -m "Auto update feed" || echo "No changes to commit"
+          git push
