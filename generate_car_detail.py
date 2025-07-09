@@ -1,98 +1,93 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-File: generate_car_detail.py
-สร้าง car-detail/xxx.html แยกแต่ละคัน จาก feed.xml (ไม่ต้องใช้ cars.json แล้ว)
-"""
 import os
-import xml.etree.ElementTree as ET
+import json
+from pathlib import Path
 
-# --- config
-FEED_FILE = "feed.xml"
-OUT_DIR = "docs/car-detail"
-TEMPLATE = """<!DOCTYPE html>
+CARS_JSON = "cars.json"
+OUTPUT_DIR = "docs/car-detail/"
+SITE_URL = "https://nblues.github.io/recommended-car/"
+LINE_URL = "https://lin.ee/cJuakxZ"
+FB_PAGE = "https://facebook.com/knrod2hand"
+
+HTML_TEMPLATE = """
+<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>{title} | รถมือสองคุณภาพดี</title>
+  <title>{title} | รถมือสองเชียงใหม่ ครูหนึ่งรถสวย</title>
   <meta name="description" content="{desc}">
-  <link rel="canonical" href="{detail_url}">
-  <meta property="og:title" content="{title} | รถมือสองคุณภาพดี">
+  <meta property="og:title" content="{title}">
   <meta property="og:description" content="{desc}">
   <meta property="og:image" content="{img}">
-  <meta property="og:url" content="{detail_url}">
-  <meta property="og:type" content="product">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{title}">
-  <meta name="twitter:description" content="{desc}">
-  <meta name="twitter:image" content="{img}">
-  <script type="application/ld+json">
-  {{
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "{title}",
-    "description": "{desc}",
-    "image": "{img}",
-    "offers": {{
-      "@type": "Offer",
-      "price": "{price}",
-      "priceCurrency": "THB",
-      "availability": "https://schema.org/InStock"
-    }}
-  }}
-  </script>
-  <link rel="stylesheet" href="../style.css">
+  <meta property="og:url" content="{url}">
+  <meta name="robots" content="index,follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="{url}">
+  <script type="application/ld+json">{jsonld}</script>
 </head>
 <body>
-  <div class="car-detail">
-    <img src="{img}" alt="{title}" style="max-width:400px;">
-    <h1>{title}</h1>
-    <div class="car-desc">{desc}</div>
-    <div class="car-price">฿{price:,}</div>
-    <a href="../index.html">← กลับหน้ารวม</a>
-  </div>
+  <h1>{title}</h1>
+  <img src="{img}" alt="{title}" width="400"><br>
+  <p><b>ยี่ห้อ:</b> {brand} <b>รุ่น:</b> {model} <b>ปี:</b> {year} <b>เลขไมล์:</b> {mileage} กม.</p>
+  <p><b>ราคา:</b> ฿{price} <b>สถานะ:</b> {status} <b>เกียร์:</b> {gear} <b>สี:</b> {color}</p>
+  <p>{desc}</p>
+  <p>
+    <a href="{LINE_URL}" target="_blank">สอบถามผ่าน LINE</a>
+    <a href="{FB_PAGE}" target="_blank">ดูรถบน Facebook</a>
+    <a href="{SITE_URL}all-cars-1" target="_blank">← กลับหน้ารวมรถ</a>
+  </p>
 </body>
 </html>
 """
 
-def parse_feed(feed_file):
-    tree = ET.parse(feed_file)
-    root = tree.getroot()
-    items = []
-    for item in root.findall("./channel/item"):
-        handle = item.findtext("guid") or item.findtext("handle")
-        title = item.findtext("title") or ""
-        link = item.findtext("link") or ""
-        desc = item.findtext("description") or ""
-        pubDate = item.findtext("pubDate") or ""
-        # ดึงรูปจาก description (CDAT)
-        import re
-        img_match = re.search(r"<img[^>]+src=['\"]([^'\"]+)['\"]", desc)
-        img = img_match.group(1) if img_match else ""
-        # ดึงราคา (จาก title หรือ description)
-        price_match = re.search(r"฿([\d,]+)", title+desc)
-        price = price_match.group(1).replace(",","") if price_match else "0"
-        # ลบ tag html ใน desc
-        desc_clean = re.sub(r"<[^>]+>", "", desc).strip()
-        items.append({
-            "handle": handle.strip(),
-            "title": title.strip(),
-            "desc": desc_clean,
-            "img": img,
-            "price": int(price),
-            "detail_url": f"https://nblues.github.io/recommended-car/car-detail/{handle}.html"
-        })
-    return items
+def make_jsonld(car, canonical):
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": car.get("title", ""),
+        "image": [car.get("img", "")],
+        "description": car.get("desc", ""),
+        "brand": car.get("brand", ""),
+        "model": car.get("model", ""),
+        "color": car.get("color", ""),
+        "sku": car.get("handle", ""),
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "THB",
+            "price": car.get("price", "0"),
+            "availability": "https://schema.org/InStock",
+            "url": canonical
+        }
+    }, ensure_ascii=False)
 
 def main():
-    os.makedirs(OUT_DIR, exist_ok=True)
-    items = parse_feed(FEED_FILE)
-    for car in items:
-        html = TEMPLATE.format(**car)
-        outpath = os.path.join(OUT_DIR, f"{car['handle']}.html")
-        with open(outpath, "w", encoding="utf-8") as f:
-            f.write(html)
-    print(f"Generate {len(items)} car-detail pages DONE.")
+    Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
+    with open(CARS_JSON, "r", encoding="utf-8") as f:
+        cars = json.load(f)
+    for car in cars:
+        filename = f"{car['handle']}.html"
+        url = f"{SITE_URL}car-detail/{filename}"
+        html = HTML_TEMPLATE.format(
+            title=car.get("title",""),
+            desc=car.get("desc",""),
+            img=car.get("img",""),
+            url=url,
+            price="{:,}".format(int(car.get("price",0))),
+            brand=car.get("brand",""),
+            model=car.get("model",""),
+            year=car.get("year",""),
+            mileage=car.get("mileage",""),
+            status=car.get("status",""),
+            gear=car.get("gear",""),
+            color=car.get("color",""),
+            SITE_URL=SITE_URL,
+            LINE_URL=LINE_URL,
+            FB_PAGE=FB_PAGE,
+            jsonld=make_jsonld(car, url)
+        )
+        outpath = os.path.join(OUTPUT_DIR, filename)
+        with open(outpath, "w", encoding="utf-8") as outf:
+            outf.write(html)
+        print(f"✅ สร้าง {outpath}")
 
 if __name__ == "__main__":
     main()
