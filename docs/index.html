@@ -2,10 +2,41 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>Recommended Car</title>
+  <title>รถเข้าใหม่ล่าสุด | Recommended Car</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- SEO & JSON-LD -->
+  <meta name="description" content="รวมรถเข้าใหม่ รถมือสองคุณภาพดี ราคาพิเศษ เช็ครถใหม่ล่าสุดที่นี่">
+  <link rel="canonical" href="https://nblues.github.io/recommended-car/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"url":"car-detail/honda-crv-2021.html"},
+      {"@type":"ListItem","position":2,"url":"car-detail/isuzu-mux-2018.html"}
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>ยินดีต้อนรับสู่ Recommended Car</h1>
-  <p>ดู RSS ได้ที่ <a href="feed.xml">feed.xml</a></p>
+  <h1>รถเข้าใหม่ 6 คันล่าสุด</h1>
+  <div class="car-grid">
+    <div class="car-card">
+      <img src="https://link.to/honda-crv-img.jpg" alt="Honda CR-V ปี 2021">
+      <div class="car-title">Honda CR-V ปี 2021</div>
+      <div class="car-desc">SUV ประหยัดน้ำมัน สภาพใหม่ ราคาพิเศษ</div>
+      <div class="car-price">฿839,000</div>
+      <a href="car-detail/honda-crv-2021.html" class="car-link">ดูรายละเอียด</a>
+    </div>
+    <div class="car-card">
+      <img src="https://link.to/isuzu-mux-img.jpg" alt="Isuzu MU-X ปี 2018">
+      <div class="car-title">Isuzu MU-X ปี 2018</div>
+      <div class="car-desc">SUV ยอดนิยม ขับสอง ประวัติดี ไมล์น้อย</div>
+      <div class="car-price">฿659,000</div>
+      <a href="car-detail/isuzu-mux-2018.html" class="car-link">ดูรายละเอียด</a>
+    </div>
+    <!-- เพิ่มรถคันอื่นๆ อัตโนมัติ -->
+  </div>
 </body>
 </html>
