@@ -1,23 +1,24 @@
 #!/usr/bin/env python3
 """
-File: recommended-car/make_feed.py
-
-Fetch products via Shopify Storefront GraphQL API, build an RSS feed, and save to feed.xml.
+File: make_feed.py
+Fetch products (พร้อมรูป) จาก Shopify Storefront API, สร้าง feed.xml สำหรับหน้าเว็บ
 """
+
 import sys
 import logging
 import requests
 import xml.etree.ElementTree as ET
 
-# Configure logging
+# Logging
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
-# --- Shopify Config ---
+# Shopify Config
 API_URL = "https://www.kn-goodcar.com/api/2023-07/graphql.json"
 HEADERS = {
     "Content-Type": "application/json",
     "X-Shopify-Storefront-Access-Token": "bb70cb008199a94b83c98df0e45ada67"
 }
+# เพิ่ม images(first:1) และ handle สำหรับลิงก์
 QUERY = '''
 query Products($first: Int!) {
   products(first: $first, sortKey: CREATED_AT, reverse: true) {
@@ -28,7 +29,13 @@ query Products($first: Int!) {
         description
         handle
         publishedAt
-        images(first: 1) { edges { node { url } } }
+        images(first:1) {
+          edges {
+            node {
+              url
+            }
+          }
+        }
       }
     }
   }
@@ -36,9 +43,6 @@ query Products($first: Int!) {
 '''
 
 def fetch_products(first: int = 10) -> list:
-    """
-    Fetch product nodes from Shopify Storefront API. Returns a list of node dicts.
-    """
     try:
         response = requests.post(API_URL, json={'query': QUERY, 'variables': {'first': first}}, headers=HEADERS)
         response.raise_for_status()
@@ -58,19 +62,16 @@ def fetch_products(first: int = 10) -> list:
     for edge in edges:
         node = edge.get('node')
         if node:
-            # ดึง url รูปหลัก (image)
-            img_edges = node.get('images', {}).get('edges', [])
-            image_url = img_edges[0]['node']['url'] if img_edges else ''
-            node['image'] = image_url
-            # เพิ่ม url ของสินค้า (ตามโดเมน Shopify)
+            # รูปหลัก
+            images = node.get('images', {}).get('edges', [])
+            img_url = images[0]['node']['url'] if images else ""
+            node['img_url'] = img_url
+            # เพิ่ม url ของสินค้า (Shopify)
             node['url'] = f"https://www.kn-goodcar.com/products/{node.get('handle')}"
             nodes.append(node)
     return nodes
 
 def build_rss(items: list) -> ET.ElementTree:
-    """
-    Build RSS XML tree from item dicts.
-    """
     rss = ET.Element('rss', version='2.0')
     channel = ET.SubElement(rss, 'channel')
     ET.SubElement(channel, 'title').text = 'Recommended Cars'
@@ -81,20 +82,20 @@ def build_rss(items: list) -> ET.ElementTree:
         entry = ET.SubElement(channel, 'item')
         ET.SubElement(entry, 'guid').text = str(item.get('id'))
         ET.SubElement(entry, 'title').text = item.get('title', '')
+        # *** เพิ่ม <image> ***
+        if item.get('img_url'):
+            ET.SubElement(entry, 'image').text = item['img_url']
         ET.SubElement(entry, 'description').text = item.get('description', '')
         ET.SubElement(entry, 'link').text = item.get('url', '')
         ET.SubElement(entry, 'pubDate').text = item.get('publishedAt', '')
-        ET.SubElement(entry, 'image').text = item.get('image', '')   # เพิ่ม image
-
     return ET.ElementTree(rss)
 
 def save_feed(tree: ET.ElementTree, filename: str = 'feed.xml') -> None:
-    """Save RSS feed to file."""
     tree.write(filename, encoding='utf-8', xml_declaration=True)
     logging.info(f"RSS feed saved to {filename}")
 
 if __name__ == '__main__':
-    products = fetch_products(first=20)
+    products = fetch_products(first=6)  # ดึงแค่ 6 คันแรกพอ
     if not products:
         logging.warning("No products found; feed will be empty.")
     rss_tree = build_rss(products)
