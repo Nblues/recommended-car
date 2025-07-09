@@ -32,7 +32,7 @@
     <a href="https://chiangraiusedcar.com/all-cars" target="_blank" class="btn-main">ดูรถทั้งหมด</a>
   </div>
   <script>
-  fetch("../cars.json")
+  fetch("cars.json")
     .then(r=>r.json())
     .then(cars=>{
       document.getElementById('car-list').innerHTML = cars.map(car=>`
