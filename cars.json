@@ -1,15 +1,18 @@
 [
-{
-"title": "Honda CR-V ปี 2021",
-"handle": "honda-crv-2021",
-"image": "https://link.to/honda-crv-img.jpg",
-"price": "839000"
-},
-{
-"title": "Isuzu MU-X ปี 2018",
-"handle": "isuzu-mux-2018",
-"image": "https://link.to/isuzu-mux-img.jpg",
-"price": "659000"
-}
+  {
+    "title": "Honda CR-V ปี 2021",
+    "handle": "honda-crv-2021",
+    "img": "https://via.placeholder.com/600x400",
+    "desc": "SUV ประหยัดน้ำมัน สภาพใหม่",
+    "link": "https://nblues.github.io/recommended-car/car-detail/honda-crv-2021.html",
+    "price": "839000",
+    "year": "2021",
+    "mileage": "35000",
+    "color": "ขาว",
+    "status": "ฟรีดาวน์",
+    "gear": "ออโต้",
+    "model": "CR-V",
+    "brand": "Honda"
+  }
+  // เพิ่มอีก 5 คัน
 ]
-
