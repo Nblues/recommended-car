@@ -1,38 +1,153 @@
-name: Update RSS Feed
+#!/usr/bin/env python3
+# generate_car_detail.py
+import os
+import json
+from pathlib import Path
 
-on:
-  schedule:
-    - cron: '0 */3 * * *' # ทุก 3 ชั่วโมง
-  workflow_dispatch:
+# CONFIG
+CARS_JSON = "cars.json"
+OUTPUT_DIR = "docs/car-detail/"
+SITE_URL = "https://nblues.github.io/recommended-car/"
+LINE_URL = "https://lin.ee/cJuakxZ"
+FB_PAGE = "https://facebook.com/knrod2hand"
 
-permissions:
-  contents: write
+HTML_TEMPLATE = """
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <title>{title} | รถมือสองเชียงใหม่ ฟรีดาวน์ | ครูหนึ่งรถสวย</title>
+  <meta name="description" content="{desc}">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="canonical" href="{canonical}">
+  <meta property="og:title" content="{title} | รถมือสองเชียงใหม่ ฟรีดาวน์ | ครูหนึ่งรถสวย">
+  <meta property="og:description" content="{desc}">
+  <meta property="og:image" content="{img}">
+  <meta property="og:url" content="{canonical}">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{title} | รถมือสองเชียงใหม่">
+  <meta name="twitter:description" content="{desc}">
+  <meta name="twitter:image" content="{img}">
+  <meta name="robots" content="index,follow">
+  <script type="application/ld+json">
+  {jsonld}
+  </script>
+  <style>
+    body {{ font-family: 'Prompt', Arial, sans-serif; background: #f8f8f8; margin:0; color: #232323; }}
+    .container {{ max-width: 500px; background: #fff; margin: 36px auto; box-shadow:0 8px 40px #0001; border-radius: 16px; overflow: hidden; }}
+    .car-img {{ width: 100%; display: block; border-radius: 0 0 12px 12px; object-fit:cover; }}
+    .info {{ padding: 24px 18px 18px 18px; }}
+    h1 {{ font-size: 1.3rem; margin: 0 0 6px; color: #1a237e; }}
+    .price {{ font-size: 1.5rem; color: #d32f2f; font-weight: bold; margin-bottom: 8px; }}
+    .meta {{ margin-bottom: 12px; color:#555; font-size: 1rem; }}
+    .meta span {{ display:inline-block; margin-right:10px; }}
+    .btn-row {{ display: flex; gap: 8px; margin: 18px 0 0 0; }}
+    .btn {{ flex: 1 1 0; text-align: center; padding: 12px 0; background: #1e88e5; color: #fff; border-radius: 6px; text-decoration: none; font-weight: 600; transition: .15s; }}
+    .btn.line {{ background: #0eb700; }}
+    .btn.fb {{ background: #4267B2; }}
+    .btn.back {{ background: #ccc; color: #222; }}
+    .desc-box {{ background: #fafafa; padding: 16px; border-radius: 8px; margin: 14px 0 0 0; }}
+    @media (max-width: 600px) {{
+      .container {{ max-width: 100vw; margin: 0; border-radius: 0; }}
+    }}
+  </style>
+</head>
+<body>
+  <div class="container" itemscope itemtype="https://schema.org/Product">
+    <img class="car-img" src="{img}" alt="{title}" itemprop="image">
+    <div class="info">
+      <h1 itemprop="name">{title}</h1>
+      <div class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+        ฿<span itemprop="price">{price:,}</span>
+      </div>
+      <div class="meta">
+        <span>ยี่ห้อ: {brand}</span>
+        <span>รุ่น: {model}</span>
+        <span>ปี: {year}</span>
+        <span>สี: {color}</span>
+        <span>ไมล์: {mileage:,} กม.</span>
+        <span>สถานะ: {status}</span>
+        <span>เกียร์: {gear}</span>
+      </div>
+      <div class="btn-row">
+        <a class="btn line" href="{line_url}" rel="nofollow" target="_blank">💬 สอบถามผ่าน LINE</a>
+        <a class="btn fb" href="{fb_url}" rel="nofollow" target="_blank">📦 ดูรถบน Facebook</a>
+        <a class="btn back" href="{all_cars}" rel="nofollow">← กลับหน้ารวมรถ</a>
+      </div>
+      <div class="desc-box" itemprop="description">{desc}</div>
+    </div>
+  </div>
+</body>
+</html>
+"""
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+def make_jsonld(car, canonical):
+    """Structured data (JSON-LD) schema.org/Product"""
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": car.get("title", ""),
+        "image": [car.get("img")],
+        "description": car.get("desc", ""),
+        "sku": car.get("handle", ""),
+        "brand": {
+            "@type": "Brand",
+            "name": car.get("brand", "")
+        },
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "THB",
+            "price": car.get("price", ""),
+            "availability": "https://schema.org/InStock",
+            "url": canonical
+        },
+        "itemCondition": "https://schema.org/UsedCondition",
+        "mpn": car.get("handle", ""),
+        "color": car.get("color", ""),
+        "model": car.get("model", ""),
+        "releaseDate": car.get("year", ""),
+        "mileageFromOdometer": {
+            "@type": "QuantitativeValue",
+            "value": car.get("mileage", ""),
+            "unitCode": "KM"
+        }
+    }, ensure_ascii=False, indent=2)
 
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+def main():
+    # Make sure output dir exists
+    Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
+    # Load cars.json
+    with open(CARS_JSON, "r", encoding="utf-8") as f:
+        cars = json.load(f)
 
-      - name: Install requirements
-        run: pip install requests
+    for car in cars:
+        filename = f"{car['handle']}.html"
+        canonical = SITE_URL + f"car-detail/{filename}"
+        html = HTML_TEMPLATE.format(
+            title=car.get("title", ""),
+            desc=car.get("desc", ""),
+            img=car.get("img", ""),
+            price=int(car.get("price", 0)),
+            year=car.get("year", "-"),
+            mileage=int(car.get("mileage", 0)),
+            color=car.get("color", "-"),
+            status=car.get("status", "-"),
+            gear=car.get("gear", "-"),
+            model=car.get("model", "-"),
+            brand=car.get("brand", "-"),
+            line_url=LINE_URL,
+            fb_url=FB_PAGE,
+            all_cars=SITE_URL + "all-cars-1",
+            canonical=canonical,
+            jsonld=make_jsonld(car, canonical)
+        )
+        # Write html
+        outpath = os.path.join(OUTPUT_DIR, filename)
+        with open(outpath, "w", encoding="utf-8") as outf:
+            outf.write(html)
+        print(f"✅ สร้าง {outpath}")
 
-      - name: Generate feed.xml
-        run: python make_feed.py
-
-      - name: Commit & Push feed.xml
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add feed.xml
-          git commit -m "Update feed.xml [auto]" || echo "No changes to commit"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+if __name__ == "__main__":
+    main()
