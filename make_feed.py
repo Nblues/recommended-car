@@ -2,7 +2,7 @@
 """
 File: recommended-car/make_feed.py
 
-Fetch products via GraphQL, build an RSS feed, and save to feed.xml.
+Fetch products via Shopify Storefront GraphQL API, build an RSS feed, and save to feed.xml.
 """
 import sys
 import logging
@@ -12,16 +12,21 @@ import xml.etree.ElementTree as ET
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
-API_URL = "https://api.example.com/graphql"  # replace with real endpoint
+# --- Shopify Config ---
+API_URL = "https://www.kn-goodcar.com/api/2023-07/graphql.json"
+HEADERS = {
+    "Content-Type": "application/json",
+    "X-Shopify-Storefront-Access-Token": "bb70cb008199a94b83c98df0e45ada67"
+}
 QUERY = '''
 query Products($first: Int!) {
-  products(first: $first) {
+  products(first: $first, sortKey: CREATED_AT, reverse: true) {
     edges {
       node {
         id
         title
         description
-        url
+        handle
         publishedAt
       }
     }
@@ -29,13 +34,12 @@ query Products($first: Int!) {
 }
 '''
 
-
 def fetch_products(first: int = 10) -> list:
     """
-    Fetch product nodes from the GraphQL API. Returns a list of node dicts.
+    Fetch product nodes from Shopify Storefront API. Returns a list of node dicts.
     """
     try:
-        response = requests.post(API_URL, json={'query': QUERY, 'variables': {'first': first}})
+        response = requests.post(API_URL, json={'query': QUERY, 'variables': {'first': first}}, headers=HEADERS)
         response.raise_for_status()
     except requests.RequestException as e:
         logging.error(f"HTTP error fetching products: {e}")
@@ -47,16 +51,16 @@ def fetch_products(first: int = 10) -> list:
         logging.error("Invalid JSON in response")
         sys.exit(1)
 
-    # Navigate safely into payload
     products = payload.get('data', {}).get('products', {})
     edges = products.get('edges', [])
     nodes = []
     for edge in edges:
         node = edge.get('node')
         if node:
+            # เพิ่ม url ของสินค้า (ตามโดเมน Shopify)
+            node['url'] = f"https://www.kn-goodcar.com/products/{node.get('handle')}"
             nodes.append(node)
     return nodes
-
 
 def build_rss(items: list) -> ET.ElementTree:
     """
@@ -65,7 +69,7 @@ def build_rss(items: list) -> ET.ElementTree:
     rss = ET.Element('rss', version='2.0')
     channel = ET.SubElement(rss, 'channel')
     ET.SubElement(channel, 'title').text = 'Recommended Cars'
-    ET.SubElement(channel, 'link').text = 'https://example.com'
+    ET.SubElement(channel, 'link').text = 'https://www.kn-goodcar.com'
     ET.SubElement(channel, 'description').text = 'Latest recommended cars'
 
     for item in items:
@@ -78,12 +82,10 @@ def build_rss(items: list) -> ET.ElementTree:
 
     return ET.ElementTree(rss)
 
-
 def save_feed(tree: ET.ElementTree, filename: str = 'feed.xml') -> None:
     """Save RSS feed to file."""
     tree.write(filename, encoding='utf-8', xml_declaration=True)
     logging.info(f"RSS feed saved to {filename}")
-
 
 if __name__ == '__main__':
     products = fetch_products(first=20)
