@@ -4,38 +4,29 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: '0 3 * * *'  # รันทุกวันตี 3
+    - cron: '0 3 * * *' # รัน auto ตี 3 ทุกวัน (เวลาประเทศไทย = 10:00)
 
 jobs:
   update:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
-    - name: Setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
-
-    - name: Install dependencies
-      run: pip install requests
-
-    - name: Update cars.json
-      run: python update_cars_json.py
-
-    - name: Generate RSS Feed
-      run: python make_feed.py
-
-    - name: Generate car-detail HTML pages
-      run: python generate_car_detail.py
-
-    - name: Commit and push changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add cars.json feed.xml docs/car-detail/*.html
-        git commit -m "Auto update cars.json, feed.xml and car detail pages"
-        git push
-      continue-on-error: true
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install requirements
+        run: pip install requests
+      - name: Update cars.json
+        run: python update_cars_json.py
+      - name: Generate car-detail HTML
+        run: python generate_car_detail.py
+      - name: Generate feed.xml
+        run: python make_feed.py
+      - name: Commit & Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "Update cars and feed auto"
+          git push
