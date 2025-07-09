@@ -43,7 +43,7 @@ TEMPLATE = """<!DOCTYPE html>
 """
 
 for car in cars:
-    html = TEMPLATE.format(**car)
+    html = TEMPLATE.format(price=int(car["price"]), **car)
     fname = f'docs/car-detail/{car["handle"]}.html'
     with open(fname, 'w', encoding='utf-8') as f:
         f.write(html)
