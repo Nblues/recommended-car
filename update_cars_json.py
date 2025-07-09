@@ -1,16 +1,19 @@
 import requests
 import json
 
-# ตัวอย่างดึงจาก Shopify API หรือ REST API (เปลี่ยน endpoint ตามจริง)
-API_URL = "https://www.kn-goodcar.com/api/cars"  # ต้นทางรถทั้งหมด (JSON)
+API_URL = "https://www.kn-goodcar.com/api/cars"  # เปลี่ยนเป็น API endpoint จริง
 
-response = requests.get(API_URL)
-cars = response.json()
+def update_cars_json():
+    try:
+        response = requests.get(API_URL)
+        response.raise_for_status()
+        cars = response.json()
+        latest_6 = cars[:6]
+        with open("cars.json", "w", encoding="utf-8") as f:
+            json.dump(latest_6, f, ensure_ascii=False, indent=2)
+        print("อัปเดต cars.json เรียบร้อย 6 คันล่าสุด!")
+    except Exception as e:
+        print("เกิดข้อผิดพลาด:", e)
 
-# ตัดเอาแค่ 6 คันแรก
-latest_6 = cars[:6]
-
-with open("cars.json", "w", encoding="utf-8") as f:
-    json.dump(latest_6, f, ensure_ascii=False, indent=2)
-
-print("อัปเดต cars.json เรียบร้อย 6 คันล่าสุด!")
+if __name__ == "__main__":
+    update_cars_json()
