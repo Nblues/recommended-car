@@ -1,93 +1,51 @@
-import os
 import json
-from pathlib import Path
+import os
 
-CARS_JSON = "cars.json"
-OUTPUT_DIR = "docs/car-detail/"
-SITE_URL = "https://nblues.github.io/recommended-car/"
-LINE_URL = "https://lin.ee/cJuakxZ"
-FB_PAGE = "https://facebook.com/knrod2hand"
+with open('cars.json', encoding='utf-8') as f:
+    cars = json.load(f)
 
-HTML_TEMPLATE = """
-<!DOCTYPE html>
+os.makedirs('docs/car-detail', exist_ok=True)
+
+TEMPLATE = """<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>{title} | รถมือสองเชียงใหม่ ครูหนึ่งรถสวย</title>
-  <meta name="description" content="{desc}">
-  <meta property="og:title" content="{title}">
-  <meta property="og:description" content="{desc}">
-  <meta property="og:image" content="{img}">
-  <meta property="og:url" content="{url}">
-  <meta name="robots" content="index,follow">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="canonical" href="{url}">
-  <script type="application/ld+json">{jsonld}</script>
+  <title>{title} | รถมือสองคุณภาพดี</title>
+  <meta name="description" content="ขาย {title} {desc}">
+  <link rel="canonical" href="https://nblues.github.io/recommended-car/car-detail/{handle}.html">
+  <script type="application/ld+json">
+  {{
+    "@context":"https://schema.org",
+    "@type":"Product",
+    "name":"{title}",
+    "description":"{desc}",
+    "image":"{img}",
+    "offers": {{
+      "@type":"Offer",
+      "price":"{price}",
+      "priceCurrency":"THB",
+      "availability":"https://schema.org/InStock"
+    }}
+  }}
+  </script>
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <h1>{title}</h1>
-  <img src="{img}" alt="{title}" width="400"><br>
-  <p><b>ยี่ห้อ:</b> {brand} <b>รุ่น:</b> {model} <b>ปี:</b> {year} <b>เลขไมล์:</b> {mileage} กม.</p>
-  <p><b>ราคา:</b> ฿{price} <b>สถานะ:</b> {status} <b>เกียร์:</b> {gear} <b>สี:</b> {color}</p>
-  <p>{desc}</p>
-  <p>
-    <a href="{LINE_URL}" target="_blank">สอบถามผ่าน LINE</a>
-    <a href="{FB_PAGE}" target="_blank">ดูรถบน Facebook</a>
-    <a href="{SITE_URL}all-cars-1" target="_blank">← กลับหน้ารวมรถ</a>
-  </p>
+  <div class="car-detail">
+    <img src="{img}" alt="{title}" style="max-width:400px;">
+    <h1>{title}</h1>
+    <div class="car-desc">{desc}</div>
+    <div class="car-price">฿{price:,}</div>
+    <a href="../index.html">← กลับหน้ารวม</a>
+  </div>
 </body>
 </html>
 """
 
-def make_jsonld(car, canonical):
-    return json.dumps({
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": car.get("title", ""),
-        "image": [car.get("img", "")],
-        "description": car.get("desc", ""),
-        "brand": car.get("brand", ""),
-        "model": car.get("model", ""),
-        "color": car.get("color", ""),
-        "sku": car.get("handle", ""),
-        "offers": {
-            "@type": "Offer",
-            "priceCurrency": "THB",
-            "price": car.get("price", "0"),
-            "availability": "https://schema.org/InStock",
-            "url": canonical
-        }
-    }, ensure_ascii=False)
+for car in cars:
+    html = TEMPLATE.format(**car)
+    fname = f'docs/car-detail/{car["handle"]}.html'
+    with open(fname, 'w', encoding='utf-8') as f:
+        f.write(html)
 
-def main():
-    Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
-    with open(CARS_JSON, "r", encoding="utf-8") as f:
-        cars = json.load(f)
-    for car in cars:
-        filename = f"{car['handle']}.html"
-        url = f"{SITE_URL}car-detail/{filename}"
-        html = HTML_TEMPLATE.format(
-            title=car.get("title",""),
-            desc=car.get("desc",""),
-            img=car.get("img",""),
-            url=url,
-            price="{:,}".format(int(car.get("price",0))),
-            brand=car.get("brand",""),
-            model=car.get("model",""),
-            year=car.get("year",""),
-            mileage=car.get("mileage",""),
-            status=car.get("status",""),
-            gear=car.get("gear",""),
-            color=car.get("color",""),
-            SITE_URL=SITE_URL,
-            LINE_URL=LINE_URL,
-            FB_PAGE=FB_PAGE,
-            jsonld=make_jsonld(car, url)
-        )
-        outpath = os.path.join(OUTPUT_DIR, filename)
-        with open(outpath, "w", encoding="utf-8") as outf:
-            outf.write(html)
-        print(f"✅ สร้าง {outpath}")
-
-if __name__ == "__main__":
-    main()
+print(f"Generate {len(cars)} car-detail pages DONE.")
