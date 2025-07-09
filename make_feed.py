@@ -28,6 +28,7 @@ query Products($first: Int!) {
         description
         handle
         publishedAt
+        images(first: 1) { edges { node { url } } }
       }
     }
   }
@@ -57,6 +58,10 @@ def fetch_products(first: int = 10) -> list:
     for edge in edges:
         node = edge.get('node')
         if node:
+            # ดึง url รูปหลัก (image)
+            img_edges = node.get('images', {}).get('edges', [])
+            image_url = img_edges[0]['node']['url'] if img_edges else ''
+            node['image'] = image_url
             # เพิ่ม url ของสินค้า (ตามโดเมน Shopify)
             node['url'] = f"https://www.kn-goodcar.com/products/{node.get('handle')}"
             nodes.append(node)
@@ -79,6 +84,7 @@ def build_rss(items: list) -> ET.ElementTree:
         ET.SubElement(entry, 'description').text = item.get('description', '')
         ET.SubElement(entry, 'link').text = item.get('url', '')
         ET.SubElement(entry, 'pubDate').text = item.get('publishedAt', '')
+        ET.SubElement(entry, 'image').text = item.get('image', '')   # เพิ่ม image
 
     return ET.ElementTree(rss)
 
