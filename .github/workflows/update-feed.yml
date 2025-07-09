@@ -1,38 +1,41 @@
-name: Update RSS Feed & Car Detail
+name: Update Feed and Cars JSON
 
 on:
+  push:
+    branches: [main]
   schedule:
-    - cron: '0 */3 * * *'   # รันอัตโนมัติทุก 3 ชั่วโมง
-  workflow_dispatch:         # สั่ง manual ได้จากหน้า Actions
+    - cron: '0 3 * * *'  # รันทุกวันตี 3
 
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
 
-      - name: Install requirements
-        run: pip install requests
+    - name: Install dependencies
+      run: pip install requests
 
-      - name: Generate feed.xml (RSS)
-        run: python make_feed.py
+    - name: Update cars.json
+      run: python update_cars_json.py
 
-      - name: Generate car-detail HTML
-        run: python generate_car_detail.py
+    - name: Generate RSS Feed
+      run: python make_feed.py
 
-      - name: Commit & Push generated files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add feed.xml docs/car-detail/*.html
-          git commit -m "Update feed.xml & car-detail [auto]" || echo "No changes to commit"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Generate car-detail HTML pages
+      run: python generate_car_detail.py
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add cars.json feed.xml docs/car-detail/*.html
+        git commit -m "Auto update cars.json, feed.xml and car detail pages"
+        git push
+      continue-on-error: true
