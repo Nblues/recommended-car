@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>รายละเอียดรถ | ครูหนึ่งรถสวย</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#fafbfc; color:#222; margin:0; padding:20px; }
+    .container { max-width:1000px; margin:0 auto; }
+    .loading { text-align:center; font-size:1.2rem; color:#666; }
+    .back-btn { display:inline-block; background:#ff8800; color:#fff; padding:10px 20px; margin-bottom:20px; border-radius:8px; text-decoration:none; font-weight:700; }
+    .back-btn:hover { background:#e67700; }
+    .car-header { text-align:center; margin-bottom:30px; }
+    .car-title { color:#ff8800; font-size:2rem; margin-bottom:10px; }
+    .car-published { color:#666; font-size:0.9rem; }
+    .car-images { display:grid; grid-template-columns:1fr; gap:20px; margin-bottom:30px; }
+    @media(min-width:768px) { .car-images { grid-template-columns:1fr 1fr; } }
+    .car-images img { width:100%; height:300px; object-fit:cover; border-radius:12px; }
+    .car-description { background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.1); margin-bottom:30px; }
+    .car-description h2 { color:#ff8800; margin-bottom:20px; }
+    .car-description p { line-height:1.6; margin-bottom:15px; }
+    .contact-section { background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.1); text-align:center; }
+    .contact-btn { display:inline-block; background:#004bdb; color:#fff; padding:12px 24px; margin:10px; border-radius:8px; text-decoration:none; font-weight:700; }
+    .contact-btn:hover { background:#003399; }
+    .error { text-align:center; color:#d70000; font-size:1.1rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="recommended_cars.html" class="back-btn">← กลับหน้าแรก</a>
+    
+    <div id="content" class="loading">
+      กำลังโหลดข้อมูลรถ...
+    </div>
+  </div>
+  
+  <script>
+    function getHandleFromUrl() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('handle');
+    }
+    
+    function showError(message) {
+      document.getElementById('content').innerHTML = '<div class="error">' + message + '</div>';
+    }
+    
+    function displayCar(car) {
+      const publishedDate = car.publishedAt ? car.publishedAt.split('T')[0] : '';
+      
+      let imageGallery = '';
+      if (car.image_urls && car.image_urls.length > 0) {
+        car.image_urls.forEach((imgUrl, index) => {
+          imageGallery += `<img src="${imgUrl}" alt="${car.title} รูปที่ ${index + 1}" loading="lazy" onerror="this.src='https://dummyimage.com/400x300/eeeeee/cccccc&text=No+Image';">`;
+        });
+      }
+      
+      document.getElementById('content').innerHTML = `
+        <header class="car-header">
+          <h1 class="car-title">${car.title}</h1>
+          <div class="car-published">เข้าระบบ: ${publishedDate}</div>
+        </header>
+        
+        <main>
+          <section class="car-images">
+            ${imageGallery}
+          </section>
+          
+          <section class="car-description">
+            <h2>รายละเอียด</h2>
+            <p>${car.description}</p>
+          </section>
+          
+          <section class="contact-section">
+            <h2>สนใจรถคันนี้?</h2>
+            <p>ติดต่อเราได้ทันที</p>
+            <a href="https://lin.ee/cJuakxZ" target="_blank" class="contact-btn">สอบถามผ่าน LINE</a>
+            <a href="https://facebook.com/knrod2hand" target="_blank" class="contact-btn">ดูรถบน Facebook</a>
+          </section>
+        </main>
+      `;
+      
+      // Update page title and meta description
+      document.title = car.title + ' | รถมือสองเชียงใหม่ ครูหนึ่งรถสวย';
+      
+      // Update meta description
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.content = car.description.substring(0, 160);
+      }
+    }
+    
+    // Load car data when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      const handle = getHandleFromUrl();
+      
+      if (!handle) {
+        showError('ไม่พบรหัสรถ กรุณาเลือกรถจากหน้าแรก');
+        return;
+      }
+      
+      // For demo purposes, we'll use mock data since API is not accessible
+      // In production, this would make an API call to fetch car by handle
+      const mockCars = [
+        {
+          handle: 'honda-crv-2021',
+          title: 'Honda CR-V ปี 2021',
+          description: 'SUV ประหยัดน้ำมัน สภาพใหม่ เครื่องยนต์เบนซิน 1.5 ลิตร เกียร์ออโต้ CVT ไมล์ 35,000 กม. รถบ้านมือเดียว',
+          publishedAt: '2024-01-15T08:30:00Z',
+          image_urls: [
+            'https://www.kn-goodcar.com/image/honda-crv-2021.jpg',
+            'https://www.kn-goodcar.com/image/honda-crv-2021-2.jpg'
+          ]
+        },
+        {
+          handle: 'toyota-vios-2019',
+          title: 'Toyota Vios ปี 2019',
+          description: 'เก่งประหยัด คุ้มค่า เครื่องยนต์เบนซิน 1.5 ลิตร เกียร์ออโต้ CVT ไมล์ 45,000 กม. รถบ้านสภาพดี',
+          publishedAt: '2024-01-10T10:15:00Z',
+          image_urls: [
+            'https://www.kn-goodcar.com/image/toyota-vios-2019.jpg'
+          ]
+        },
+        {
+          handle: 'mazda-2-2020',
+          title: 'Mazda 2 ปี 2020',
+          description: 'สปอร์ตทั่วใจ ขับสนุก เครื่องยนต์เบนซิน 1.3 ลิตร เกียร์ออโต้ ไมล์ 28,000 กม. รถป้ายแดง',
+          publishedAt: '2024-01-08T14:20:00Z',
+          image_urls: [
+            'https://www.kn-goodcar.com/image/mazda-2-2020.jpg'
+          ]
+        }
+      ];
+      
+      const car = mockCars.find(c => c.handle === handle);
+      
+      if (car) {
+        displayCar(car);
+      } else {
+        showError('ไม่พบรถที่ต้องการ รถอาจถูกขายไปแล้ว');
+      }
+    });
+  </script>
+</body>
+</html>
