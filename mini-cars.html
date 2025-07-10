@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>รถเข้าใหม่ 6 คันล่าสุด | ครูหนึ่งรถสวย</title>
+  <meta name="description" content="รถเข้าใหม่ 6 คันล่าสุด รถบ้านเชียงใหม่ ฟรีดาวน์ คัดเฉพาะรถคุณภาพ รับประกัน 1 ปี ส่งฟรีทั่วไทย ครูหนึ่งรถสวย รถมือสองเชียงใหม่">
+  <link rel="canonical" href="https://nblues.github.io/recommended-car/mini-cars.html" />
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="รถเข้าใหม่ 6 คันล่าสุด | ครูหนึ่งรถสวย">
+  <meta property="og:description" content="รถเข้าใหม่ 6 คัน รถบ้านเชียงใหม่ ฟรีดาวน์ ผ่อนถูก รับประกัน อัปเดตทุกวัน คัดเฉพาะรถคุณภาพ เช็ครถประวัติแท้ได้">
+  <meta property="og:image" content="https://chiangraiusedcar.com/cover.jpg">
+  <meta property="og:url" content="https://nblues.github.io/recommended-car/mini-cars.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="รถเข้าใหม่ 6 คันล่าสุด | ครูหนึ่งรถสวย">
+  <meta name="twitter:description" content="รถเข้าใหม่ 6 คัน รถบ้านเชียงใหม่ ฟรีดาวน์ ผ่อนถูก รับประกัน อัปเดตรถใหม่ทุกวัน เช็ครถประวัติแท้ได้">
+  <meta name="twitter:image" content="https://chiangraiusedcar.com/cover.jpg">
+  <script type="application/ld+json" id="json-ld-itemlist">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "รถเข้าใหม่ 6 คันล่าสุด รถบ้านเชียงใหม่ ฟรีดาวน์",
+    "description": "รายการรถมือสองเข้าใหม่ 6 คันล่าสุด รถบ้านเชียงใหม่ ฟรีดาวน์ ผ่อนถูก อัปเดตรถใหม่ทุกวัน",
+    "itemListElement": []
+  }
+  </script>
+  <style>
+    body { background:#f7f7fb; margin:0; font-family:'Prompt',sans-serif; }
+    .mini-container { max-width:860px; margin:0 auto; padding:2rem 0.7rem 2rem 0.7rem; }
+    .car-minigrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 1.5rem 0; }
+    .car-mini { border: 1px solid #eee; border-radius: 12px; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.03); overflow: hidden; transition: box-shadow .15s; }
+    .car-mini a { display: block; color: inherit; text-decoration: none; padding: 0; }
+    .car-mini img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-bottom: 1px solid #eee; background: #f7f7f7; display: block; }
+    .car-mini .car-title { font-size: 1.02rem; font-weight: 600; margin: 0.5rem 1rem 0.1rem 1rem; color: #242424; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .car-mini .car-price { font-size: 1rem; color: #f47b20; margin: 0 1rem 0.6rem 1rem; font-weight: 500; }
+    .car-mini .car-status { font-size: 0.82rem; color: #16a085; margin: 0 1rem 0.6rem 1rem; }
+    .btn-allcars { display: block; width: 100%; margin: 1.2rem auto 0 auto; padding: 0.85rem; background: #f47b20; color: #fff; font-size: 1.06rem; font-weight: 600; border: none; border-radius: 16px; box-shadow: 0 2px 6px rgba(244,123,32,0.08); cursor: pointer; text-align: center; transition: background .16s; }
+    .btn-allcars:hover { background:#e26e16; }
+    @media (min-width:600px){ .car-minigrid { grid-template-columns: repeat(3, 1fr); max-width:680px; margin:auto; } }
+    @media (min-width:900px){ .car-minigrid { grid-template-columns: repeat(3, 1fr); max-width:780px; } }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="mini-container">
+    <h2 style="font-size:1.2rem; margin-left:0.2rem;">รถเข้าใหม่</h2>
+    <div id="minigrid" class="car-minigrid"></div>
+    <a href="all-cars-1.html" class="btn-allcars">ดูรถทั้งหมด &rarr;</a>
+  </div>
+  <script>
+    const shopDomain = 'www.kn-goodcar.com';
+    const token = 'bb70cb008199a94b83c98df0e45ada67';
+    async function fetchMiniCars() {
+      const query = `{
+        products(first: 6, sortKey:CREATED_AT, reverse:true) {
+          edges {
+            node {
+              handle
+              title
+              images(first: 1) { edges { node { url altText } } }
+              variants(first: 1) { edges { node { price } } }
+              metafields(first: 4) { edges { node { key value } } }
+            }
+          }
+        }
+      }`;
+      const res = await fetch(`https://${shopDomain}/api/2023-07/graphql.json`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Shopify-Storefront-Access-Token': token,
+        },
+        body: JSON.stringify({ query }),
+      });
+      const data = await res.json();
+      return data.data.products.edges.map(edge => edge.node);
+    }
+    function renderMiniCars(cars) {
+      let html = '';
+      let jsonld = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "รถเข้าใหม่ 6 คันล่าสุด รถบ้านเชียงใหม่ ฟรีดาวน์",
+        "description": "รายการรถมือสองเข้าใหม่ 6 คันล่าสุด รถบ้านเชียงใหม่ ฟรีดาวน์ ผ่อนถูก อัปเดตรถใหม่ทุกวัน",
+        "itemListElement": []
+      };
+      cars.forEach((car, idx) => {
+        const img = (car.images.edges[0]?.node.url)||'https://chiangraiusedcar.com/noimage.jpg';
+        const price = car.variants.edges[0]?.node.price ? Number(car.variants.edges[0].node.price).toLocaleString('th-TH') : '-';
+        let status = '';
+        car.metafields?.edges.forEach(mf => {
+          if(mf.node.key==='status') status = mf.node.value;
+        });
+        html += `<div class='car-mini'>
+          <a href="car-detail.html?handle=${encodeURIComponent(car.handle)}">
+            <img src="${img}" alt="${car.title}" loading="lazy"/>
+            <div class="car-title">${car.title}</div>
+            <div class="car-price">฿${price}</div>
+            <div class="car-status">${status||'update!'}</div>
+          </a>
+        </div>`;
+        jsonld.itemListElement.push({
+          "@type": "ListItem",
+          "position": idx+1,
+          "name": car.title,
+          "image": img,
+          "url": `https://chiangraiusedcar.com/car-detail.html?handle=${encodeURIComponent(car.handle)}`,
+          "description": status || ""
+        });
+      });
+      document.getElementById('minigrid').innerHTML = html;
+      // อัปเดต JSON-LD schema
+      document.getElementById('json-ld-itemlist').innerHTML = JSON.stringify(jsonld,null,2);
+    }
+    fetchMiniCars().then(renderMiniCars);
+  </script>
+</body>
+</html>
