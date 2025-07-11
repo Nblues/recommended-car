@@ -6,7 +6,6 @@ import json, os
 with open("cars.json", encoding="utf-8") as f:
     cars = json.load(f)
 
-# แม่แบบ HTML
 HTML_TEMPLATE = """<!DOCTYPE html>
 <html lang="th">
 <head>
@@ -31,7 +30,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   "name":"{title}",
   "image":{images},
   "description":"{desc}",
-  "brand":{brand},
+  "brand": {brand},
   "offers": {{
     "@type": "Offer",
     "priceCurrency": "{currency}",
@@ -59,31 +58,26 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </html>
 """
 
-# สร้างโฟลเดอร์ output
 out_dir = "docs/car-detail"
 os.makedirs(out_dir, exist_ok=True)
 
 for car in cars:
-    slug = car["slug"]  # ex: toyota-camry-2020
+    slug = car.get("handle") or car.get("slug")
     title = car["title"]
-    desc = car.get("short_desc","")
+    desc = car.get("short_desc", car.get("desc", ""))
     full_desc = car.get("full_desc", desc)
-    currency = car.get("currency","THB")
-    price = car.get("price",0)
-    # แสดงราคากลับเป็นตัวเลขไม่คั่น comma
+    currency = car.get("currency", "THB")
+    price = car.get("price", 0)
     price_display = f"{price}"
     url = f"https://chiangraiusedcar.com/car-detail/{slug}.html"
 
-    # แพ็คภาพและ gallery
-    images = car.get("images", [])
-    gallery_html = ""
-    for img in images:
-        gallery_html += f'<img src="{img}" alt="{title}">\n      '
+    images = [car.get("img")] if car.get("img") else car.get("images", [])
+    gallery_html = "".join([f'<img src="{img}" alt="{title}">\n      ' for img in images])
 
-    # JSON-LD brand object ไม่ใช่ string
-    brand = json.dumps({"@type":"Brand", "name":car["brand"]}, ensure_ascii=False)
+    # brand เป็น object JSON (not string)
+    brand = json.dumps({"@type": "Brand", "name": car.get("brand", title.split()[0])}, ensure_ascii=False)
 
-    fb_link = car.get("fb_link","https://facebook.com/ครูหนึ่งรถสวย")
+    fb_link = car.get("fb_link", "https://facebook.com/ครูหนึ่งรถสวย")
 
     html = HTML_TEMPLATE.format(
         title=title,
@@ -99,9 +93,8 @@ for car in cars:
         fb_link=fb_link
     )
 
-    # เขียนไฟล์
     out_path = os.path.join(out_dir, f"{slug}.html")
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(html)
 
-print("✅ generate_car_detail.py รันจบ สร้างครบทุกไฟล์แล้ว")
+print("✅ generate_car_detail.py สร้างไฟล์ใหม่เสร็จ ไม่มี string brand แล้ว")
