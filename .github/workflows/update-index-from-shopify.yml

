@@ -2,8 +2,8 @@ name: Auto Update Index From Shopify
 
 on:
   schedule:
-    - cron:  '0 */2 * * *'   # รันทุก 2 ชั่วโมง
-  workflow_dispatch:          # สั่งรันด้วยมือได้
+    - cron: '0 */2 * * *'  # รันทุก 2 ชั่วโมง
+  workflow_dispatch:       # สั่งรันด้วยมือได้
 
 jobs:
   update-index:
@@ -15,9 +15,13 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.10
+          check-latest: false
+          update-environment: true
+          allow-prereleases: false
+          freethreaded: false
 
       - name: Install requirements
-        run: pip install requests
+        run: pip install -r requirements.txt
 
       - name: Generate index.html จาก Shopify (SEO โหดสุด)
         run: python gen_index_from_shopify.py
