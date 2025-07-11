@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Honda CR-V ปี 2021",
+    "status": "ฟรีดาวน์",
+    "desc": "SUV ประหยัดน้ำมัน สภาพใหม่",
+    "price": 839000,
+    "img": "https://chiangraiusedcar.com/carimg/honda-crv-2021.jpg",
+    "link": "https://chiangraiusedcar.com/car-detail/honda-crv-2021.html"
+  },
+  {
+    "title": "Toyota Vios ปี 2019",
+    "status": "ฟรีดาวน์",
+    "desc": "เก๋งสวย ไมล์แท้ วิ่งน้อย สีขาวมุก",
+    "price": 459000,
+    "img": "https://chiangraiusedcar.com/carimg/toyota-vios-2019.jpg",
+    "link": "https://chiangraiusedcar.com/car-detail/toyota-vios-2019.html"
+  },
+  {
+    "title": "Mazda 2 ปี 2020",
+    "status": "ฟรีดาวน์",
+    "desc": "Eco Car สุดคุ้ม ผ่อนสบาย ไม่เคยชน",
+    "price": 379000,
+    "img": "https://chiangraiusedcar.com/carimg/mazda2-2020.jpg",
+    "link": "https://chiangraiusedcar.com/car-detail/mazda2-2020.html"
+  },
+  {
+    "title": "Nissan Almera ปี 2022",
+    "status": "ฟรีดาวน์",
+    "desc": "รุ่นใหม่ล่าสุด ประหยัดน้ำมันสุดๆ",
+    "price": 429000,
+    "img": "https://chiangraiusedcar.com/carimg/nissan-almera-2022.jpg",
+    "link": "https://chiangraiusedcar.com/car-detail/nissan-almera-2022.html"
+  },
+  {
+    "title": "Isuzu D-Max ปี 2021",
+    "status": "ฟรีดาวน์",
+    "desc": "กระบะสายลุย ช่วงล่างแน่น วิ่งน้อย",
+    "price": 579000,
+    "img": "https://chiangraiusedcar.com/carimg/isuzu-dmax-2021.jpg",
+    "link": "https://chiangraiusedcar.com/car-detail/isuzu-dmax-2021.html"
+  },
+  {
+    "title": "Mitsubishi Pajero ปี 2020",
+    "status": "ฟรีดาวน์",
+    "desc": "SUV ครบเครื่อง ขับ4 สภาพป้ายแดง",
+    "price": 969000,
+    "img": "https://chiangraiusedcar.com/carimg/mitsubishi-pajero-2020.jpg",
+    "link": "https://chiangraiusedcar.com/car-detail/mitsubishi-pajero-2020.html"
+  }
+]
