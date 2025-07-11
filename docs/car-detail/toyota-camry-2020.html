@@ -17,12 +17,40 @@
   <meta name="twitter:image" content="[">
   <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"Product",
-  "name":"Toyota Camry ปี 2020",
-  "image":["https://www.kn-goodcar.com/image/toyota-camry-2020.jpg"],
-  "description":"ซีดานหรู นั่งสบาย จัดเต็มออปชั่น",
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Toyota Camry ปี 2020",
+  "image": ["https://www.kn-goodcar.com/image/toyota-camry-2020.jpg"],
+  "description": "ซีดานหรู นั่งสบาย จัดเต็มออปชั่น",
   "brand": {"@type": "Brand", "name": "Toyota"},
+  "sku": "toyota-camry-2020",
+  "hasMerchantReturnPolicy": {
+    "@type": "MerchantReturnPolicy",
+    "returnPolicyCategory": "https://schema.org/NoReturns"
+  },
+  "shippingDetails": {
+    "@type": "OfferShippingDetails",
+    "shippingRate": {
+      "@type": "MonetaryAmount",
+      "value": 0,
+      "currency": "THB"
+    },
+    "deliveryTime": {
+      "@type": "ShippingDeliveryTime",
+      "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 1,
+        "unitCode": "d"
+      },
+      "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 5,
+        "unitCode": "d"
+      }
+    }
+  },
   "offers": {
     "@type": "Offer",
     "priceCurrency": "THB",

@@ -17,12 +17,40 @@
   <meta name="twitter:image" content="[">
   <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"Product",
-  "name":"Honda CR-V ปี 2021",
-  "image":["https://www.kn-goodcar.com/image/honda-crv-2021.jpg"],
-  "description":"SUV ประหยัดน้ำมัน สภาพใหม่",
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Honda CR-V ปี 2021",
+  "image": ["https://www.kn-goodcar.com/image/honda-crv-2021.jpg"],
+  "description": "SUV ประหยัดน้ำมัน สภาพใหม่",
   "brand": {"@type": "Brand", "name": "Honda"},
+  "sku": "honda-crv-2021",
+  "hasMerchantReturnPolicy": {
+    "@type": "MerchantReturnPolicy",
+    "returnPolicyCategory": "https://schema.org/NoReturns"
+  },
+  "shippingDetails": {
+    "@type": "OfferShippingDetails",
+    "shippingRate": {
+      "@type": "MonetaryAmount",
+      "value": 0,
+      "currency": "THB"
+    },
+    "deliveryTime": {
+      "@type": "ShippingDeliveryTime",
+      "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 1,
+        "unitCode": "d"
+      },
+      "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 5,
+        "unitCode": "d"
+      }
+    }
+  },
   "offers": {
     "@type": "Offer",
     "priceCurrency": "THB",

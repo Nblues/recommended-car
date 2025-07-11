@@ -17,12 +17,40 @@
   <meta name="twitter:image" content="[">
   <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"Product",
-  "name":"Mercedes-Benz C200 ปี 2021",
-  "image":["https://www.kn-goodcar.com/image/mercedes-benz-c200-2021.jpg"],
-  "description":"สปอร์ตหรู ดาวสามแฉก วิ่งน้อย ไมล์แท้",
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Mercedes-Benz C200 ปี 2021",
+  "image": ["https://www.kn-goodcar.com/image/mercedes-benz-c200-2021.jpg"],
+  "description": "สปอร์ตหรู ดาวสามแฉก วิ่งน้อย ไมล์แท้",
   "brand": {"@type": "Brand", "name": "Mercedes-Benz"},
+  "sku": "mercedes-benz-c200-2021",
+  "hasMerchantReturnPolicy": {
+    "@type": "MerchantReturnPolicy",
+    "returnPolicyCategory": "https://schema.org/NoReturns"
+  },
+  "shippingDetails": {
+    "@type": "OfferShippingDetails",
+    "shippingRate": {
+      "@type": "MonetaryAmount",
+      "value": 0,
+      "currency": "THB"
+    },
+    "deliveryTime": {
+      "@type": "ShippingDeliveryTime",
+      "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 1,
+        "unitCode": "d"
+      },
+      "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 5,
+        "unitCode": "d"
+      }
+    }
+  },
   "offers": {
     "@type": "Offer",
     "priceCurrency": "THB",
