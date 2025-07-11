@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 import json, os
 
-# โหลดข้อมูลจาก cars.json
 with open("cars.json", encoding="utf-8") as f:
     cars = json.load(f)
 
@@ -74,8 +73,9 @@ for car in cars:
     images = [car.get("img")] if car.get("img") else car.get("images", [])
     gallery_html = "".join([f'<img src="{img}" alt="{title}">\n      ' for img in images])
 
-    # brand เป็น object JSON (not string)
-    brand = json.dumps({"@type": "Brand", "name": car.get("brand", title.split()[0])}, ensure_ascii=False)
+    # brand = เอาจาก cars.json ถ้ามี ถ้าไม่มีก็เอาจากชื่อ title
+    brand_name = car.get("brand", title.split()[0])
+    brand = json.dumps({"@type": "Brand", "name": brand_name}, ensure_ascii=False)
 
     fb_link = car.get("fb_link", "https://facebook.com/ครูหนึ่งรถสวย")
 
