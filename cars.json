@@ -4,15 +4,47 @@
     "handle": "honda-crv-2021",
     "img": "https://www.kn-goodcar.com/image/honda-crv-2021.jpg",
     "desc": "SUV ประหยัดน้ำมัน สภาพใหม่",
-    "link": "https://nblues.github.io/recommended-car/car-detail/honda-crv-2021.html",
-    "price": "839000",
-    "year": "2021",
-    "mileage": "35000",
-    "color": "ขาว",
-    "status": "ฟรีดาวน์",
-    "gear": "ออโต้",
-    "model": "CR-V",
-    "brand": "Honda"
+    "brand": "Honda",
+    "link": "https://www.kn-goodcar.com/car-detail/honda-crv-2021"
+  },
+  {
+    "title": "Toyota Camry ปี 2020",
+    "handle": "toyota-camry-2020",
+    "img": "https://www.kn-goodcar.com/image/toyota-camry-2020.jpg",
+    "desc": "ซีดานหรู นั่งสบาย จัดเต็มออปชั่น",
+    "brand": "Toyota",
+    "link": "https://www.kn-goodcar.com/car-detail/toyota-camry-2020"
+  },
+  {
+    "title": "Mazda 2 ปี 2020",
+    "handle": "mazda-2-2020",
+    "img": "https://www.kn-goodcar.com/image/mazda-2-2020.jpg",
+    "desc": "ประหยัดน้ำมัน คล่องตัว สภาพนางฟ้า",
+    "brand": "Mazda",
+    "link": "https://www.kn-goodcar.com/car-detail/mazda-2-2020"
+  },
+  {
+    "title": "BMW 320d ปี 2019",
+    "handle": "bmw-320d-2019",
+    "img": "https://www.kn-goodcar.com/image/bmw-320d-2019.jpg",
+    "desc": "ดีเซลแรง ประหยัดพรีเมียม ยางใหม่4เส้น",
+    "brand": "BMW",
+    "link": "https://www.kn-goodcar.com/car-detail/bmw-320d-2019"
+  },
+  {
+    "title": "Nissan Almera ปี 2022",
+    "handle": "nissan-almera-2022",
+    "img": "https://www.kn-goodcar.com/image/nissan-almera-2022.jpg",
+    "desc": "อีโค่คาร์ประหยัด ฟรีดาวน์ จัดได้เต็ม",
+    "brand": "Nissan",
+    "link": "https://www.kn-goodcar.com/car-detail/nissan-almera-2022"
+  },
+  {
+    "title": "Mercedes-Benz C200 ปี 2021",
+    "handle": "mercedes-benz-c200-2021",
+    "img": "https://www.kn-goodcar.com/image/mercedes-benz-c200-2021.jpg",
+    "desc": "สปอร์ตหรู ดาวสามแฉก วิ่งน้อย ไมล์แท้",
+    "brand": "Mercedes-Benz",
+    "link": "https://www.kn-goodcar.com/car-detail/mercedes-benz-c200-2021"
   }
-  // เพิ่มเติมรถอีก 5 คันตามจริง
 ]
