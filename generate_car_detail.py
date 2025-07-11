@@ -24,12 +24,40 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   <meta name="twitter:image" content="{images[0]}">
   <script type="application/ld+json">
 {{
-  "@context":"https://schema.org",
-  "@type":"Product",
-  "name":"{title}",
-  "image":{images},
-  "description":"{desc}",
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{title}",
+  "image": {images},
+  "description": "{desc}",
   "brand": {brand},
+  "sku": "{sku}",
+  "hasMerchantReturnPolicy": {{
+    "@type": "MerchantReturnPolicy",
+    "returnPolicyCategory": "https://schema.org/NoReturns"
+  }},
+  "shippingDetails": {{
+    "@type": "OfferShippingDetails",
+    "shippingRate": {{
+      "@type": "MonetaryAmount",
+      "value": 0,
+      "currency": "{currency}"
+    }},
+    "deliveryTime": {{
+      "@type": "ShippingDeliveryTime",
+      "handlingTime": {{
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 1,
+        "unitCode": "d"
+      }},
+      "transitTime": {{
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 5,
+        "unitCode": "d"
+      }}
+    }}
+  }},
   "offers": {{
     "@type": "Offer",
     "priceCurrency": "{currency}",
@@ -69,6 +97,7 @@ for car in cars:
     price = car.get("price", 0)
     price_display = f"{price}"
     url = f"https://chiangraiusedcar.com/car-detail/{slug}.html"
+    sku = car.get("sku", slug)
 
     images = [car.get("img")] if car.get("img") else car.get("images", [])
     gallery_html = "".join([f'<img src="{img}" alt="{title}">\n      ' for img in images])
@@ -90,11 +119,12 @@ for car in cars:
         images=json.dumps(images, ensure_ascii=False),
         gallery_html=gallery_html,
         brand=brand,
-        fb_link=fb_link
+        fb_link=fb_link,
+        sku=sku
     )
 
     out_path = os.path.join(out_dir, f"{slug}.html")
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(html)
 
-print("✅ generate_car_detail.py สร้างไฟล์ใหม่เสร็จ ไม่มี string brand แล้ว")
+print("✅ generate_car_detail.py: schema.org ครบทุกฟิลด์สำหรับ Google Merchant แล้ว")
