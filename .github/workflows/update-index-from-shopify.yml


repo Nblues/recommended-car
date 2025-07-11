@@ -2,22 +2,25 @@ name: Auto Update Index From Shopify
 
 on:
   schedule:
-    - cron: '0 */2 * * *'        # รันอัตโนมัติทุก 2 ชั่วโมง
-  workflow_dispatch:             # สั่งรันด้วยมือได้
+    - cron:  '0 */2 * * *'   # รันทุก 2 ชั่วโมง
+  workflow_dispatch:          # สั่งรันเองก็ได้
 
 jobs:
   update-index:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
       - name: Install requirements
-        run: pip install requests
+        run: |
+          pip install -r requirements.txt
 
       - name: Generate index.html จาก Shopify (SEO โหดสุด)
         run: python gen_index_from_shopify.py
@@ -27,5 +30,5 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Actions"
           git add docs/index.html
-          git commit -m "Auto update index.html from Shopify (SEO Full)"
+          git commit -m "Auto update index.html from Shopify (SEO Full)" || echo "No changes"
           git push
