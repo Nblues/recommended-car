@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Widget รถเข้าใหม่ 6 คัน | ครูหนึ่งรถสวย</title>
+  <meta name="description" content="Widget รถมือสองเข้าใหม่ 6 คันล่าสุด สำหรับฝังในเว็บไซต์ GoDaddy หรือเว็บอื่นๆ">
+  <link rel="canonical" href="https://nblues.github.io/recommended-car/mini-cars-static.html">
+  
+  <!-- Optimized for embedding -->
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="รถเข้าใหม่ 6 คัน | ครูหนึ่งรถสวย">
+  <meta property="og:description" content="Widget รถมือสองเข้าใหม่ล่าสุด ฟรีดาวน์ ส่งฟรี">
+  <meta property="og:image" content="{first_car_image}">
+  
+  <!-- Critical CSS สำหรับ Widget Performance -->
+  <style>
+    /* Widget Critical CSS - Optimized for Core Web Vitals */
+    *{{box-sizing:border-box}}
+    body{{font-family:'Prompt',sans-serif;margin:0;background:#f7f7fb;padding:.5rem;line-height:1.4}}
+    .widget-container{{max-width:900px;margin:0 auto;background:#fff;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.1);overflow:hidden}}
+    .widget-header{{background:linear-gradient(135deg,#f47b20,#e66a16);color:#fff;padding:1.5rem;text-align:center}}
+    .widget-title{{font-size:1.5rem;font-weight:800;margin:0 0 .5rem;text-shadow:1px 1px 2px rgba(0,0,0,.2)}}
+    .widget-subtitle{{font-size:.95rem;margin:0;opacity:.95}}
+    .cars-grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;padding:1.5rem}}
+    .car-mini{{background:#fff;border:1px solid #e9ecef;border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s;cursor:pointer}}
+    .car-mini:hover{{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.15)}}
+    .car-image{{width:100%;height:180px;object-fit:cover;background:#f8f9fa;display:block}}
+    .car-content{{padding:1rem}}
+    .car-title{{font-size:1rem;font-weight:700;margin:0 0 .5rem;color:#2c3e50;line-height:1.3;height:2.6em;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}}
+    .car-price{{font-size:1.4rem;color:#e74c3c;font-weight:800;margin:0 0 .75rem}}
+    .car-features{{display:flex;gap:.4rem;flex-wrap:wrap;margin:.75rem 0}}
+    .car-feature{{background:#ecf0f1;color:#7f8c8d;padding:.2rem .6rem;border-radius:8px;font-size:.8rem;font-weight:500}}
+    .car-cta{{background:#f47b20;color:#fff;padding:.6rem 1rem;border:none;border-radius:6px;font-weight:700;cursor:pointer;width:100%;transition:background .2s;font-size:.9rem}}
+    .car-cta:hover{{background:#e66a16}}
+    .widget-footer{{background:#2c3e50;color:#fff;padding:1.5rem;text-align:center}}
+    .view-all-btn{{background:#f47b20;color:#fff;padding:.8rem 2rem;border:none;border-radius:8px;font-weight:700;text-decoration:none;display:inline-block;transition:background .2s}}
+    .view-all-btn:hover{{background:#e66a16}}
+    .widget-credit{{font-size:.8rem;color:#95a5a6;margin:.5rem 0 0}}
+    .loading{{text-align:center;padding:2rem;color:#7f8c8d}}
+    @media(max-width:480px){{.cars-grid{{grid-template-columns:1fr;padding:1rem}}.widget-header{{padding:1rem}}.widget-title{{font-size:1.3rem}}}}
+    
+    /* Animation สำหรับ Loading */
+    .car-mini.loading{{animation:pulse 1.5s infinite}}
+    @keyframes pulse{{0%{{opacity:1}}50%{{opacity:.7}}100%{{opacity:1}}}}
+    
+    /* Prevent layout shift */
+    .car-image{{aspect-ratio:16/9}}
+  </style>
+  
+  <!-- Preload font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Structured Data สำหรับ Widget -->
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "รถเข้าใหม่ 6 คันล่าสุด - ครูหนึ่งรถสวย",
+    "description": "Widget รถมือสองเข้าใหม่ล่าสุด รถบ้านเชียงใหม่ ฟรีดาวน์ ส่งฟรี",
+    "url": "https://nblues.github.io/recommended-car/mini-cars-static.html",
+    "numberOfItems": 6,
+    "itemListElement": {car_schema_list}
+  }}
+  </script>
+</head>
+
+<body>
+  <div class="widget-container">
+    <!-- Widget Header -->
+    <header class="widget-header">
+      <h1 class="widget-title">🚗 รถเข้าใหม่ 6 คันล่าสุด</h1>
+      <p class="widget-subtitle">รถมือสองคุณภาพเชียงใหม่ • ฟรีดาวน์ • ส่งฟรีทั่วไทย</p>
+    </header>
+
+    <!-- Cars Grid -->
+    <main>
+      <div class="cars-grid" id="cars-container">
+        {cars_widget_html}
+      </div>
+    </main>
+
+    <!-- Widget Footer -->
+    <footer class="widget-footer">
+      <a href="https://nblues.github.io/recommended-car/" class="view-all-btn" target="_parent">
+        🔍 ดูรถทั้งหมด ({total_cars}+ คัน)
+      </a>
+      <div class="widget-credit">
+        อัปเดตล่าสุด: {last_update} • ครูหนึ่งรถสวย เชียงใหม่
+      </div>
+    </footer>
+  </div>
+
+  <!-- Widget Performance Script -->
+  <script>
+    // Widget performance optimization
+    document.addEventListener('DOMContentLoaded', function() {{
+      
+      // Track widget performance
+      const widgetLoadTime = performance.now();
+      console.log('Widget loaded in:', Math.round(widgetLoadTime), 'ms');
+
+      // Lazy load images
+      const images = document.querySelectorAll('.car-image');
+      const imageObserver = new IntersectionObserver((entries) => {{
+        entries.forEach(entry => {{
+          if (entry.isIntersecting) {{
+            const img = entry.target;
+            if (img.dataset.src) {{
+              img.src = img.dataset.src;
+              img.removeAttribute('data-src');
+              imageObserver.unobserve(img);
+            }}
+          }}
+        }});
+      }}, {{ rootMargin: '50px' }});
+
+      images.forEach(img => {{
+        if (img.dataset.src) {{
+          imageObserver.observe(img);
+        }}
+      }});
+
+      // Add click tracking
+      document.querySelectorAll('.car-mini').forEach((card, index) => {{
+        card.addEventListener('click', function() {{
+          const carTitle = this.querySelector('.car-title').textContent;
+          console.log('Widget car clicked:', carTitle, 'Position:', index + 1);
+          
+          // Optional: Send analytics
+          if (typeof gtag !== 'undefined') {{
+            gtag('event', 'click', {{
+              'event_category': 'widget',
+              'event_label': carTitle,
+              'value': index + 1
+            }});
+          }}
+        }});
+      }});
+
+      // Auto-refresh widget (optional)
+      const autoRefresh = false; // Set to true to enable
+      if (autoRefresh) {{
+        setInterval(() => {{
+          console.log('Auto-refreshing widget...');
+          location.reload();
+        }}, 30 * 60 * 1000); // Refresh every 30 minutes
+      }}
+
+      // Performance monitoring
+      if ('PerformanceObserver' in window) {{
+        const perfObserver = new PerformanceObserver((list) => {{
+          for (const entry of list.getEntries()) {{
+            if (entry.entryType === 'largest-contentful-paint') {{
+              console.log('Widget LCP:', Math.round(entry.startTime), 'ms');
+            }}
+          }}
+        }});
+        
+        try {{
+          perfObserver.observe({{entryTypes: ['largest-contentful-paint']}});
+        }} catch (e) {{
+          // Fallback for older browsers
+        }}
+      }}
+
+      // Add loading animation removal
+      document.querySelectorAll('.car-mini.loading').forEach(card => {{
+        setTimeout(() => {{
+          card.classList.remove('loading');
+        }}, 500);
+      }});
+
+    }});
+
+    // Widget API for external control
+    window.KNGoodCarWidget = {{
+      refresh: function() {{
+        console.log('Refreshing widget...');
+        location.reload();
+      }},
+      
+      getStats: function() {{
+        return {{
+          totalCars: {total_cars},
+          displayedCars: document.querySelectorAll('.car-mini').length,
+          lastUpdate: '{last_update}'
+        }};
+      }},
+      
+      version: '2.0.0'
+    }};
+
+    // Prevent right-click (optional)
+    document.addEventListener('contextmenu', function(e) {{
+      e.preventDefault();
+      return false;
+    }});
+
+  </script>
+
+  <!-- Fallback font loading -->
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;700;800&display=swap">
+  </noscript>
+
+</body>
+</html>
