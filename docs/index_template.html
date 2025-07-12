@@ -1,0 +1,79 @@
+import requests, json, html
+
+API_URL = "https://kn-goodcar.com/api/graphql"
+TOKEN = "bb70cb008199a94b83c98df0e45ada67"
+headers = {
+    "X-Shopify-Storefront-Access-Token": TOKEN,
+    "Content-Type": "application/json"
+}
+query = '''
+{
+  products(first: 6, sortKey: CREATED_AT, reverse: true) {
+    edges {
+      node {
+        title
+        description
+        images(first: 1) { edges { node { url } } }
+        handle
+        tags
+        priceRange { minVariantPrice { amount } }
+      }
+    }
+  }
+}
+'''
+resp = requests.post(API_URL, json={"query": query}, headers=headers)
+products = resp.json()['data']['products']['edges']
+
+products_jsonld = []
+cars_html = ''
+
+for i, p in enumerate(products):
+    n = p['node']
+    img = n['images']['edges'][0]['node']['url'] if n['images']['edges'] else 'https://dummyimage.com/400x300/cccccc/666666&text=No+Image'
+    title = html.escape(n['title'])
+    desc = html.escape(n['description'] or '')
+    price = float(n['priceRange']['minVariantPrice']['amount'])
+    handle = n['handle']
+    status = ", ".join(n['tags']) if n['tags'] else ''
+    car_url = f"https://chiangraiusedcar.com/car-detail/{handle}.html"
+
+    # SEO Car Card
+    cars_html += f'''
+    <div class="car-card">
+      <img src="{img.replace('.jpg', '.webp')}" alt="{title} รถมือสองเชียงใหม่ ฟรีดาวน์" loading="lazy">
+      <div class="car-info">
+        <div class="car-title">{title}</div>
+        <div class="car-status">{status}</div>
+        <div class="car-desc">{desc[:120]}...</div>
+        <div class="car-price">฿{price:,.0f}</div>
+        <a href="{car_url}" class="btn-detail" target="_blank">ดูรายละเอียด</a>
+      </div>
+    </div>
+    '''
+    # JSON-LD
+    products_jsonld.append({
+        "@type": "Product",
+        "name": title,
+        "image": img.replace('.jpg', '.webp'),
+        "description": desc[:180],
+        "sku": handle,
+        "brand": { "@type": "Brand", "name": "ครูหนึ่งรถสวย" },
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "THB",
+            "price": f"{price:,.0f}",
+            "url": car_url,
+            "availability": "https://schema.org/InStock"
+        }
+    })
+
+IMG0 = products[0]['node']['images']['edges'][0]['node']['url'] if products[0]['node']['images']['edges'] else 'https://dummyimage.com/400x300/cccccc/666666&text=No+Image'
+PRODUCTS_JSON_LD = ',\n'.join(json.dumps(j, ensure_ascii=False) for j in products_jsonld)
+
+with open('docs/index.html', 'w', encoding='utf8') as f:
+    f.write(open('index_template.html', encoding='utf8').read()
+        .replace('<<IMG0>>', IMG0)
+        .replace('<<CAR_ITEMS>>', cars_html)
+        .replace('<<PRODUCTS_JSON_LD>>', PRODUCTS_JSON_LD)
+    )
