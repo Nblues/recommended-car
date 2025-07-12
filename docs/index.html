@@ -49,32 +49,12 @@
     <a href="all-cars-1.html" class="btn-allcars">ดูรถทั้งหมด &rarr;</a>
   </div>
   <script>
-    const shopDomain = 'www.kn-goodcar.com';
-    const token = 'bb70cb008199a94b83c98df0e45ada67';
+    // ดึง json ดิบแม่งจาก cars.json ใน docs
     async function fetchMiniCars() {
-      const query = `{
-        products(first: 6, sortKey:CREATED_AT, reverse:true) {
-          edges {
-            node {
-              handle
-              title
-              images(first: 1) { edges { node { url altText } } }
-              variants(first: 1) { edges { node { price } } }
-              metafields(first: 4) { edges { node { key value } } }
-            }
-          }
-        }
-      }`;
-      const res = await fetch(`https://${shopDomain}/api/2023-07/graphql.json`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Shopify-Storefront-Access-Token': token,
-        },
-        body: JSON.stringify({ query }),
-      });
-      const data = await res.json();
-      return data.data.products.edges.map(edge => edge.node);
+      let res = await fetch("cars.json");
+      let cars = await res.json();
+      // โชว์แค่ 6 คันแรกพอ
+      return cars.slice(0, 6);
     }
     function renderMiniCars(cars) {
       let html = '';
@@ -86,18 +66,16 @@
         "itemListElement": []
       };
       cars.forEach((car, idx) => {
-        const img = (car.images.edges[0]?.node.url)||'https://chiangraiusedcar.com/noimage.jpg';
-        const price = car.variants.edges[0]?.node.price ? Number(car.variants.edges[0].node.price).toLocaleString('th-TH') : '-';
-        let status = '';
-        car.metafields?.edges.forEach(mf => {
-          if(mf.node.key==='status') status = mf.node.value;
-        });
+        // รูปเอาอันแรก ถ้าไม่มีใส่ noimage.jpg
+        const img = (car.images && car.images[0]) ? car.images[0] : 'https://chiangraiusedcar.com/noimage.jpg';
+        const price = car.price ? Number(car.price).toLocaleString('th-TH') : '-';
+        const status = car.status || 'update!';
         html += `<div class='car-mini'>
           <a href="car-detail.html?handle=${encodeURIComponent(car.handle)}">
             <img src="${img}" alt="${car.title}" loading="lazy"/>
             <div class="car-title">${car.title}</div>
             <div class="car-price">฿${price}</div>
-            <div class="car-status">${status||'update!'}</div>
+            <div class="car-status">${status}</div>
           </a>
         </div>`;
         jsonld.itemListElement.push({
@@ -106,14 +84,15 @@
           "name": car.title,
           "image": img,
           "url": `https://chiangraiusedcar.com/car-detail.html?handle=${encodeURIComponent(car.handle)}`,
-          "description": status || ""
+          "description": car.desc || ""
         });
       });
       document.getElementById('minigrid').innerHTML = html;
-      // อัปเดต JSON-LD schema
       document.getElementById('json-ld-itemlist').innerHTML = JSON.stringify(jsonld,null,2);
     }
-    fetchMiniCars().then(renderMiniCars);
+    fetchMiniCars().then(renderMiniCars).catch(e => {
+      document.getElementById('minigrid').innerHTML = '<div style="color:red;">❌ โหลดรถไม่ขึ้น เพราะโค้ดโง่ หรือ json หาย</div>';
+    });
   </script>
 </body>
 </html>
