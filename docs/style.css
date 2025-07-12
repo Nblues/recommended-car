@@ -10,3 +10,8 @@ h1 { color: #ff8800; text-align:center; margin: 32px 0; font-size:2rem; }
 .car-price{color:#d70000;font-weight:bold;font-size:1.2rem;}
 .btn-detail{display:block;background:#004bdb;color:#fff;padding:9px 0;margin:10px 0 0 0;border-radius:7px;text-decoration:none;font-weight:700;}
 .btn-main{background:#ff8800;color:#fff;padding:13px 38px;border-radius:8px;text-decoration:none;font-size:1.2rem;font-weight:bold;display:inline-block;}
+.car-detail{max-width:800px;margin:0 auto;padding:20px;text-align:center;background:#fff;border-radius:18px;box-shadow:0 4px 16px #0001;margin-top:20px;}
+.car-detail img{max-width:100%;height:auto;border-radius:16px;margin-bottom:16px;}
+.car-detail h1{color:#ff8800;font-size:2rem;margin-bottom:16px;}
+.car-detail .car-desc{color:#222;margin-bottom:16px;font-size:1.1rem;}
+.car-detail .car-price{color:#d70000;font-weight:bold;font-size:1.5rem;margin-bottom:16px;}

@@ -4,7 +4,11 @@
     "handle": "honda-crv-2021",
     "img": "https://www.kn-goodcar.com/image/honda-crv-2021.jpg",
     "desc": "SUV ประหยัดน้ำมัน สภาพใหม่",
+
     "link": "https://nblues.github.io/recommended-car/car-detail/honda-crv-2021.html",
+
+    "link": "./car-detail/honda-crv-2021.html",
+
     "price": "839000",
     "year": "2021",
     "mileage": "35000",
@@ -15,6 +19,7 @@
     "brand": "Honda"
   },
   {
+
     "title": "Toyota Vios ปี 2019",
     "handle": "toyota-vios-2019",
     "img": "https://www.kn-goodcar.com/image/toyota-vios-2019.jpg",
@@ -43,13 +48,61 @@
     "gear": "ออโต้",
     "model": "2",
     "brand": "Mazda"
+
+    "title": "Toyota Camry ปี 2020",
+    "handle": "toyota-camry-2020",
+    "img": "https://www.kn-goodcar.com/image/toyota-camry-2020.jpg",
+    "desc": "เซดานหรูระดับพรีเมี่ยม สภาพดีเยี่ยม",
+    "link": "./car-detail/toyota-camry-2020.html",
+    "price": "1250000",
+    "year": "2020",
+    "mileage": "28000",
+    "color": "ดำ",
+    "status": "ฟรีดาวน์",
+    "gear": "ออโต้",
+    "model": "Camry",
+    "brand": "Toyota"
+  },
+  {
+    "title": "BMW 320d ปี 2019",
+    "handle": "bmw-320d-2019",
+    "img": "https://www.kn-goodcar.com/image/bmw-320d-2019.jpg",
+    "desc": "รถหรูเยอรมัน ประหยัดน้ำมันดีเซล",
+    "link": "./car-detail/bmw-320d-2019.html",
+    "price": "1890000",
+    "year": "2019",
+    "mileage": "42000",
+    "color": "เงิน",
+    "status": "ฟรีดาวน์",
+    "gear": "ออโต้",
+    "model": "320d",
+    "brand": "BMW"
+  },
+  {
+    "title": "Mercedes-Benz C200 ปี 2021",
+    "handle": "mercedes-benz-c200-2021",
+    "img": "https://www.kn-goodcar.com/image/mercedes-benz-c200-2021.jpg",
+    "desc": "รถหรูเยอรมัน สุดยอดความหรูหรา",
+    "link": "./car-detail/mercedes-benz-c200-2021.html",
+    "price": "2150000",
+    "year": "2021",
+    "mileage": "18000",
+    "color": "ขาว",
+    "status": "ฟรีดาวน์",
+    "gear": "ออโต้",
+    "model": "C200",
+    "brand": "Mercedes-Benz"
+
   },
   {
     "title": "Nissan Almera ปี 2022",
     "handle": "nissan-almera-2022",
     "img": "https://www.kn-goodcar.com/image/nissan-almera-2022.jpg",
     "desc": "รุ่นใหม่ล่าสุด ประหยัดน้ำมันสุดๆ",
+
     "link": "https://nblues.github.io/recommended-car/car-detail/nissan-almera-2022.html",
+    "link": "./car-detail/nissan-almera-2022.html",
+
     "price": "395000",
     "year": "2022",
     "mileage": "12000",
@@ -60,6 +113,7 @@
     "brand": "Nissan"
   },
   {
+
     "title": "Isuzu MU-X ปี 2018",
     "handle": "isuzu-mux-2018",
     "img": "https://www.kn-goodcar.com/image/isuzu-mux-2018.jpg",
@@ -88,5 +142,20 @@
     "gear": "ออโต้",
     "model": "Triton",
     "brand": "Mitsubishi"
+
+    "title": "Mazda 2 ปี 2020",
+    "handle": "mazda-2-2020",
+    "img": "https://www.kn-goodcar.com/image/mazda-2-2020.jpg",
+    "desc": "Eco Car สุดคุ้ม ผ่อนสบาย ไม่เคยชน",
+    "link": "./car-detail/mazda-2-2020.html",
+    "price": "389000",
+    "year": "2020",
+    "mileage": "31000",
+    "color": "เทา",
+    "status": "ฟรีดาวน์",
+    "gear": "ออโต้",
+    "model": "2",
+    "brand": "Mazda"
+
   }
 ]
