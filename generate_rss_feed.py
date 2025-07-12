@@ -40,43 +40,59 @@ class RSSFeedGenerator:
 
     def create_rss_feed(self):
         """สร้าง RSS Feed"""
-        # สร้าง root element
-        rss = ET.Element("rss")
-        rss.set("version", "2.0")
-        rss.set("xmlns:content", "http://purl.org/rss/1.0/modules/content/")
-        rss.set("xmlns:dc", "http://purl.org/dc/elements/1.1/")
-        rss.set("xmlns:atom", "http://www.w3.org/2005/Atom")
-
-        # สร้าง channel
-        channel = ET.SubElement(rss, "channel")
-        
-        # ข้อมูลช่องทาง
-        ET.SubElement(channel, "title").text = self.site_info["title"]
-        ET.SubElement(channel, "link").text = self.base_url
-        ET.SubElement(channel, "description").text = self.site_info["description"]
-        ET.SubElement(channel, "language").text = self.site_info["language"]
-        ET.SubElement(channel, "webMaster").text = self.site_info["webmaster"]
-        ET.SubElement(channel, "category").text = self.site_info["category"]
-        ET.SubElement(channel, "generator").text = "KN-GoodCar Advanced RSS Generator v2.0"
-        ET.SubElement(channel, "docs").text = "https://www.rssboard.org/rss-specification"
-        ET.SubElement(channel, "ttl").text = "60"  # 60 นาที
-        
-        # อัปเดตล่าสุด
+        # สร้าง RSS content as string to avoid namespace issues
         now = datetime.now(timezone.utc)
-        ET.SubElement(channel, "lastBuildDate").text = now.strftime("%a, %d %b %Y %H:%M:%S %z")
-        ET.SubElement(channel, "pubDate").text = now.strftime("%a, %d %b %Y %H:%M:%S %z")
-
-        # Atom self link
-        atom_link = ET.SubElement(channel, "{http://www.w3.org/2005/Atom}link")
-        atom_link.set("href", f"{self.base_url}/feed.xml")
-        atom_link.set("rel", "self")
-        atom_link.set("type", "application/rss+xml")
-
-        # สร้าง items จากรถ 10 คันล่าสุด
+        rss_content = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{self.site_info["title"]}</title>
+    <link>{self.base_url}</link>
+    <description>{self.site_info["description"]}</description>
+    <language>{self.site_info["language"]}</language>
+    <webMaster>{self.site_info["webmaster"]}</webMaster>
+    <category>{self.site_info["category"]}</category>
+    <generator>KN-GoodCar Advanced RSS Generator v2.0</generator>
+    <docs>https://www.rssboard.org/rss-specification</docs>
+    <ttl>60</ttl>
+    <lastBuildDate>{now.strftime("%a, %d %b %Y %H:%M:%S %z")}</lastBuildDate>
+    <pubDate>{now.strftime("%a, %d %b %Y %H:%M:%S %z")}</pubDate>
+    <atom:link href="{self.base_url}/feed.xml" rel="self" type="application/rss+xml"/>
+"""
+        
+        # เพิ่ม items
         for i, car in enumerate(self.cars_data[:10]):
-            self.create_car_item(channel, car, i)
-
-        return rss
+            pub_date = datetime.now(timezone.utc)
+            pub_date = pub_date.replace(hour=max(0, pub_date.hour - i))
+            
+            title = f"รถใหม่เข้า: {car['title']}"
+            car_link = f"{self.base_url}/car-detail/{car['handle']}.html"
+            description = self.create_car_description(car)
+            
+            rss_content += f"""
+    <item>
+      <title>{html.escape(title)}</title>
+      <link>{car_link}</link>
+      <guid>{car_link}</guid>
+      <description>{html.escape(description)}</description>
+      <category>รถยนต์{car['title'].split()[0] if car['title'].split() else ''}</category>
+      <dc:creator>ครูหนึ่งรถสวย</dc:creator>
+      <pubDate>{pub_date.strftime("%a, %d %b %Y %H:%M:%S %z")}</pubDate>"""
+      
+            if car["images"]:
+                rss_content += f"""
+      <enclosure url="{car['images'][0]}" type="image/jpeg" length="0"/>"""
+                
+            rss_content += """
+    </item>"""
+        
+        rss_content += """
+  </channel>
+</rss>"""
+        
+        return rss_content
 
     def create_car_item(self, channel, car, index):
         """สร้าง RSS item สำหรับรถแต่ละคัน"""
@@ -214,19 +230,16 @@ class RSSFeedGenerator:
         """สร้างและบันทึก RSS feed"""
         print("📡 สร้าง RSS Feed สำหรับ Google News...")
         
-        # สร้าง RSS
-        rss = self.create_rss_feed()
-        
-        # สร้าง XML tree
-        tree = ET.ElementTree(rss)
-        ET.indent(tree, space="  ", level=0)
+        # สร้าง RSS content
+        rss_content = self.create_rss_feed()
         
         # บันทึกไฟล์
         docs_path = Path("docs")
         docs_path.mkdir(exist_ok=True)
         
         feed_path = docs_path / "feed.xml"
-        tree.write(feed_path, encoding="utf-8", xml_declaration=True)
+        with open(feed_path, "w", encoding="utf-8") as f:
+            f.write(rss_content)
         
         print(f"✅ สร้าง RSS Feed สำเร็จ")
         print(f"📊 Items: {min(len(self.cars_data), 10)} รายการ")

@@ -1,5 +1,8 @@
-<?xml version='1.0' encoding='utf-8'?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns0="http://www.w3.org/2005/Atom" xmlns:ns1="http://purl.org/rss/1.0/modules/content/" version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ครูหนึ่งรถสวย - รถมือสองเชียงใหม่</title>
     <link>https://nblues.github.io/recommended-car</link>
@@ -10,9 +13,10 @@
     <generator>KN-GoodCar Advanced RSS Generator v2.0</generator>
     <docs>https://www.rssboard.org/rss-specification</docs>
     <ttl>60</ttl>
-    <lastBuildDate>Sat, 12 Jul 2025 23:54:04 +0000</lastBuildDate>
-    <pubDate>Sat, 12 Jul 2025 23:54:04 +0000</pubDate>
-    <ns0:link href="https://nblues.github.io/recommended-car/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Jul 2025 23:56:53 +0000</lastBuildDate>
+    <pubDate>Sat, 12 Jul 2025 23:56:53 +0000</pubDate>
+    <atom:link href="https://nblues.github.io/recommended-car/feed.xml" rel="self" type="application/rss+xml"/>
+
     <item>
       <title>รถใหม่เข้า: TOYOTA EZTIMA HYBRID SYNERGY DRIVE 2.4 E-Four G ปี 2007 (นำเข้า 2552 )</title>
       <link>https://nblues.github.io/recommended-car/car-detail/toyota-eztima-hybrid-synergy-drive-2-4-e-four-g-ปี-2007-นำเข้า-2552.html</link>
@@ -33,69 +37,10 @@
 🌐 ดูรายละเอียดเพิ่มเติม: https://nblues.github.io/recommended-car/car-detail/toyota-eztima-hybrid-synergy-drive-2-4-e-four-g-ปี-2007-นำเข้า-2552.html
 
 (พรีเมี่ยมรถนำเข้าจากญี่ปุ่น) คนเล่นรถห้ามพลาด TOYOTA EZTIMA HYBRID SYNERGY DRIVE 2.4 E-Four G ปี 2007 (นำเข้า 2552 ) ตัวท็อปสุด รถนำเข้าสไตล์ญี่ปุ่น ระบบไฮบริดเทคโนโลยีสุดยอดเกินเบอร์มากครับ ห้องโดยส...</description>
-      <ns1:encoded>&lt;![CDATA[
-&lt;div style="font-family: 'Prompt', sans-serif; max-width: 600px; margin: 0 auto;"&gt;
-  &lt;h2 style="color: #f47b20; margin: 0 0 1rem;"&gt;TOYOTA EZTIMA HYBRID SYNERGY DRIVE 2.4 E-Four G ปี 2007 (นำเข้า 2552 )&lt;/h2&gt;
-  
-  &lt;img src="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_ee2a3ecd-09bf-433d-94c8-09063d62288b.jpg?v=1725842830" alt="TOYOTA EZTIMA HYBRID SYNERGY DRIVE 2.4 E-Four G ปี 2007 (นำเข้า 2552 )" style="width: 100%; max-width: 500px; border-radius: 8px; margin: 1rem 0;"&gt;
-  
-  &lt;div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50; margin: 0 0 1rem;"&gt;📊 ข้อมูลรถยนต์&lt;/h3&gt;
-    &lt;table style="width: 100%; border-collapse: collapse;"&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ราคา:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem; color: #e74c3c; font-weight: bold; font-size: 1.2em;"&gt;฿419,000&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ยี่ห้อ:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;TOYOTA&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;สถานที่:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;เชียงใหม่, ประเทศไทย&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;การรับประกัน:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;1 ปีเต็ม&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/table&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="background: linear-gradient(135deg, #f47b20, #e66a16); color: white; padding: 1.5rem; border-radius: 8px; margin: 1rem 0; text-align: center;"&gt;
-    &lt;h3 style="margin: 0 0 1rem;"&gt;🎯 สิทธิพิเศษ&lt;/h3&gt;
-    &lt;ul style="list-style: none; padding: 0; margin: 0;"&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🆓 ฟรีดาวน์ 100%&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🛡️ รับประกัน 1 ปี&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🚚 ส่งฟรีทั่วไทย&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;💰 ผ่อนเริ่มต้น 3,000/เดือน&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="margin: 1.5rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50;"&gt;📝 รายละเอียด&lt;/h3&gt;
-    &lt;p style="line-height: 1.6; color: #555;"&gt;(พรีเมี่ยมรถนำเข้าจากญี่ปุ่น) คนเล่นรถห้ามพลาด TOYOTA EZTIMA HYBRID SYNERGY DRIVE 2.4 E-Four G ปี 2007 (นำเข้า 2552 ) ตัวท็อปสุด รถนำเข้าสไตล์ญี่ปุ่น ระบบไฮบริดเทคโนโลยีสุดยอดเกินเบอร์มากครับ ห้องโดยสารกว้างขวาง สะดวกสบายในการใช้งาน ประตูสไลด์ไฟฟ้าทั้งสองด้าน หลังคา Sunroof สองตอน สด 419000 ดาวน์ 69000 ไม่ติดเครดิตเครดิตบูโรรับเงินผ่านบัญชีมีสลิปอายุงานหนึ่งปีขึ้นไป ส่ง 10500/4 ปี #ครูหนึ่งรถสวย #รถมือสองสภาพดี #ส่งฟรีทั่วประเทศ เหมือนเดิมครับเพื่อนๆ...&lt;/p&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="text-align: center; margin: 2rem 0;"&gt;
-    &lt;a href="https://www.kn-goodcar.com/car-detail/toyota-eztima-hybrid-synergy-drive-2-4-e-four-g-ปี-2007-นำเข้า-2552" 
-       style="background: #f47b20; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;"&gt;
-      📞 ติดต่อสอบถาม
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-  &lt;hr style="border: none; border-top: 1px solid #eee; margin: 2rem 0;"&gt;
-  
-  &lt;div style="text-align: center; color: #7f8c8d; font-size: 0.9em;"&gt;
-    &lt;p&gt;ครูหนึ่งรถสวย - รถมือสองคุณภาพเชียงใหม่&lt;/p&gt;
-    &lt;p&gt;📧 ติดต่อ: info@kn-goodcar.com | 📞 โทร: xxx-xxx-xxxx&lt;/p&gt;
-    &lt;p&gt;🌐 เว็บไซต์: &lt;a href="https://nblues.github.io/recommended-car" style="color: #f47b20;"&gt;https://nblues.github.io/recommended-car&lt;/a&gt;&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-]]&gt;</ns1:encoded>
       <category>รถยนต์TOYOTA</category>
       <dc:creator>ครูหนึ่งรถสวย</dc:creator>
-      <pubDate>Sat, 12 Jul 2025 23:54:04 +0000</pubDate>
-      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_ee2a3ecd-09bf-433d-94c8-09063d62288b.jpg?v=1725842830" type="image/jpeg" length="0" />
+      <pubDate>Sat, 12 Jul 2025 23:56:53 +0000</pubDate>
+      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_ee2a3ecd-09bf-433d-94c8-09063d62288b.jpg?v=1725842830" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>รถใหม่เข้า: FORD RANGER 4dr DCab WildTrak Auto 10sp 2WD 2.0 Turbo DCT</title>
@@ -117,69 +62,10 @@
 🌐 ดูรายละเอียดเพิ่มเติม: https://nblues.github.io/recommended-car/car-detail/ford-ranger-4dr-dcab-wildtrak-auto-10sp-2wd-2-0-turbo-dct.html
 
 พร้อมใช้งานครับ กระบะ4ประตู เกียร์ออโต้ มือแรกเดิมๆ สภาพดีเยี่ยม พร้อมใช้งานครับ FORD RANGER 4dr DCab WildTrak Auto 10sp 2WD 2.0 Turbo DCT เกียร์อัตโนมัต รถสวยเดิมๆ มือแรกออกห้างเลยครับ เครื่องยนต์ 2....</description>
-      <ns1:encoded>&lt;![CDATA[
-&lt;div style="font-family: 'Prompt', sans-serif; max-width: 600px; margin: 0 auto;"&gt;
-  &lt;h2 style="color: #f47b20; margin: 0 0 1rem;"&gt;FORD RANGER 4dr DCab WildTrak Auto 10sp 2WD 2.0 Turbo DCT&lt;/h2&gt;
-  
-  &lt;img src="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_dad1423a-d88f-45e3-9447-2bf36bbd4121.jpg?v=1728001559" alt="FORD RANGER 4dr DCab WildTrak Auto 10sp 2WD 2.0 Turbo DCT" style="width: 100%; max-width: 500px; border-radius: 8px; margin: 1rem 0;"&gt;
-  
-  &lt;div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50; margin: 0 0 1rem;"&gt;📊 ข้อมูลรถยนต์&lt;/h3&gt;
-    &lt;table style="width: 100%; border-collapse: collapse;"&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ราคา:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem; color: #e74c3c; font-weight: bold; font-size: 1.2em;"&gt;฿559,000&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ยี่ห้อ:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;FORD&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;สถานที่:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;เชียงใหม่, ประเทศไทย&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;การรับประกัน:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;1 ปีเต็ม&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/table&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="background: linear-gradient(135deg, #f47b20, #e66a16); color: white; padding: 1.5rem; border-radius: 8px; margin: 1rem 0; text-align: center;"&gt;
-    &lt;h3 style="margin: 0 0 1rem;"&gt;🎯 สิทธิพิเศษ&lt;/h3&gt;
-    &lt;ul style="list-style: none; padding: 0; margin: 0;"&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🆓 ฟรีดาวน์ 100%&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🛡️ รับประกัน 1 ปี&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🚚 ส่งฟรีทั่วไทย&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;💰 ผ่อนเริ่มต้น 3,000/เดือน&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="margin: 1.5rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50;"&gt;📝 รายละเอียด&lt;/h3&gt;
-    &lt;p style="line-height: 1.6; color: #555;"&gt;พร้อมใช้งานครับ กระบะ4ประตู เกียร์ออโต้ มือแรกเดิมๆ สภาพดีเยี่ยม พร้อมใช้งานครับ FORD RANGER 4dr DCab WildTrak Auto 10sp 2WD 2.0 Turbo DCT เกียร์อัตโนมัต รถสวยเดิมๆ มือแรกออกห้างเลยครับ เครื่องยนต์ 2.0 TURBO DIESEL AIRBAG ABS A/T ปี 2562 รถสวย สภาพดีมากๆ ระบบเครื่องยนต์ เกียร์ ช่วงล่าง ดีมากๆ พวงมาลัยมัลติฟังก์ชั่น / Cruise Controlหน้าจอ DVD Navi พร้อมกล้องมองหลังเบาะหนังปรับไฟฟ้า เบาะหลังพับได้ล้อแม็กสภาพดี ยางใหม่ สภาพดีมาก สะอาด พร้อมใช้เลยครับ เจ้าของดูแลดี ตัวถังบางเดิม ไม่เคยมีอุบัติเหตุเฉ...&lt;/p&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="text-align: center; margin: 2rem 0;"&gt;
-    &lt;a href="https://www.kn-goodcar.com/car-detail/ford-ranger-4dr-dcab-wildtrak-auto-10sp-2wd-2-0-turbo-dct" 
-       style="background: #f47b20; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;"&gt;
-      📞 ติดต่อสอบถาม
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-  &lt;hr style="border: none; border-top: 1px solid #eee; margin: 2rem 0;"&gt;
-  
-  &lt;div style="text-align: center; color: #7f8c8d; font-size: 0.9em;"&gt;
-    &lt;p&gt;ครูหนึ่งรถสวย - รถมือสองคุณภาพเชียงใหม่&lt;/p&gt;
-    &lt;p&gt;📧 ติดต่อ: info@kn-goodcar.com | 📞 โทร: xxx-xxx-xxxx&lt;/p&gt;
-    &lt;p&gt;🌐 เว็บไซต์: &lt;a href="https://nblues.github.io/recommended-car" style="color: #f47b20;"&gt;https://nblues.github.io/recommended-car&lt;/a&gt;&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-]]&gt;</ns1:encoded>
       <category>รถยนต์FORD</category>
       <dc:creator>ครูหนึ่งรถสวย</dc:creator>
-      <pubDate>Sat, 12 Jul 2025 22:54:04 +0000</pubDate>
-      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_dad1423a-d88f-45e3-9447-2bf36bbd4121.jpg?v=1728001559" type="image/jpeg" length="0" />
+      <pubDate>Sat, 12 Jul 2025 22:56:53 +0000</pubDate>
+      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_dad1423a-d88f-45e3-9447-2bf36bbd4121.jpg?v=1728001559" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>รถใหม่เข้า: Toyota CHR 1.8 HV HYBRID TOP 2019  ปี 2019</title>
@@ -201,69 +87,10 @@
 🌐 ดูรายละเอียดเพิ่มเติม: https://nblues.github.io/recommended-car/car-detail/toyota-chr-1-8-hv-hybrid-top-2019-ปี-2019.html
 
 Option ล้นล้น ประหยัดสุดๆ พร้อมป้ายมงคล Toyota CHR 1.8 HV HYBRID TOP AUTO 2019 ปี 2019 สี แดงแก้ว เกียร์ ออโต้ ราคา 649,000.- ออกรถ 0 บาท ผ่อน 10,000-/7 ปี เครื่องยนต์ เบนซิน 1,500cc. รถบ้านประวัติดี ...</description>
-      <ns1:encoded>&lt;![CDATA[
-&lt;div style="font-family: 'Prompt', sans-serif; max-width: 600px; margin: 0 auto;"&gt;
-  &lt;h2 style="color: #f47b20; margin: 0 0 1rem;"&gt;Toyota CHR 1.8 HV HYBRID TOP 2019  ปี 2019&lt;/h2&gt;
-  
-  &lt;img src="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_5ad018db-8b9b-4086-b1c7-8ee568f1b8c4.jpg?v=1728002956" alt="Toyota CHR 1.8 HV HYBRID TOP 2019  ปี 2019" style="width: 100%; max-width: 500px; border-radius: 8px; margin: 1rem 0;"&gt;
-  
-  &lt;div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50; margin: 0 0 1rem;"&gt;📊 ข้อมูลรถยนต์&lt;/h3&gt;
-    &lt;table style="width: 100%; border-collapse: collapse;"&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ราคา:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem; color: #e74c3c; font-weight: bold; font-size: 1.2em;"&gt;฿649,000&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ยี่ห้อ:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;Toyota&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;สถานที่:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;เชียงใหม่, ประเทศไทย&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;การรับประกัน:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;1 ปีเต็ม&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/table&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="background: linear-gradient(135deg, #f47b20, #e66a16); color: white; padding: 1.5rem; border-radius: 8px; margin: 1rem 0; text-align: center;"&gt;
-    &lt;h3 style="margin: 0 0 1rem;"&gt;🎯 สิทธิพิเศษ&lt;/h3&gt;
-    &lt;ul style="list-style: none; padding: 0; margin: 0;"&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🆓 ฟรีดาวน์ 100%&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🛡️ รับประกัน 1 ปี&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🚚 ส่งฟรีทั่วไทย&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;💰 ผ่อนเริ่มต้น 3,000/เดือน&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="margin: 1.5rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50;"&gt;📝 รายละเอียด&lt;/h3&gt;
-    &lt;p style="line-height: 1.6; color: #555;"&gt;Option ล้นล้น ประหยัดสุดๆ พร้อมป้ายมงคล Toyota CHR 1.8 HV HYBRID TOP AUTO 2019 ปี 2019 สี แดงแก้ว เกียร์ ออโต้ ราคา 649,000.- ออกรถ 0 บาท ผ่อน 10,000-/7 ปี เครื่องยนต์ เบนซิน 1,500cc. รถบ้านประวัติดี ได้ตัวท็อป Option เต็ม เบาะหนัง จอ พวงมาลัย มัลติฟังก์ชัน ดูแลดีมาก นานๆ ขับที ยางใหม่ สีสวย ระบบไฟฟ้าทั้งคัน #รถบ้านสันทราย #รถเชียงใหม่ #ฟรีดาวน์ #รถบ้านราคาถูก...&lt;/p&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="text-align: center; margin: 2rem 0;"&gt;
-    &lt;a href="https://www.kn-goodcar.com/car-detail/toyota-chr-1-8-hv-hybrid-top-2019-ปี-2019" 
-       style="background: #f47b20; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;"&gt;
-      📞 ติดต่อสอบถาม
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-  &lt;hr style="border: none; border-top: 1px solid #eee; margin: 2rem 0;"&gt;
-  
-  &lt;div style="text-align: center; color: #7f8c8d; font-size: 0.9em;"&gt;
-    &lt;p&gt;ครูหนึ่งรถสวย - รถมือสองคุณภาพเชียงใหม่&lt;/p&gt;
-    &lt;p&gt;📧 ติดต่อ: info@kn-goodcar.com | 📞 โทร: xxx-xxx-xxxx&lt;/p&gt;
-    &lt;p&gt;🌐 เว็บไซต์: &lt;a href="https://nblues.github.io/recommended-car" style="color: #f47b20;"&gt;https://nblues.github.io/recommended-car&lt;/a&gt;&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-]]&gt;</ns1:encoded>
       <category>รถยนต์Toyota</category>
       <dc:creator>ครูหนึ่งรถสวย</dc:creator>
-      <pubDate>Sat, 12 Jul 2025 21:54:04 +0000</pubDate>
-      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_5ad018db-8b9b-4086-b1c7-8ee568f1b8c4.jpg?v=1728002956" type="image/jpeg" length="0" />
+      <pubDate>Sat, 12 Jul 2025 21:56:53 +0000</pubDate>
+      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_5ad018db-8b9b-4086-b1c7-8ee568f1b8c4.jpg?v=1728002956" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>รถใหม่เข้า: Hyundai H-1 Elite NS ปี 2022</title>
@@ -285,69 +112,10 @@ Option ล้นล้น ประหยัดสุดๆ พร้อมป�
 🌐 ดูรายละเอียดเพิ่มเติม: https://nblues.github.io/recommended-car/car-detail/hyundai-h-1-elite-ns-ปี-2022.html
 
 Hyundai H-1 Elite NS ปี 2022วิ่งน้อยแค่ 21,xxx Km.รถมือเดียวป้ายแดงออกศูนย์เชียงใหม่ ใช้ป้ายกทม. ราคาเพียง 1,169,000 บาทเครดิตดี ดาวน์ 49,000 ผ่อน 21,xxx / 72 งวดเครดิตใหม่ ดาวน์ 279,000 ผ่อน 18,xxx /...</description>
-      <ns1:encoded>&lt;![CDATA[
-&lt;div style="font-family: 'Prompt', sans-serif; max-width: 600px; margin: 0 auto;"&gt;
-  &lt;h2 style="color: #f47b20; margin: 0 0 1rem;"&gt;Hyundai H-1 Elite NS ปี 2022&lt;/h2&gt;
-  
-  &lt;img src="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_2fa17074-aa8b-47bd-bdf1-f6bbe0ff3762.jpg?v=1730925406" alt="Hyundai H-1 Elite NS ปี 2022" style="width: 100%; max-width: 500px; border-radius: 8px; margin: 1rem 0;"&gt;
-  
-  &lt;div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50; margin: 0 0 1rem;"&gt;📊 ข้อมูลรถยนต์&lt;/h3&gt;
-    &lt;table style="width: 100%; border-collapse: collapse;"&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ราคา:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem; color: #e74c3c; font-weight: bold; font-size: 1.2em;"&gt;฿1,169,000&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ยี่ห้อ:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;Hyundai&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;สถานที่:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;เชียงใหม่, ประเทศไทย&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;การรับประกัน:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;1 ปีเต็ม&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/table&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="background: linear-gradient(135deg, #f47b20, #e66a16); color: white; padding: 1.5rem; border-radius: 8px; margin: 1rem 0; text-align: center;"&gt;
-    &lt;h3 style="margin: 0 0 1rem;"&gt;🎯 สิทธิพิเศษ&lt;/h3&gt;
-    &lt;ul style="list-style: none; padding: 0; margin: 0;"&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🆓 ฟรีดาวน์ 100%&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🛡️ รับประกัน 1 ปี&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🚚 ส่งฟรีทั่วไทย&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;💰 ผ่อนเริ่มต้น 3,000/เดือน&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="margin: 1.5rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50;"&gt;📝 รายละเอียด&lt;/h3&gt;
-    &lt;p style="line-height: 1.6; color: #555;"&gt;Hyundai H-1 Elite NS ปี 2022วิ่งน้อยแค่ 21,xxx Km.รถมือเดียวป้ายแดงออกศูนย์เชียงใหม่ ใช้ป้ายกทม. ราคาเพียง 1,169,000 บาทเครดิตดี ดาวน์ 49,000 ผ่อน 21,xxx / 72 งวดเครดิตใหม่ ดาวน์ 279,000 ผ่อน 18,xxx /72 งวด - เกียร์ออโต้ 5 Speed + Sequential Shift - Airbags คู่ , ดิสก์เบรก 4 ล้อ- ABS / EBD / BA / ESP- กล้องมองหลังพร้อมเซ็นเซอร์เตือน- Bird eye view 360° รอบคัน- ไฟหน้าเปิด-ปิดอัตโนมัติ , ไฟตัดหมอก- Daytime Running lights แบบ LED- ไฟเบรกดวงที่ 3 และไฟท้าย แบบ LED- ชุดแต่งและสเกิร์ตรอบคัน พร้อมแถบโค...&lt;/p&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="text-align: center; margin: 2rem 0;"&gt;
-    &lt;a href="https://www.kn-goodcar.com/car-detail/hyundai-h-1-elite-ns-ปี-2022" 
-       style="background: #f47b20; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;"&gt;
-      📞 ติดต่อสอบถาม
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-  &lt;hr style="border: none; border-top: 1px solid #eee; margin: 2rem 0;"&gt;
-  
-  &lt;div style="text-align: center; color: #7f8c8d; font-size: 0.9em;"&gt;
-    &lt;p&gt;ครูหนึ่งรถสวย - รถมือสองคุณภาพเชียงใหม่&lt;/p&gt;
-    &lt;p&gt;📧 ติดต่อ: info@kn-goodcar.com | 📞 โทร: xxx-xxx-xxxx&lt;/p&gt;
-    &lt;p&gt;🌐 เว็บไซต์: &lt;a href="https://nblues.github.io/recommended-car" style="color: #f47b20;"&gt;https://nblues.github.io/recommended-car&lt;/a&gt;&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-]]&gt;</ns1:encoded>
       <category>รถยนต์Hyundai</category>
       <dc:creator>ครูหนึ่งรถสวย</dc:creator>
-      <pubDate>Sat, 12 Jul 2025 20:54:04 +0000</pubDate>
-      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_2fa17074-aa8b-47bd-bdf1-f6bbe0ff3762.jpg?v=1730925406" type="image/jpeg" length="0" />
+      <pubDate>Sat, 12 Jul 2025 20:56:53 +0000</pubDate>
+      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_2fa17074-aa8b-47bd-bdf1-f6bbe0ff3762.jpg?v=1730925406" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>รถใหม่เข้า: D-MAX Hi-Lander 2.5 X-SERIES Ddi i-TEQ SUPER PLATINUM เกียร์ธรรมดา</title>
@@ -369,69 +137,10 @@ Hyundai H-1 Elite NS ปี 2022วิ่งน้อยแค่ 21,xxx Km.ร�
 🌐 ดูรายละเอียดเพิ่มเติม: https://nblues.github.io/recommended-car/car-detail/d-max-hi-lander-2-5-x-series-ddi-i-teq-super-platinum-เกียร์ธรรมดา.html
 
 D-MAX Hi-Lander 2.5 X-SERIES Ddi i-TEQ SUPER PLATINUM เกียร์ธรรมดา รถสวยเดิมๆ พร้อมใช้งาน เครื่องยนต์ 2500 cc. DIESEL M/T 2011/2554 รถสวยสภาพดีมากๆ ระบบเครื่องยนต์ เกียร์ ช่วงล่าง ดีมากๆ พร้อมใช้เลยคร...</description>
-      <ns1:encoded>&lt;![CDATA[
-&lt;div style="font-family: 'Prompt', sans-serif; max-width: 600px; margin: 0 auto;"&gt;
-  &lt;h2 style="color: #f47b20; margin: 0 0 1rem;"&gt;D-MAX Hi-Lander 2.5 X-SERIES Ddi i-TEQ SUPER PLATINUM เกียร์ธรรมดา&lt;/h2&gt;
-  
-  &lt;img src="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_a28baac3-7e7e-4549-96e4-c86e00dd1f14.jpg?v=1733598390" alt="D-MAX Hi-Lander 2.5 X-SERIES Ddi i-TEQ SUPER PLATINUM เกียร์ธรรมดา" style="width: 100%; max-width: 500px; border-radius: 8px; margin: 1rem 0;"&gt;
-  
-  &lt;div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50; margin: 0 0 1rem;"&gt;📊 ข้อมูลรถยนต์&lt;/h3&gt;
-    &lt;table style="width: 100%; border-collapse: collapse;"&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ราคา:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem; color: #e74c3c; font-weight: bold; font-size: 1.2em;"&gt;฿289,000&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ยี่ห้อ:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;D-MAX&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;สถานที่:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;เชียงใหม่, ประเทศไทย&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;การรับประกัน:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;1 ปีเต็ม&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/table&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="background: linear-gradient(135deg, #f47b20, #e66a16); color: white; padding: 1.5rem; border-radius: 8px; margin: 1rem 0; text-align: center;"&gt;
-    &lt;h3 style="margin: 0 0 1rem;"&gt;🎯 สิทธิพิเศษ&lt;/h3&gt;
-    &lt;ul style="list-style: none; padding: 0; margin: 0;"&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🆓 ฟรีดาวน์ 100%&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🛡️ รับประกัน 1 ปี&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🚚 ส่งฟรีทั่วไทย&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;💰 ผ่อนเริ่มต้น 3,000/เดือน&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="margin: 1.5rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50;"&gt;📝 รายละเอียด&lt;/h3&gt;
-    &lt;p style="line-height: 1.6; color: #555;"&gt;D-MAX Hi-Lander 2.5 X-SERIES Ddi i-TEQ SUPER PLATINUM เกียร์ธรรมดา รถสวยเดิมๆ พร้อมใช้งาน เครื่องยนต์ 2500 cc. DIESEL M/T 2011/2554 รถสวยสภาพดีมากๆ ระบบเครื่องยนต์ เกียร์ ช่วงล่าง ดีมากๆ พร้อมใช้เลยครับ เจ้าของดูแลดี ตัวถังบางเดิม ไม่เคยมีอุบัตเหตุเฉียวชนหนัก ได้คันนี้ไปรับรองไม่ผิดหวัง &amp;quot;พร้อมทะเบียนมงคล 7474 ไปเลยครับ&amp;quot; สด 289000 ไม่มีเครดิต แต่ทำงานประจำ รับเงินผ่านบัญชี “ฟรีดาวน์ ”เลยครับ ✔️ ส่ง 6200/72 #ครูหนึ่งรถสวย #รถมือสองสภาพดี #ส่งฟรีทั่วประเทศ เหมือนเดิมครับเพื่อนๆ...&lt;/p&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="text-align: center; margin: 2rem 0;"&gt;
-    &lt;a href="https://www.kn-goodcar.com/car-detail/d-max-hi-lander-2-5-x-series-ddi-i-teq-super-platinum-เกียร์ธรรมดา" 
-       style="background: #f47b20; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;"&gt;
-      📞 ติดต่อสอบถาม
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-  &lt;hr style="border: none; border-top: 1px solid #eee; margin: 2rem 0;"&gt;
-  
-  &lt;div style="text-align: center; color: #7f8c8d; font-size: 0.9em;"&gt;
-    &lt;p&gt;ครูหนึ่งรถสวย - รถมือสองคุณภาพเชียงใหม่&lt;/p&gt;
-    &lt;p&gt;📧 ติดต่อ: info@kn-goodcar.com | 📞 โทร: xxx-xxx-xxxx&lt;/p&gt;
-    &lt;p&gt;🌐 เว็บไซต์: &lt;a href="https://nblues.github.io/recommended-car" style="color: #f47b20;"&gt;https://nblues.github.io/recommended-car&lt;/a&gt;&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-]]&gt;</ns1:encoded>
       <category>รถยนต์D-MAX</category>
       <dc:creator>ครูหนึ่งรถสวย</dc:creator>
-      <pubDate>Sat, 12 Jul 2025 19:54:04 +0000</pubDate>
-      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_a28baac3-7e7e-4549-96e4-c86e00dd1f14.jpg?v=1733598390" type="image/jpeg" length="0" />
+      <pubDate>Sat, 12 Jul 2025 19:56:53 +0000</pubDate>
+      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_a28baac3-7e7e-4549-96e4-c86e00dd1f14.jpg?v=1733598390" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>รถใหม่เข้า: FORD RANGER 2.2 Cab XLT 6sp 4WD</title>
@@ -453,69 +162,10 @@ D-MAX Hi-Lander 2.5 X-SERIES Ddi i-TEQ SUPER PLATINUM เกียร์ธร�
 🌐 ดูรายละเอียดเพิ่มเติม: https://nblues.github.io/recommended-car/car-detail/ford-ranger-2-2-cab-xlt-6sp-4wd.html
 
 เข้าใหม่กระบะโอเพ่นแคป เกียร์ธรรมดา 4x4 (รถมือแรกเดิมๆ) สภาพดีมากพร้อมใช้งานครับ FORD RANGER 2.2 Cab XLT 6sp 4WD เกียร์ธรรมดา รถสวยเดิมๆ มือเดียวออกห้างเลยครับ เครื่องยนต์ 2.2 DIESEL AIRBAG ABS ปี 201...</description>
-      <ns1:encoded>&lt;![CDATA[
-&lt;div style="font-family: 'Prompt', sans-serif; max-width: 600px; margin: 0 auto;"&gt;
-  &lt;h2 style="color: #f47b20; margin: 0 0 1rem;"&gt;FORD RANGER 2.2 Cab XLT 6sp 4WD&lt;/h2&gt;
-  
-  &lt;img src="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_ee25ea88-901f-4f0e-8331-10bf37d7ccbd.jpg?v=1734101780" alt="FORD RANGER 2.2 Cab XLT 6sp 4WD" style="width: 100%; max-width: 500px; border-radius: 8px; margin: 1rem 0;"&gt;
-  
-  &lt;div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50; margin: 0 0 1rem;"&gt;📊 ข้อมูลรถยนต์&lt;/h3&gt;
-    &lt;table style="width: 100%; border-collapse: collapse;"&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ราคา:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem; color: #e74c3c; font-weight: bold; font-size: 1.2em;"&gt;฿369,000&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ยี่ห้อ:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;FORD&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;สถานที่:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;เชียงใหม่, ประเทศไทย&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;การรับประกัน:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;1 ปีเต็ม&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/table&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="background: linear-gradient(135deg, #f47b20, #e66a16); color: white; padding: 1.5rem; border-radius: 8px; margin: 1rem 0; text-align: center;"&gt;
-    &lt;h3 style="margin: 0 0 1rem;"&gt;🎯 สิทธิพิเศษ&lt;/h3&gt;
-    &lt;ul style="list-style: none; padding: 0; margin: 0;"&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🆓 ฟรีดาวน์ 100%&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🛡️ รับประกัน 1 ปี&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🚚 ส่งฟรีทั่วไทย&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;💰 ผ่อนเริ่มต้น 3,000/เดือน&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="margin: 1.5rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50;"&gt;📝 รายละเอียด&lt;/h3&gt;
-    &lt;p style="line-height: 1.6; color: #555;"&gt;เข้าใหม่กระบะโอเพ่นแคป เกียร์ธรรมดา 4x4 (รถมือแรกเดิมๆ) สภาพดีมากพร้อมใช้งานครับ FORD RANGER 2.2 Cab XLT 6sp 4WD เกียร์ธรรมดา รถสวยเดิมๆ มือเดียวออกห้างเลยครับ เครื่องยนต์ 2.2 DIESEL AIRBAG ABS ปี 2017/2560 ตัวถังสวยสีสวย สภาพดีมากๆ ระบบเครื่องยนต์ เกียร์ ช่วงล่าง ดีมากๆ สภาพดีมาก สะอาด พร้อมใช้เลยครับ เจ้าของดูแลดีสุดๆ ไม่เคยมีอุบัติเหตุเฉี่ยวชน100% รับรองไม่ผิดหวัง สด 369000 ฟรีดาวน์ เครดิตดีเกินหนึ่งปีขึ้นไปมีรายได้ชัดเจน ( เชียงใหม่ เชียงราย ลำพูน ลำปาง แพร่) ส่งค่างวด 7900 / 72 งวด ดาวน์ 34...&lt;/p&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="text-align: center; margin: 2rem 0;"&gt;
-    &lt;a href="https://www.kn-goodcar.com/car-detail/ford-ranger-2-2-cab-xlt-6sp-4wd" 
-       style="background: #f47b20; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;"&gt;
-      📞 ติดต่อสอบถาม
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-  &lt;hr style="border: none; border-top: 1px solid #eee; margin: 2rem 0;"&gt;
-  
-  &lt;div style="text-align: center; color: #7f8c8d; font-size: 0.9em;"&gt;
-    &lt;p&gt;ครูหนึ่งรถสวย - รถมือสองคุณภาพเชียงใหม่&lt;/p&gt;
-    &lt;p&gt;📧 ติดต่อ: info@kn-goodcar.com | 📞 โทร: xxx-xxx-xxxx&lt;/p&gt;
-    &lt;p&gt;🌐 เว็บไซต์: &lt;a href="https://nblues.github.io/recommended-car" style="color: #f47b20;"&gt;https://nblues.github.io/recommended-car&lt;/a&gt;&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-]]&gt;</ns1:encoded>
       <category>รถยนต์FORD</category>
       <dc:creator>ครูหนึ่งรถสวย</dc:creator>
-      <pubDate>Sat, 12 Jul 2025 18:54:04 +0000</pubDate>
-      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_ee25ea88-901f-4f0e-8331-10bf37d7ccbd.jpg?v=1734101780" type="image/jpeg" length="0" />
+      <pubDate>Sat, 12 Jul 2025 18:56:53 +0000</pubDate>
+      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_ee25ea88-901f-4f0e-8331-10bf37d7ccbd.jpg?v=1734101780" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>รถใหม่เข้า: FORD RANGER 4dr DCab XLT M/T 6sp 2WD 2.2DCT เกียร์ธรรมดา</title>
@@ -536,70 +186,11 @@ D-MAX Hi-Lander 2.5 X-SERIES Ddi i-TEQ SUPER PLATINUM เกียร์ธร�
 📞 สนใจติดต่อ: ครูหนึ่งรถสวย
 🌐 ดูรายละเอียดเพิ่มเติม: https://nblues.github.io/recommended-car/car-detail/ford-ranger-4dr-dcab-xlt-m-t-6sp-2wd-2-2dct-เกียร์ธรรมดา.html
 
-&amp;quot;แร็พเตอร์&amp;quot;หล่อๆสไตล์ออฟโรด แต่งครบจบกระบวนท่า RAPTOR กระบะ 4 ประตู เกียร์ธรรมดา มือแรกเดิมๆ FORD RANGER 4dr DCab XLT M/T 6sp 2WD 2.2DCT เกียร์ธรรมดา รถสวยเดิมๆ (มือแรกออกห้างเลยครับ) เครื่องยนต์ 2.2 ...</description>
-      <ns1:encoded>&lt;![CDATA[
-&lt;div style="font-family: 'Prompt', sans-serif; max-width: 600px; margin: 0 auto;"&gt;
-  &lt;h2 style="color: #f47b20; margin: 0 0 1rem;"&gt;FORD RANGER 4dr DCab XLT M/T 6sp 2WD 2.2DCT เกียร์ธรรมดา&lt;/h2&gt;
-  
-  &lt;img src="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_0cc9bf61-5a06-4507-9ef0-1faf428c9e19.jpg?v=1742060658" alt="FORD RANGER 4dr DCab XLT M/T 6sp 2WD 2.2DCT เกียร์ธรรมดา" style="width: 100%; max-width: 500px; border-radius: 8px; margin: 1rem 0;"&gt;
-  
-  &lt;div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50; margin: 0 0 1rem;"&gt;📊 ข้อมูลรถยนต์&lt;/h3&gt;
-    &lt;table style="width: 100%; border-collapse: collapse;"&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ราคา:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem; color: #e74c3c; font-weight: bold; font-size: 1.2em;"&gt;฿469,000&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ยี่ห้อ:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;FORD&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;สถานที่:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;เชียงใหม่, ประเทศไทย&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;การรับประกัน:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;1 ปีเต็ม&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/table&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="background: linear-gradient(135deg, #f47b20, #e66a16); color: white; padding: 1.5rem; border-radius: 8px; margin: 1rem 0; text-align: center;"&gt;
-    &lt;h3 style="margin: 0 0 1rem;"&gt;🎯 สิทธิพิเศษ&lt;/h3&gt;
-    &lt;ul style="list-style: none; padding: 0; margin: 0;"&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🆓 ฟรีดาวน์ 100%&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🛡️ รับประกัน 1 ปี&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🚚 ส่งฟรีทั่วไทย&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;💰 ผ่อนเริ่มต้น 3,000/เดือน&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="margin: 1.5rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50;"&gt;📝 รายละเอียด&lt;/h3&gt;
-    &lt;p style="line-height: 1.6; color: #555;"&gt;&amp;quot;แร็พเตอร์&amp;quot;หล่อๆสไตล์ออฟโรด แต่งครบจบกระบวนท่า RAPTOR กระบะ 4 ประตู เกียร์ธรรมดา มือแรกเดิมๆ FORD RANGER 4dr DCab XLT M/T 6sp 2WD 2.2DCT เกียร์ธรรมดา รถสวยเดิมๆ (มือแรกออกห้างเลยครับ) เครื่องยนต์ 2.2 DIESEL AIRBAG ABS M/T 2019/2562 รถสวย สภาพดีมากๆ ระบบเครื่องยนต์ เกียร์ ช่วงล่าง ดีมากๆ กันชนท้ายออฟโรดล้อแม็กสวย ยาง RAPTOR ใหม่เอี่ยม สภาพดีมาก ใหม่กริ๊ปสะอาดสะอ้าน พร้อมใช้เลยครับ เจ้าของดูแลดี หน้าเดิม ท้ายเดิม ตัวถังบางเดิม ไม่มีอุบัติเหตุไม่มีจมน้ำล้านเปอร์เซ็นต์ได้คันนี้ไปรับรองไม่ผิดหวัง ทรง...&lt;/p&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="text-align: center; margin: 2rem 0;"&gt;
-    &lt;a href="https://www.kn-goodcar.com/car-detail/ford-ranger-4dr-dcab-xlt-m-t-6sp-2wd-2-2dct-เกียร์ธรรมดา" 
-       style="background: #f47b20; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;"&gt;
-      📞 ติดต่อสอบถาม
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-  &lt;hr style="border: none; border-top: 1px solid #eee; margin: 2rem 0;"&gt;
-  
-  &lt;div style="text-align: center; color: #7f8c8d; font-size: 0.9em;"&gt;
-    &lt;p&gt;ครูหนึ่งรถสวย - รถมือสองคุณภาพเชียงใหม่&lt;/p&gt;
-    &lt;p&gt;📧 ติดต่อ: info@kn-goodcar.com | 📞 โทร: xxx-xxx-xxxx&lt;/p&gt;
-    &lt;p&gt;🌐 เว็บไซต์: &lt;a href="https://nblues.github.io/recommended-car" style="color: #f47b20;"&gt;https://nblues.github.io/recommended-car&lt;/a&gt;&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-]]&gt;</ns1:encoded>
+&quot;แร็พเตอร์&quot;หล่อๆสไตล์ออฟโรด แต่งครบจบกระบวนท่า RAPTOR กระบะ 4 ประตู เกียร์ธรรมดา มือแรกเดิมๆ FORD RANGER 4dr DCab XLT M/T 6sp 2WD 2.2DCT เกียร์ธรรมดา รถสวยเดิมๆ (มือแรกออกห้างเลยครับ) เครื่องยนต์ 2.2 ...</description>
       <category>รถยนต์FORD</category>
       <dc:creator>ครูหนึ่งรถสวย</dc:creator>
-      <pubDate>Sat, 12 Jul 2025 17:54:04 +0000</pubDate>
-      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_0cc9bf61-5a06-4507-9ef0-1faf428c9e19.jpg?v=1742060658" type="image/jpeg" length="0" />
+      <pubDate>Sat, 12 Jul 2025 17:56:53 +0000</pubDate>
+      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_0cc9bf61-5a06-4507-9ef0-1faf428c9e19.jpg?v=1742060658" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>รถใหม่เข้า: Nissan ALMERA 1.2 VL Sportech A/T</title>
@@ -621,69 +212,10 @@ D-MAX Hi-Lander 2.5 X-SERIES Ddi i-TEQ SUPER PLATINUM เกียร์ธร�
 🌐 ดูรายละเอียดเพิ่มเติม: https://nblues.github.io/recommended-car/car-detail/nissan-almera-1-2-vl-sportech-a-t.html
 
 Nissan ALMERA 1.2 VL Sportech A/T AIRBAG ABS (เกียร์ออโต้) ปี 2016/2559 รุ่นท๊อป ภายในสวยสภาพสวยกริ๊บ ใหม่กริ๊บแอร์เย็นฉ่ำ ระบบไฟฟ้าดี เครื่องยนต์ ระบบเกียร์ ช่วงล่าง สีสวย พร้อมใช้งานเลยครับ ไม่มีอุบ...</description>
-      <ns1:encoded>&lt;![CDATA[
-&lt;div style="font-family: 'Prompt', sans-serif; max-width: 600px; margin: 0 auto;"&gt;
-  &lt;h2 style="color: #f47b20; margin: 0 0 1rem;"&gt;Nissan ALMERA 1.2 VL Sportech A/T&lt;/h2&gt;
-  
-  &lt;img src="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_4bf49dc6-6203-4b9c-877c-81083ac62698.jpg?v=1742064446" alt="Nissan ALMERA 1.2 VL Sportech A/T" style="width: 100%; max-width: 500px; border-radius: 8px; margin: 1rem 0;"&gt;
-  
-  &lt;div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50; margin: 0 0 1rem;"&gt;📊 ข้อมูลรถยนต์&lt;/h3&gt;
-    &lt;table style="width: 100%; border-collapse: collapse;"&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ราคา:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem; color: #e74c3c; font-weight: bold; font-size: 1.2em;"&gt;฿219,000&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ยี่ห้อ:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;Nissan&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;สถานที่:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;เชียงใหม่, ประเทศไทย&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;การรับประกัน:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;1 ปีเต็ม&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/table&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="background: linear-gradient(135deg, #f47b20, #e66a16); color: white; padding: 1.5rem; border-radius: 8px; margin: 1rem 0; text-align: center;"&gt;
-    &lt;h3 style="margin: 0 0 1rem;"&gt;🎯 สิทธิพิเศษ&lt;/h3&gt;
-    &lt;ul style="list-style: none; padding: 0; margin: 0;"&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🆓 ฟรีดาวน์ 100%&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🛡️ รับประกัน 1 ปี&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🚚 ส่งฟรีทั่วไทย&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;💰 ผ่อนเริ่มต้น 3,000/เดือน&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="margin: 1.5rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50;"&gt;📝 รายละเอียด&lt;/h3&gt;
-    &lt;p style="line-height: 1.6; color: #555;"&gt;Nissan ALMERA 1.2 VL Sportech A/T AIRBAG ABS (เกียร์ออโต้) ปี 2016/2559 รุ่นท๊อป ภายในสวยสภาพสวยกริ๊บ ใหม่กริ๊บแอร์เย็นฉ่ำ ระบบไฟฟ้าดี เครื่องยนต์ ระบบเกียร์ ช่วงล่าง สีสวย พร้อมใช้งานเลยครับ ไม่มีอุบัติเหตุไม่มีชนล้านเปอร์เซ็นต์ สด 219000 ฟรีดาวน์ มีเครดิตดี เกิน 1 ปี มีรายได้ชัดเจน ส่ง 4800/72 ดาวน์43000 ไม่ติดบูโร ทำงานประจำ 1 ปีขึ้นไปครับ ส่ง 3950 / 72 #ครูหนึ่งรถสวย #รถมือสองสภาพดี #ส่งฟรีทั่วประเทศ เหมือนเดิมครับ...&lt;/p&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="text-align: center; margin: 2rem 0;"&gt;
-    &lt;a href="https://www.kn-goodcar.com/car-detail/nissan-almera-1-2-vl-sportech-a-t" 
-       style="background: #f47b20; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;"&gt;
-      📞 ติดต่อสอบถาม
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-  &lt;hr style="border: none; border-top: 1px solid #eee; margin: 2rem 0;"&gt;
-  
-  &lt;div style="text-align: center; color: #7f8c8d; font-size: 0.9em;"&gt;
-    &lt;p&gt;ครูหนึ่งรถสวย - รถมือสองคุณภาพเชียงใหม่&lt;/p&gt;
-    &lt;p&gt;📧 ติดต่อ: info@kn-goodcar.com | 📞 โทร: xxx-xxx-xxxx&lt;/p&gt;
-    &lt;p&gt;🌐 เว็บไซต์: &lt;a href="https://nblues.github.io/recommended-car" style="color: #f47b20;"&gt;https://nblues.github.io/recommended-car&lt;/a&gt;&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-]]&gt;</ns1:encoded>
       <category>รถยนต์Nissan</category>
       <dc:creator>ครูหนึ่งรถสวย</dc:creator>
-      <pubDate>Sat, 12 Jul 2025 16:54:04 +0000</pubDate>
-      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_4bf49dc6-6203-4b9c-877c-81083ac62698.jpg?v=1742064446" type="image/jpeg" length="0" />
+      <pubDate>Sat, 12 Jul 2025 16:56:53 +0000</pubDate>
+      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_4bf49dc6-6203-4b9c-877c-81083ac62698.jpg?v=1742064446" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>รถใหม่เข้า: TOYOTA ALPHARD 2.4V (เบนซิน)</title>
@@ -705,69 +237,10 @@ Nissan ALMERA 1.2 VL Sportech A/T AIRBAG ABS (เกียร์ออโต้)
 🌐 ดูรายละเอียดเพิ่มเติม: https://nblues.github.io/recommended-car/car-detail/toyota-alphard-2-4v-เบนซิน.html
 
 รถสวยเข้าใหม่ TOYOTA ALPHARD 2.4V (เบนซิน) รถปี 2554 ออกศูนย์ TOYOTA เชียงใหม่ (มือแรกเดิมๆ) มีประวัติเช็คศูนย์โตโยต้าตลอดทุกระยะ ตัวรถไม่เคยมีอุบัติเหตุ 100% รถสวยสภาพสมบูรณ์พร้อมใช้งาน สด 699000 ดาว...</description>
-      <ns1:encoded>&lt;![CDATA[
-&lt;div style="font-family: 'Prompt', sans-serif; max-width: 600px; margin: 0 auto;"&gt;
-  &lt;h2 style="color: #f47b20; margin: 0 0 1rem;"&gt;TOYOTA ALPHARD 2.4V (เบนซิน)&lt;/h2&gt;
-  
-  &lt;img src="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_150c5ddc-e093-486a-ba36-ee8fc3a4ab89.jpg?v=1742096156" alt="TOYOTA ALPHARD 2.4V (เบนซิน)" style="width: 100%; max-width: 500px; border-radius: 8px; margin: 1rem 0;"&gt;
-  
-  &lt;div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50; margin: 0 0 1rem;"&gt;📊 ข้อมูลรถยนต์&lt;/h3&gt;
-    &lt;table style="width: 100%; border-collapse: collapse;"&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ราคา:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem; color: #e74c3c; font-weight: bold; font-size: 1.2em;"&gt;฿699,000&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ยี่ห้อ:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;TOYOTA&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;สถานที่:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;เชียงใหม่, ประเทศไทย&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;การรับประกัน:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;1 ปีเต็ม&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/table&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="background: linear-gradient(135deg, #f47b20, #e66a16); color: white; padding: 1.5rem; border-radius: 8px; margin: 1rem 0; text-align: center;"&gt;
-    &lt;h3 style="margin: 0 0 1rem;"&gt;🎯 สิทธิพิเศษ&lt;/h3&gt;
-    &lt;ul style="list-style: none; padding: 0; margin: 0;"&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🆓 ฟรีดาวน์ 100%&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🛡️ รับประกัน 1 ปี&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🚚 ส่งฟรีทั่วไทย&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;💰 ผ่อนเริ่มต้น 3,000/เดือน&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="margin: 1.5rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50;"&gt;📝 รายละเอียด&lt;/h3&gt;
-    &lt;p style="line-height: 1.6; color: #555;"&gt;รถสวยเข้าใหม่ TOYOTA ALPHARD 2.4V (เบนซิน) รถปี 2554 ออกศูนย์ TOYOTA เชียงใหม่ (มือแรกเดิมๆ) มีประวัติเช็คศูนย์โตโยต้าตลอดทุกระยะ ตัวรถไม่เคยมีอุบัติเหตุ 100% รถสวยสภาพสมบูรณ์พร้อมใช้งาน สด 699000 ดาวน์ 229000 ไม่ติดเครดิตบูโร มีรายได้ชัดเจนครับ ส่ง11134 / 60 งวด #ครูหนึ่งรถสวย #รถมือสองสภาพดี #ส่งฟรีทั่วประเทศ เหมือนเดิมครับเพื่อนๆ...&lt;/p&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="text-align: center; margin: 2rem 0;"&gt;
-    &lt;a href="https://www.kn-goodcar.com/car-detail/toyota-alphard-2-4v-เบนซิน" 
-       style="background: #f47b20; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;"&gt;
-      📞 ติดต่อสอบถาม
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-  &lt;hr style="border: none; border-top: 1px solid #eee; margin: 2rem 0;"&gt;
-  
-  &lt;div style="text-align: center; color: #7f8c8d; font-size: 0.9em;"&gt;
-    &lt;p&gt;ครูหนึ่งรถสวย - รถมือสองคุณภาพเชียงใหม่&lt;/p&gt;
-    &lt;p&gt;📧 ติดต่อ: info@kn-goodcar.com | 📞 โทร: xxx-xxx-xxxx&lt;/p&gt;
-    &lt;p&gt;🌐 เว็บไซต์: &lt;a href="https://nblues.github.io/recommended-car" style="color: #f47b20;"&gt;https://nblues.github.io/recommended-car&lt;/a&gt;&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-]]&gt;</ns1:encoded>
       <category>รถยนต์TOYOTA</category>
       <dc:creator>ครูหนึ่งรถสวย</dc:creator>
-      <pubDate>Sat, 12 Jul 2025 15:54:04 +0000</pubDate>
-      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_150c5ddc-e093-486a-ba36-ee8fc3a4ab89.jpg?v=1742096156" type="image/jpeg" length="0" />
+      <pubDate>Sat, 12 Jul 2025 15:56:53 +0000</pubDate>
+      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_150c5ddc-e093-486a-ba36-ee8fc3a4ab89.jpg?v=1742096156" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>รถใหม่เข้า: TOYOTA YARIS ATIVE PREMIUM รองท็อป ปี 2023 (2566)</title>
@@ -789,69 +262,10 @@ Nissan ALMERA 1.2 VL Sportech A/T AIRBAG ABS (เกียร์ออโต้)
 🌐 ดูรายละเอียดเพิ่มเติม: https://nblues.github.io/recommended-car/car-detail/toyota-yaris-ative-premium-รองท็อป-ปี-2023-2566.html
 
 เหมือนได้รถใหม่ Yaris Ative Premium 2023 (รถมือเดียว)สภาพป้ายแดง ไมล์ 5 หมื่น กม. ประวัติศูนย์ฯทุกระยะ 😍 TOYOTA YARIS ATIVE PREMIUM รองท็อป ปี 2023 (2566) สี เทา รองTopเครื่องยนต์ เบนซิน 1,200 cc. 🎯 ถ...</description>
-      <ns1:encoded>&lt;![CDATA[
-&lt;div style="font-family: 'Prompt', sans-serif; max-width: 600px; margin: 0 auto;"&gt;
-  &lt;h2 style="color: #f47b20; margin: 0 0 1rem;"&gt;TOYOTA YARIS ATIVE PREMIUM รองท็อป ปี 2023 (2566)&lt;/h2&gt;
-  
-  &lt;img src="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_400f3dd5-758d-450c-b299-70f374c1b8bc.jpg?v=1745298927" alt="TOYOTA YARIS ATIVE PREMIUM รองท็อป ปี 2023 (2566)" style="width: 100%; max-width: 500px; border-radius: 8px; margin: 1rem 0;"&gt;
-  
-  &lt;div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50; margin: 0 0 1rem;"&gt;📊 ข้อมูลรถยนต์&lt;/h3&gt;
-    &lt;table style="width: 100%; border-collapse: collapse;"&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ราคา:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem; color: #e74c3c; font-weight: bold; font-size: 1.2em;"&gt;฿539,000&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;ยี่ห้อ:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;TOYOTA&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;สถานที่:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;เชียงใหม่, ประเทศไทย&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr style="background: #fff;"&gt;
-        &lt;td style="padding: 0.5rem; font-weight: bold; color: #7f8c8d;"&gt;การรับประกัน:&lt;/td&gt;
-        &lt;td style="padding: 0.5rem;"&gt;1 ปีเต็ม&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/table&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="background: linear-gradient(135deg, #f47b20, #e66a16); color: white; padding: 1.5rem; border-radius: 8px; margin: 1rem 0; text-align: center;"&gt;
-    &lt;h3 style="margin: 0 0 1rem;"&gt;🎯 สิทธิพิเศษ&lt;/h3&gt;
-    &lt;ul style="list-style: none; padding: 0; margin: 0;"&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🆓 ฟรีดาวน์ 100%&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🛡️ รับประกัน 1 ปี&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;🚚 ส่งฟรีทั่วไทย&lt;/li&gt;
-      &lt;li style="margin: 0.5rem 0;"&gt;💰 ผ่อนเริ่มต้น 3,000/เดือน&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="margin: 1.5rem 0;"&gt;
-    &lt;h3 style="color: #2c3e50;"&gt;📝 รายละเอียด&lt;/h3&gt;
-    &lt;p style="line-height: 1.6; color: #555;"&gt;เหมือนได้รถใหม่ Yaris Ative Premium 2023 (รถมือเดียว)สภาพป้ายแดง ไมล์ 5 หมื่น กม. ประวัติศูนย์ฯทุกระยะ 😍 TOYOTA YARIS ATIVE PREMIUM รองท็อป ปี 2023 (2566) สี เทา รองTopเครื่องยนต์ เบนซิน 1,200 cc. 🎯 ถุงลมนิรภัยรอบคัน เบรค ABS🎯 Bluetooth / Apple CarPlay และ Android Auto / T-Connect / USB🎯 ระบบช่วยเตือนมุมอับสายตาที่กระจกมองข้าง BSM และช่วยเตือนขณะถอยรถ RCTA🎯 พวงมาลัยมัลติฟังก์ชั่น 🎯 LaneWatch🎯 ระบบเบรคมือไฟฟ้า 🎯 เบาะหนังทั้งคัน 🎯 พวงมาลัยพาวเวอร์ไฟฟ้า 🎯 ไฟหน้าแบบ Full LED, ไฟท้าย LED🎯 ระบบกันลื่น...&lt;/p&gt;
-  &lt;/div&gt;
-  
-  &lt;div style="text-align: center; margin: 2rem 0;"&gt;
-    &lt;a href="https://www.kn-goodcar.com/car-detail/toyota-yaris-ative-premium-รองท็อป-ปี-2023-2566" 
-       style="background: #f47b20; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;"&gt;
-      📞 ติดต่อสอบถาม
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-  &lt;hr style="border: none; border-top: 1px solid #eee; margin: 2rem 0;"&gt;
-  
-  &lt;div style="text-align: center; color: #7f8c8d; font-size: 0.9em;"&gt;
-    &lt;p&gt;ครูหนึ่งรถสวย - รถมือสองคุณภาพเชียงใหม่&lt;/p&gt;
-    &lt;p&gt;📧 ติดต่อ: info@kn-goodcar.com | 📞 โทร: xxx-xxx-xxxx&lt;/p&gt;
-    &lt;p&gt;🌐 เว็บไซต์: &lt;a href="https://nblues.github.io/recommended-car" style="color: #f47b20;"&gt;https://nblues.github.io/recommended-car&lt;/a&gt;&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-]]&gt;</ns1:encoded>
       <category>รถยนต์TOYOTA</category>
       <dc:creator>ครูหนึ่งรถสวย</dc:creator>
-      <pubDate>Sat, 12 Jul 2025 14:54:04 +0000</pubDate>
-      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_400f3dd5-758d-450c-b299-70f374c1b8bc.jpg?v=1745298927" type="image/jpeg" length="0" />
+      <pubDate>Sat, 12 Jul 2025 14:56:53 +0000</pubDate>
+      <enclosure url="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_400f3dd5-758d-450c-b299-70f374c1b8bc.jpg?v=1745298927" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
