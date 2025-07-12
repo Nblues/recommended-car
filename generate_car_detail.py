@@ -51,7 +51,10 @@ TEMPLATE = """<!DOCTYPE html>
 </html>
 """
 for car in cars:
-    html = TEMPLATE.format(**car)
+    # Convert price to int for formatting
+    car_copy = car.copy()
+    car_copy['price'] = int(car['price'])
+    html = TEMPLATE.format(**car_copy)
     with open(f'docs/car-detail/{car["handle"]}.html', 'w', encoding='utf-8') as f:
         f.write(html)
 print("Generate car-detail pages DONE.")
