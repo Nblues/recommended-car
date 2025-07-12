@@ -49,12 +49,11 @@
     <a href="all-cars-1.html" class="btn-allcars">ดูรถทั้งหมด &rarr;</a>
   </div>
   <script>
-    // ดึง json ดิบแม่งจาก cars.json ใน docs
+    // ดึงรถจาก cars.json บ้านๆ
     async function fetchMiniCars() {
       let res = await fetch("cars.json");
       let cars = await res.json();
-      // โชว์แค่ 6 คันแรกพอ
-      return cars.slice(0, 6);
+      return cars.slice(0, 6); // เอาแค่ 6 คันล่าสุด
     }
     function renderMiniCars(cars) {
       let html = '';
@@ -66,12 +65,14 @@
         "itemListElement": []
       };
       cars.forEach((car, idx) => {
-        // รูปเอาอันแรก ถ้าไม่มีใส่ noimage.jpg
-        const img = (car.images && car.images[0]) ? car.images[0] : 'https://chiangraiusedcar.com/noimage.jpg';
+        // รองรับ img (string) หรือ images (array)
+        const img = car.img || (car.images && car.images[0]) || 'https://chiangraiusedcar.com/noimage.jpg';
         const price = car.price ? Number(car.price).toLocaleString('th-TH') : '-';
         const status = car.status || 'update!';
+        const handle = car.handle || '';
+        const detailLink = car.link || (`car-detail.html?handle=${encodeURIComponent(handle)}`);
         html += `<div class='car-mini'>
-          <a href="car-detail.html?handle=${encodeURIComponent(car.handle)}">
+          <a href="${detailLink}">
             <img src="${img}" alt="${car.title}" loading="lazy"/>
             <div class="car-title">${car.title}</div>
             <div class="car-price">฿${price}</div>
@@ -83,7 +84,7 @@
           "position": idx+1,
           "name": car.title,
           "image": img,
-          "url": `https://chiangraiusedcar.com/car-detail.html?handle=${encodeURIComponent(car.handle)}`,
+          "url": location.origin + "/" + detailLink.replace(/^\.\//, ""),
           "description": car.desc || ""
         });
       });
