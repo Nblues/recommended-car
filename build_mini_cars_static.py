@@ -185,7 +185,7 @@ def generate_json_ld(cars):
         # Individual Product Schema
         product_schema = {
             "@type": "Product",
-            "@id": f"https://www.kn-goodcar.com/products/{car.get('handle', '')}",
+            "@id": f"https://www.kn-goodcar.com/car-detail/{car.get('handle', '')}",
             "name": car.get("title", ""),
             "description": car.get("desc", "")[:500],  # Limit description length
             "image": image_url,
