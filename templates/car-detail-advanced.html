@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="th" itemscope itemtype="https://schema.org/WebPage">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{car_title} | ครูหนึ่งรถสวย - รถมือสองเชียงใหม่</title>
+  <meta name="description" content="{car_description}">
+  <link rel="canonical" href="{car_url}">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="{car_url}">
+  <meta property="og:title" content="{car_title} | ครูหนึ่งรถสวย">
+  <meta property="og:description" content="{car_description}">
+  <meta property="og:image" content="{car_main_image}">
+  <meta property="og:site_name" content="ครูหนึ่งรถสวย">
+  <meta property="og:locale" content="th_TH">
+  <meta property="product:price:amount" content="{car_price}">
+  <meta property="product:price:currency" content="THB">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{car_url}">
+  <meta name="twitter:title" content="{car_title} | ครูหนึ่งรถสวย">
+  <meta name="twitter:description" content="{car_description}">
+  <meta name="twitter:image" content="{car_main_image}">
+  
+  <!-- SEO Meta -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="bingbot" content="index, follow">
+  <meta name="author" content="ครูหนึ่งรถสวย">
+  <meta name="theme-color" content="#f47b20">
+  
+  <!-- Core Web Vitals Optimization -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  <link rel="dns-prefetch" href="//www.kn-goodcar.com">
+  
+  <!-- Critical CSS Inline -->
+  <style>
+    /* Critical CSS สำหรับ LCP < 1.2s */
+    body{{font-family:'Prompt',sans-serif;margin:0;background:#f7f7fb;line-height:1.6;color:#2c3e50}}
+    .container{{max-width:1200px;margin:0 auto;padding:1rem}}
+    .car-header{{background:#fff;border-radius:12px;padding:2rem;margin-bottom:2rem;box-shadow:0 4px 12px rgba(0,0,0,.08)}}
+    .car-title{{font-size:2rem;font-weight:700;margin:0 0 1rem;color:#2c3e50}}
+    .car-price{{font-size:2.5rem;color:#e74c3c;font-weight:800;margin:0 0 1rem}}
+    .car-badge{{display:inline-block;background:#27ae60;color:#fff;padding:.5rem 1rem;border-radius:20px;font-size:.9rem;margin:.5rem .5rem 0 0}}
+    .car-gallery{{display:grid;grid-template-columns:2fr 1fr;gap:1rem;margin:2rem 0}}
+    .main-image{{border-radius:8px;overflow:hidden;background:#f0f0f0}}
+    .thumbnail-grid{{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}}
+    .thumbnail{{border-radius:6px;overflow:hidden;background:#f0f0f0;cursor:pointer;transition:transform .2s}}
+    .thumbnail:hover{{transform:scale(1.05)}}
+    .car-details{{background:#fff;border-radius:12px;padding:2rem;margin-bottom:2rem;box-shadow:0 4px 12px rgba(0,0,0,.08)}}
+    .detail-grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1rem 0}}
+    .detail-item{{padding:1rem;background:#f8f9fa;border-radius:8px;border-left:4px solid #f47b20}}
+    .detail-label{{font-weight:600;color:#7f8c8d;font-size:.9rem}}
+    .detail-value{{font-size:1.1rem;margin-top:.25rem}}
+    .cta-section{{background:linear-gradient(135deg,#f47b20,#e66a16);border-radius:12px;padding:2rem;text-align:center;color:#fff;margin:2rem 0}}
+    .cta-button{{display:inline-block;background:#fff;color:#f47b20;padding:1rem 2rem;border-radius:8px;text-decoration:none;font-weight:700;margin:.5rem;transition:transform .2s}}
+    .cta-button:hover{{transform:translateY(-2px)}}
+    .breadcrumb{{margin:1rem 0;font-size:.9rem}}
+    .breadcrumb a{{color:#f47b20;text-decoration:none}}
+    .breadcrumb a:hover{{text-decoration:underline}}
+    @media(max-width:768px){{.car-gallery{{grid-template-columns:1fr}}.car-title{{font-size:1.5rem}}.car-price{{font-size:2rem}}}}
+  </style>
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700;800&display=swap"></noscript>
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json" id="product-schema">
+  {product_schema}
+  </script>
+  
+  <script type="application/ld+json" id="breadcrumb-schema">
+  {breadcrumb_schema}
+  </script>
+  
+  <script type="application/ld+json" id="local-business-schema">
+  {local_business_schema}
+  </script>
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+
+<body>
+  <!-- Breadcrumb Navigation -->
+  <div class="container">
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="/">หน้าแรก</a> › 
+      <a href="/car-detail/">รถทั้งหมด</a> › 
+      <span>{car_title}</span>
+    </nav>
+  </div>
+
+  <!-- Car Header -->
+  <div class="container">
+    <header class="car-header">
+      <h1 class="car-title">{car_title}</h1>
+      <div class="car-price">฿{car_price:,.0f}</div>
+      <div class="car-badges">
+        <span class="car-badge">🚗 {car_brand}</span>
+        <span class="car-badge">📍 เชียงใหม่</span>
+        <span class="car-badge">✅ รับประกัน 1 ปี</span>
+        <span class="car-badge">🚚 ส่งฟรีทั่วไทย</span>
+      </div>
+    </header>
+  </div>
+
+  <!-- Car Gallery -->
+  <div class="container">
+    <section class="car-gallery" aria-label="รูปภาพรถยนต์">
+      <div class="main-image">
+        {hero_image_html}
+      </div>
+      <div class="thumbnail-grid">
+        {thumbnail_images_html}
+      </div>
+    </section>
+  </div>
+
+  <!-- Car Details -->
+  <div class="container">
+    <section class="car-details">
+      <h2>รายละเอียดรถยนต์</h2>
+      <div class="detail-grid">
+        <div class="detail-item">
+          <div class="detail-label">ราคา</div>
+          <div class="detail-value">฿{car_price:,.0f}</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">ยี่ห้อ</div>
+          <div class="detail-value">{car_brand}</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">สถานะ</div>
+          <div class="detail-value">พร้อมขาย</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">การรับประกัน</div>
+          <div class="detail-value">1 ปี</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">การจัดส่ง</div>
+          <div class="detail-value">ฟรีทั่วไทย</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">ไฟแนนซ์</div>
+          <div class="detail-value">ฟรีดาวน์</div>
+        </div>
+      </div>
+      
+      <h3>คำอธิบาย</h3>
+      <div class="car-description">
+        {car_full_description}
+      </div>
+    </section>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="container">
+    <section class="cta-section">
+      <h2>สนใจรถคันนี้?</h2>
+      <p>ติดต่อเราเพื่อดูรถ ทดลองขับ และจัดไฟแนนซ์</p>
+      <a href="{car_link}" class="cta-button" target="_blank" rel="noopener">
+        📞 ติดต่อสอบถาม
+      </a>
+      <a href="tel:+66-xxx-xxx-xxxx" class="cta-button">
+        📲 โทรเลย
+      </a>
+      <a href="/" class="cta-button">
+        🚗 ดูรถอื่น
+      </a>
+    </section>
+  </div>
+
+  <!-- Related Cars -->
+  <div class="container">
+    <section class="related-cars">
+      <h2>รถแนะนำอื่นๆ</h2>
+      <div id="related-cars-grid">
+        <!-- จะถูกโหลดด้วย JavaScript -->
+      </div>
+    </section>
+  </div>
+
+  <!-- Performance Optimization Scripts -->
+  <script>
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {{
+      window.addEventListener('load', () => {{
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('SW registered'))
+          .catch(err => console.log('SW registration failed'));
+      }});
+    }}
+
+    // Image Gallery Functionality
+    document.addEventListener('DOMContentLoaded', function() {{
+      const thumbnails = document.querySelectorAll('.thumbnail img');
+      const mainImage = document.querySelector('.main-image img');
+      
+      thumbnails.forEach(thumb => {{
+        thumb.addEventListener('click', () => {{
+          mainImage.src = thumb.src.replace('_300x225', '_900x675');
+          mainImage.alt = thumb.alt;
+        }});
+      }});
+
+      // Lazy load related cars
+      setTimeout(loadRelatedCars, 2000);
+    }});
+
+    function loadRelatedCars() {{
+      // จะโหลดรถแนะนำอื่นๆ
+      console.log('Loading related cars...');
+    }}
+
+    // Performance monitoring
+    if ('PerformanceObserver' in window) {{
+      const perfObserver = new PerformanceObserver((list) => {{
+        for (const entry of list.getEntries()) {{
+          if (entry.entryType === 'largest-contentful-paint') {{
+            console.log('LCP:', entry.startTime);
+          }}
+        }}
+      }});
+      
+      try {{
+        perfObserver.observe({{entryTypes: ['largest-contentful-paint']}});
+      }} catch (e) {{
+        // Fallback for older browsers
+      }}
+    }}
+  </script>
+
+  <!-- Non-critical CSS -->
+  <link rel="stylesheet" href="/image-optimization.css" media="print" onload="this.media='all'">
+  
+  <!-- JSON-LD for FAQ -->
+  <script type="application/ld+json">
+  {faq_schema}
+  </script>
+
+</body>
+</html>
