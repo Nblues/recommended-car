@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html lang="th" itemscope itemtype="https://schema.org/WebPage">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/plain" rel="author" href="humans.txt">
-
 <!-- Comprehensive Favicon System 2025 -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
-    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/x-icon" href="docs/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="docs/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="docs/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="docs/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="docs/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="docs/android-chrome-512x512.png">
+    <link rel="manifest" href="docs/manifest.json">
     <meta name="msapplication-TileColor" content="#f47b20">
-    <meta name="msapplication-config" content="browserconfig.xml">
+    <meta name="msapplication-config" content="docs/browserconfig.xml">
+    <!-- Remove theme-color for better browser compatibility -->
+    <meta name="color-scheme" content="light">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>รถมือสองเชียงใหม่ เข้าใหม่ 6 คันล่าสุด ฟรีดาวน์ | ครูหนึ่งรถสวย</title>
   <meta name="description" content="รถบ้านเข้าใหม่ 6 คันล่าสุด รถมือสองเชียงใหม่ ฟรีดาวน์ ผ่อนถูก รถบ้านสวย ตรวจสอบได้จริงทุกคัน พร้อมรายละเอียด รูปภาพ สเปคครบ SEO เต็ม">
     <meta name="keywords" content="รถมือสอง, รถมือสองเชียงใหม่, ครูหนึ่งรถสวย, รถยนต์มือสอง, ขายรถมือสอง, ฟรีดาวน์, ส่งฟรีทั่วไทย, Toyota, Honda, Nissan, Ford, Mazda, Hyundai, Isuzu, Mitsubishi, BMW, Mercedes-Benz, รถเก๋ง, รถกระบะ, รถ SUV, รถ MPV, รถ Hybrid, รถดีเซล, รถเบนซิน, เกียร์ออโต้, เกียร์ธรรมดา, ฟรีดาวน์, ผ่อนง่าย, รับประกัน, ตรวจสภาพ, ส่งฟรี, จัดไฟแนนซ์, แลกเปลี่ยน">
@@ -34,8 +36,6 @@
   <meta name="twitter:title" content="รถมือสองเชียงใหม่ 6 คันล่าสุด ฟรีดาวน์ | ครูหนึ่งรถสวย">
   <meta name="twitter:description" content="รวมรถเข้าใหม่ 6 คัน รถบ้านเชียงใหม่ ฟรีดาวน์ ผ่อนถูก เช็คเครดิตไว รถสวยเกรด A ทุกคัน">
   <meta name="twitter:image" content="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_ee2a3ecd-09bf-433d-94c8-09063d62288b.jpg?v=1725842830">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Performance Optimization -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -226,6 +226,49 @@
     .container { max-width: 1000px; margin: 0 auto; padding: 12px; }
     .car-list { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
     
+    /* Navigation Styles */
+    .nav-menu {
+      text-align: center;
+      margin-bottom: 20px;
+      padding: 15px;
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.15);
+    }
+    
+    .nav-menu a {
+      margin: 0 15px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .nav-menu a:hover {
+      background: rgba(255,255,255,.2);
+      transform: translateY(-2px);
+    }
+    
+    .nav-menu a.active {
+      background: #f47b20;
+      box-shadow: 0 2px 8px rgba(244,123,32,.3);
+    }
+    
+    @media (max-width: 768px) {
+      .nav-menu {
+        padding: 10px;
+      }
+      
+      .nav-menu a {
+        margin: 5px;
+        padding: 6px 12px;
+        font-size: 0.9em;
+      }
+    }
+    
     .car-card { 
       background:#fff; 
       border-radius:12px; 
@@ -294,6 +337,12 @@
       font-weight:600; 
       padding:9px 0; 
       margin-top:auto;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-detail:hover {
+      background:#e55a00;
+      transform: translateY(-1px);
     }
     
     /* Mobile Responsive */
@@ -328,10 +377,89 @@
       .btn-detail { padding:8px 0; font-size:.9em; }
     }
     
-    .see-all-btn {display:block; width:230px; margin:30px auto 0 auto; background:#015fa7;color:#fff; font-weight:700; text-align:center; border-radius:9px; padding:12px 0; font-size:1.07em; text-decoration:none;}
+    .see-all-btn {
+      display:block; 
+      width:230px; 
+      margin:30px auto 0 auto; 
+      background:#015fa7;
+      color:#fff; 
+      font-weight:700; 
+      text-align:center; 
+      border-radius:9px; 
+      padding:12px 0; 
+      font-size:1.07em; 
+      text-decoration:none;
+      transition: all 0.3s ease;
+    }
+    
+    .see-all-btn:hover {
+      background:#014a8a;
+      transform: translateY(-2px);
+    }
     
     .loading { text-align:center; padding:40px; color:#666; }
-    .error { text-align:center; padding:40px; color:red; }
+    .error { 
+      text-align:center; 
+      padding:40px; 
+      color:red; 
+      background: #fff5f5;
+      border: 1px solid #fed7d7;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    
+    .error-button {
+      background:#fa6400;
+      color:white;
+      border:none;
+      padding:10px 20px;
+      border-radius:5px;
+      cursor:pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .error-button:hover {
+      background:#e55a00;
+    }
+    
+    /* Loading animation */
+    .loading::after {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #fa6400;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-left: 10px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Error handling for images */
+    .car-card img[alt]:after {
+      content: attr(alt);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,.8);
+      color: #fff;
+      padding: 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      display: none;
+    }
+    
+    .car-card img:not([src]),
+    .car-card img[src=""] {
+      background: #f8f9fa url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8f9fa"/><path d="M30 25h40v50H30z" fill="%23dee2e6"/><circle cx="50" cy="50" r="15" fill="%23adb5bd"/></svg>') center/contain no-repeat;
+    }
   </style>
 
 <script type="application/ld+json">
@@ -417,11 +545,18 @@
 </head>
 <body>
   <div class="container">
+    <!-- Navigation -->
+    <nav class="nav-menu">
+      <a href="index.html" class="active">🏠 หน้าหลัก</a>
+      <a href="current-website.html">📱 เวอร์ชั่นย่อ</a>
+      <a href="docs/mini-cars-static.html">🔗 Widget</a>
+    </nav>
+    
     <h1>🚗 รถมือสองเชียงใหม่ เข้าใหม่ 6 คันล่าสุด</h1>
     <div id="car-list" class="car-list">
       <div class="loading">⏳ กำลังโหลดข้อมูลรถ...</div>
     </div>
-    <a class="see-all-btn" href="https://chiangraiusedcar.com/all-cars-1" target="_blank" rel="noopener">ดูรถทั้งหมด →</a>
+    <a class="see-all-btn" href="#" onclick="showAllCars(); return false;">ดูรถทั้งหมด (20 คัน) →</a>
   </div>
 
   <!-- Async Scripts for Performance -->
@@ -465,7 +600,7 @@
           const shortDesc = car.desc && car.desc.length > 120 ? car.desc.substring(0, 120) + '...' : car.desc || '';
           
           // Generate car detail link
-          const detailLink = `car-detail/${car.handle}.html`;
+          const detailLink = `docs/car-detail/${car.handle}.html`;
           
           return `
             <div class="car-card">
@@ -493,7 +628,7 @@
           <div class="error">
             <h3>⚠️ ไม่สามารถโหลดข้อมูลรถได้</h3>
             <p>กรุณาลองใหม่อีกครั้ง หรือติดต่อ 094-064-9019</p>
-            <button onclick="loadCars()" style="background:#fa6400;color:white;border:none;padding:10px 20px;border-radius:5px;cursor:pointer;">ลองใหม่</button>
+            <button onclick="loadCars()" class="error-button">ลองใหม่</button>
           </div>
         `;
       });
@@ -501,6 +636,41 @@
 
   // Load cars when page loads
   document.addEventListener('DOMContentLoaded', loadCars);
+  
+  // Show all cars function
+  function showAllCars() {
+    fetch("cars.json")
+      .then(response => response.json())
+      .then(cars => {
+        const carListHTML = cars.map(car => {
+          const carImage = car.images && car.images[0] ? car.images[0] : 'https://dummyimage.com/400x300/eeeeee/cccccc&text=No+Image';
+          const formattedPrice = new Intl.NumberFormat('th-TH').format(car.price);
+          const shortDesc = car.desc && car.desc.length > 120 ? car.desc.substring(0, 120) + '...' : car.desc || '';
+          const detailLink = `docs/car-detail/${car.handle}.html`;
+          
+          return `
+            <div class="car-card">
+              <img src="${carImage}" alt="${car.title} รถมือสองเชียงใหม่ ฟรีดาวน์" loading="lazy" decoding="async" width="300" height="200"
+                onerror="this.onerror=null;this.src='https://dummyimage.com/400x300/eeeeee/cccccc&text=No+Image';">
+              <div class="car-info">
+                <div class="car-title">${car.title}</div>
+                <div class="car-price">฿${formattedPrice}</div>
+                <div class="car-status">พร้อมส่งมอบ</div>
+                <div class="car-desc">${shortDesc}</div>
+                <a href="${detailLink}" class="btn-detail">ดูรายละเอียด</a>
+              </div>
+            </div>
+          `;
+        }).join('');
+        
+        document.getElementById('car-list').innerHTML = carListHTML;
+        document.querySelector('.see-all-btn').textContent = 'รถทั้งหมด ' + cars.length + ' คัน ✅';
+        document.querySelector('.see-all-btn').onclick = null;
+      })
+      .catch(error => {
+        console.error('Error loading all cars:', error);
+      });
+  }
   
   // Also try loading after a short delay as fallback
   setTimeout(loadCars, 1000);
