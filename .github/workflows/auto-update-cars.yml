@@ -2,10 +2,10 @@ name: 🚀 Auto-Update Advanced SEO System - รถมือสองเชี�
 
 on:
   schedule:
-    - cron: '*/30 * * * *'  # ทุก 30 นาทีทะลุเพดาน (vs เดิม 2 ชั่วโมง)
-  workflow_dispatch:       # สั่งรันด้วยมือได้
+    - cron: '*/30 * * * *'  # ทุก 30 นาที
+  workflow_dispatch:
   push:
-    branches: [main]       # Auto-deploy เมื่อมีการ push
+    branches: [main]
 
 env:
   SHOPIFY_TOKEN: ${{ secrets.SHOPIFY_TOKEN }}
@@ -41,7 +41,11 @@ jobs:
         id: check-updates
         run: |
           python fetch_api_to_json.py
-          echo "has_changes=$(git diff --quiet cars.json && echo 'false' || echo 'true')" >> $GITHUB_OUTPUT
+          if git diff --quiet cars.json; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
 
       - name: 🎯 Build Advanced SEO System (ถ้ามีรถใหม่)
         if: steps.check-updates.outputs.has_changes == 'true'
@@ -84,11 +88,10 @@ Sitemap: https://nblues.github.io/recommended-car/sitemap.xml
 import json, os
 from pathlib import Path
 
-# ตรวจสอบ Structured Data ในไฟล์ HTML
 html_files = list(Path('docs').rglob('*.html'))
 print(f'🔍 ตรวจสอบ {len(html_files)} ไฟล์ HTML...')
 
-for html_file in html_files[:5]:  # ตรวจสอบแค่ 5 ไฟล์แรก
+for html_file in html_files[:5]:
     content = html_file.read_text(encoding='utf-8')
     if 'application/ld+json' in content:
         print(f'✅ {html_file.name}: มี Structured Data')
@@ -104,7 +107,7 @@ print('🎯 SEO Validation สำเร็จ!')
           git config --global user.email "seo-bot@kn-goodcar.com"
           git config --global user.name "🚀 Advanced SEO Bot"
           git add .
-          git commit -m "🔥 Auto-update: รถใหม่ + SEO ขั้นสูงสุด $(date '+%Y-%m-%d %H:%M') 
+          git commit -m "🔥 Auto-update: รถใหม่ + SEO ขั้นสูงสุด $(date '+%Y-%m-%d %H:%M')
 
           ⚡ Performance: LCP < 1.2s, FID < 50ms, CLS < 0.1
           🎯 SEO: Structured Data, Rich Snippets, Local SEO
