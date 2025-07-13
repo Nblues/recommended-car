@@ -54,7 +54,7 @@ def generate_car_items_html(cars_data):
           <div class="car-title">{car.get('title', '')}</div>
           <div class="car-price">{price_text}</div>
           <div class="car-status">พร้อมส่งมอบ</div>
-          <div class="car-desc">{car.get('desc', '')[:100]}...</div>
+          <div class="car-desc">{car.get('desc', '')[:100] + ('...' if len(car.get('desc', '')) > 100 else '')}</div>
           <a href="{detail_link}" class="btn-detail" target="_blank">ดูรายละเอียด</a>
         </div>
       </div>'''
