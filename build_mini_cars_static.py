@@ -7,8 +7,12 @@ from datetime import datetime
 from pathlib import Path
 
 # Configuration from existing scripts
+import os
+
 SHOP = "www.kn-goodcar.com"
-TOKEN = "bb70cb008199a94b83c98df0e45ada67"
+TOKEN = os.getenv("SHOPIFY_ACCESS_TOKEN")
+if not TOKEN:
+    raise EnvironmentError("SHOPIFY_ACCESS_TOKEN environment variable is not set.")
 API_URL = f"https://{SHOP}/api/2023-07/graphql.json"
 
 HEADERS = {
