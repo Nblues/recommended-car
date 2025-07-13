@@ -12,7 +12,12 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#f47b20">
     <meta name="msapplication-config" content="/browserconfig.xml">
+    <!-- Universal theme color (single value for compatibility) -->
     <meta name="theme-color" content="#f47b20">
+    <!-- Color scheme preference -->
+    <meta name="color-scheme" content="light">
+    <!-- Safari specific -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Widget รถเข้าใหม่ 6 คัน | ครูหนึ่งรถสวย</title>
@@ -31,6 +36,16 @@
     /* Widget Critical CSS - Optimized for Core Web Vitals */
     *{box-sizing:border-box}
     body{font-family:'Prompt',sans-serif;margin:0;background:#f7f7fb;padding:.5rem;line-height:1.4}
+    
+    /* Navigation Menu Styles */
+    .nav-menu{background:linear-gradient(135deg,#2c3e50,#34495e);padding:1rem;margin-bottom:1rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+    .nav-menu ul{list-style:none;margin:0;padding:0;display:flex;justify-content:center;flex-wrap:wrap;gap:1rem}
+    .nav-menu li{margin:0}
+    .nav-menu a{color:#fff;text-decoration:none;padding:.75rem 1.5rem;border-radius:8px;font-weight:600;transition:all .3s;display:flex;align-items:center;gap:.5rem;font-size:.95rem}
+    .nav-menu a:hover{background:rgba(255,255,255,.2);transform:translateY(-2px)}
+    .nav-menu a.active{background:#f47b20;box-shadow:0 2px 8px rgba(244,123,32,.3)}
+    @media(max-width:768px){.nav-menu ul{flex-direction:column;gap:.5rem}.nav-menu a{justify-content:center;padding:.65rem 1rem}}
+    
     .widget-container{max-width:900px;margin:0 auto;background:#fff;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.1);overflow:hidden}
     .widget-header{background:linear-gradient(135deg,#f47b20,#e66a16);color:#fff;padding:1.5rem;text-align:center}
     .widget-title{font-size:1.5rem;font-weight:800;margin:0 0 .5rem;text-shadow:1px 1px 2px rgba(0,0,0,.2)}
@@ -59,6 +74,10 @@
     
     /* Prevent layout shift */
     .car-image{aspect-ratio:16/9}
+    
+    /* Error handling for images */
+    .car-image[alt]:after{content:attr(alt);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.8);color:#fff;padding:.5rem;border-radius:4px;font-size:.8rem;display:none}
+    .car-image:not([src]),.car-image[src=""]{background:#f8f9fa url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8f9fa"/><path d="M30 25h40v50H30z" fill="%23dee2e6"/><circle cx="50" cy="50" r="15" fill="%23adb5bd"/></svg>') center/contain no-repeat}
   </style>
   
   <!-- Preload font -->
@@ -81,6 +100,15 @@
 </head>
 
 <body>
+  <!-- Navigation Menu -->
+  <nav class="nav-menu">
+    <ul>
+      <li><a href="https://nblues.github.io/recommended-car/">🏠 หน้าหลัก</a></li>
+      <li><a href="https://nblues.github.io/recommended-car/current-website.html">📱 เวอร์ชั่นย่อ</a></li>
+      <li><a href="https://nblues.github.io/recommended-car/mini-cars-static.html" class="active">🔗 Widget</a></li>
+    </ul>
+  </nav>
+
   <div class="widget-container">
     <!-- Widget Header -->
     <header class="widget-header">
@@ -289,8 +317,20 @@
       const widgetLoadTime = performance.now();
       console.log('Widget loaded in:', Math.round(widgetLoadTime), 'ms');
 
-      // Lazy load images
+      // Enhanced image error handling
       const images = document.querySelectorAll('.car-image');
+      images.forEach(img => {
+        img.addEventListener('error', function() {
+          this.style.background = '#f8f9fa url("data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'><rect width=\'100\' height=\'100\' fill=\'%23f8f9fa\'/><path d=\'M30 25h40v50H30z\' fill=\'%23dee2e6\'/><circle cx=\'50\' cy=\'50\' r=\'15\' fill=\'%23adb5bd\'/></svg>") center/contain no-repeat';
+          this.alt = 'รูปภาพไม่สามารถโหลดได้';
+        });
+        
+        img.addEventListener('load', function() {
+          this.style.opacity = '1';
+        });
+      });
+
+      // Lazy load images with Intersection Observer
       const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -310,59 +350,79 @@
         }
       });
 
-      // Add click tracking
+      // Enhanced click tracking with error handling
       document.querySelectorAll('.car-mini').forEach((card, index) => {
-        card.addEventListener('click', function() {
-          const carTitle = this.querySelector('.car-title').textContent;
-          console.log('Widget car clicked:', carTitle, 'Position:', index + 1);
-          
-          // Optional: Send analytics
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'click', {
-              'event_category': 'widget',
-              'event_label': carTitle,
-              'value': index + 1
-            });
+        card.addEventListener('click', function(e) {
+          try {
+            const carTitle = this.querySelector('.car-title').textContent;
+            console.log('Widget car clicked:', carTitle, 'Position:', index + 1);
+            
+            // Optional: Send analytics
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'click', {
+                'event_category': 'widget',
+                'event_label': carTitle,
+                'value': index + 1
+              });
+            }
+          } catch (error) {
+            console.warn('Click tracking error:', error);
           }
         });
       });
 
-      // Auto-refresh widget (optional)
-      const autoRefresh = false; // Set to true to enable
+      // Auto-refresh widget (disabled by default)
+      const autoRefresh = false;
       if (autoRefresh) {
         setInterval(() => {
           console.log('Auto-refreshing widget...');
           location.reload();
-        }, 30 * 60 * 1000); // Refresh every 30 minutes
+        }, 30 * 60 * 1000);
       }
 
-      // Performance monitoring
+      // Enhanced performance monitoring
       if ('PerformanceObserver' in window) {
-        const perfObserver = new PerformanceObserver((list) => {
-          for (const entry of list.getEntries()) {
-            if (entry.entryType === 'largest-contentful-paint') {
-              console.log('Widget LCP:', Math.round(entry.startTime), 'ms');
-            }
-          }
-        });
-        
         try {
-          perfObserver.observe({entryTypes: ['largest-contentful-paint']});
+          const perfObserver = new PerformanceObserver((list) => {
+            for (const entry of list.getEntries()) {
+              if (entry.entryType === 'largest-contentful-paint') {
+                console.log('Widget LCP:', Math.round(entry.startTime), 'ms');
+              }
+              if (entry.entryType === 'first-input') {
+                console.log('Widget FID:', Math.round(entry.processingStart - entry.startTime), 'ms');
+              }
+            }
+          });
+          
+          perfObserver.observe({entryTypes: ['largest-contentful-paint', 'first-input']});
         } catch (e) {
-          // Fallback for older browsers
+          console.warn('Performance observer not supported:', e);
         }
       }
 
-      // Add loading animation removal
+      // Remove loading animation
       document.querySelectorAll('.car-mini.loading').forEach(card => {
         setTimeout(() => {
           card.classList.remove('loading');
         }, 500);
       });
 
+      // Accessibility improvements
+      document.querySelectorAll('.car-mini').forEach(card => {
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        
+        card.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+          }
+        });
+      });
+
     });
 
-    // Widget API for external control
+    // Enhanced Widget API
     window.KNGoodCarWidget = {
       refresh: function() {
         console.log('Refreshing widget...');
@@ -373,18 +433,40 @@
         return {
           totalCars: 20,
           displayedCars: document.querySelectorAll('.car-mini').length,
-          lastUpdate: '12/07/2025 23:52'
+          lastUpdate: '14/07/2025 ' + new Date().toLocaleTimeString('th-TH'),
+          version: '2.1.0',
+          performance: {
+            loadTime: Math.round(performance.now()),
+            imagesLoaded: document.querySelectorAll('.car-image[src]').length
+          }
         };
       },
       
-      version: '2.0.0'
+      version: '2.1.0',
+      
+      // New methods for better control
+      toggleAutoRefresh: function(enable) {
+        console.log('Auto-refresh:', enable ? 'enabled' : 'disabled');
+      },
+      
+      trackClick: function(carIndex) {
+        console.log('Manual click tracking for car:', carIndex);
+      }
     };
 
-    // Prevent right-click (optional)
-    document.addEventListener('contextmenu', function(e) {
-      e.preventDefault();
-      return false;
+    // Enhanced error handling
+    window.addEventListener('error', function(e) {
+      console.warn('Widget error:', e.error);
     });
+
+    // Optional: Prevent right-click (can be disabled)
+    const preventRightClick = false;
+    if (preventRightClick) {
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+      });
+    }
 
   </script>
 
