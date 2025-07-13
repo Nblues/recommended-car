@@ -4,22 +4,22 @@
   <meta charset="UTF-8">
   <title>รถมือสองเชียงใหม่ 6 คันล่าสุด ฟรีดาวน์ | ครูหนึ่งรถสวย</title>
   <meta name="description" content="รวมรถมือสองเข้าใหม่ 6 คันล่าสุด รถบ้านคุณภาพ ฟรีดาวน์ เชียงใหม่ อัปเดตรถใหม่ทุกวัน ตรวจสอบได้จริงที่ chiangraiusedcar.com">
-  <link rel="canonical" href="https://chiangraiusedcar.com/">
+  <link rel="canonical" href="https://nblues.github.io/recommended-car/">
   <meta property="og:title" content="รถมือสองเชียงใหม่ 6 คันล่าสุด ฟรีดาวน์ | ครูหนึ่งรถสวย">
   <meta property="og:description" content="รวมรถเข้าใหม่ รถบ้านเชียงใหม่ ฟรีดาวน์ เช็คเครดิตออนไลน์ได้ทันที รับประกันทุกคัน">
-  <meta property="og:image" content="https://chiangraiusedcar.com/cover.jpg">
-  <meta property="og:url" content="https://chiangraiusedcar.com/">
+  <meta property="og:image" content="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_ee2a3ecd-09bf-433d-94c8-09063d62288b.jpg?v=1725842830">
+  <meta property="og:url" content="https://nblues.github.io/recommended-car/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="รถมือสองเชียงใหม่ 6 คันล่าสุด ฟรีดาวน์">
   <meta name="twitter:description" content="รวมรถบ้านคุณภาพดี เชียงใหม่ ฟรีดาวน์ ผ่อนถูก">
-  <meta name="twitter:image" content="https://chiangraiusedcar.com/cover.jpg">
+  <meta name="twitter:image" content="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_ee2a3ecd-09bf-433d-94c8-09063d62288b.jpg?v=1725842830">
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"WebSite",
     "name":"ครูหนึ่งรถสวย รถมือสองเชียงใหม่",
-    "url":"https://chiangraiusedcar.com/"
+    "url":"https://nblues.github.io/recommended-car/"
   }
   </script>
   <link rel="stylesheet" href="style.css">
@@ -29,7 +29,7 @@
   <h1>🚗 รถเข้าใหม่ 6 คันล่าสุด</h1>
   <div id="car-list" class="car-grid"></div>
   <div style="text-align:center;margin:32px 0;">
-    <a href="https://chiangraiusedcar.com/all-cars" target="_blank" class="btn-main">ดูรถทั้งหมด</a>
+    <a href="https://nblues.github.io/recommended-car/" target="_blank" class="btn-main">ดูรถทั้งหมด</a>
   </div>
   <script>
   fetch("cars.json")
@@ -37,7 +37,7 @@
     .then(cars=>{
       document.getElementById('car-list').innerHTML = cars.map(car=>`
         <div class="car-card">
-          <img src="${car.img}" alt="${car.title} รถมือสองเชียงใหม่ ฟรีดาวน์" loading="lazy"
+          <img src="${car.images && car.images[0] ? car.images[0] : 'https://dummyimage.com/400x300/eeeeee/cccccc&text=No+Image'}" alt="${car.title} รถมือสองเชียงใหม่ ฟรีดาวน์" loading="lazy"
             onerror="this.onerror=null;this.src='https://dummyimage.com/400x300/eeeeee/cccccc&text=No+Image';">
           <div class="car-title">${car.title}</div>
           <div class="car-status">${car.status||''}</div>
