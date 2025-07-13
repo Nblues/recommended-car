@@ -26,10 +26,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+  <!-- Navigation -->
+  <nav class="nav-menu">
+    <a href="index.html">🏠 หน้าหลัก</a>
+    <a href="current-website.html">📱 เวอร์ชั่นย่อ</a>
+    <a href="docs/mini-cars-static.html">🔗 Widget</a>
+  </nav>
+  
   <h1>🚗 รถเข้าใหม่ 6 คันล่าสุด</h1>
   <div id="car-list" class="car-grid"></div>
   <div style="text-align:center;margin:32px 0;">
-    <a href="https://nblues.github.io/recommended-car/" target="_blank" class="btn-main">ดูรถทั้งหมด</a>
+    <a href="index.html" class="btn-main">ดูรถทั้งหมด (20 คัน)</a>
   </div>
   <script>
   fetch("cars.json")
