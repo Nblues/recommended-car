@@ -1,0 +1,12 @@
+# ads.txt file for ครูหนึ่งรถสวย
+# Updated: 2025-07-13
+
+# Google AdSense
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+
+# Direct sellers
+example-ad-network.com, 12345, DIRECT
+another-network.com, 67890, RESELLER, 1234567890abcdef
+
+# Contact for questions
+# Contact: ads@kruhnung.com

@@ -1,0 +1,26 @@
+/* TEAM */
+Developer: AI Assistant & Development Team
+Contact: info@kruhnung.com
+Location: Chiang Mai, Thailand
+
+/* SITE */
+Last update: 2025/07/13
+Language: Thai / English  
+Doctype: HTML5
+IDE: VS Code, GitHub Copilot
+Standards: HTML5, CSS3, ES6+, PWA
+Components: SEO 2025, Structured Data, Core Web Vitals
+Software: Python, JavaScript, GitHub Actions
+
+/* THANKS */
+SEO Framework: Schema.org
+Fonts: Google Fonts (Prompt)
+Icons: Custom Design
+Performance: Lighthouse, PageSpeed Insights
+Analytics: Advanced Performance Monitoring
+
+/* BUSINESS */
+Business Name: ครูหนึ่งรถสวย
+Service: รถมือสองคุณภาพ เชียงใหม่
+Phone: 064-140-5566
+Website: https://nblues.github.io/recommended-car

@@ -1,0 +1,52 @@
+# Advanced SEO 2025 Robots.txt
+# ครูหนึ่งรถสวย - Comprehensive Robot Control
+
+User-agent: *
+Allow: /
+Allow: /car-detail/
+Allow: /images/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.webp
+Allow: /*.svg
+Allow: /manifest.json
+Allow: /sw.js
+
+# Sitemap locations
+Sitemap: https://nblues.github.io/recommended-car/sitemap.xml
+Sitemap: https://nblues.github.io/recommended-car/sitemap-index.xml
+
+# Crawl delay for performance
+Crawl-delay: 1
+
+# Special rules for different bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Block unwanted areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*?print=
+Disallow: /*?download=
+
+# Cache optimization
+User-agent: *
+Allow: /*.css?v=
+Allow: /*.js?v=
+
+# Updated: 2025-07-13 22:21:59

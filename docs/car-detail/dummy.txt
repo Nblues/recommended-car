@@ -1,0 +1,4 @@
+# Car Detail Folder
+# This file keeps the car-detail folder in Git
+# Auto-generated car detail HTML files will be placed here
+# DO NOT DELETE this file

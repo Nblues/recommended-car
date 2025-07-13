@@ -1,0 +1,12 @@
+body { font-family: 'Prompt',sans-serif; background:#fafbfc; color:#222; margin:0; }
+h1 { color: #ff8800; text-align:center; margin: 32px 0; font-size:2rem; }
+.car-grid { display:grid; grid-template-columns:1fr; gap:32px; max-width:960px; margin:0 auto;}
+@media(min-width:600px){.car-grid{grid-template-columns:1fr 1fr;}}
+.car-card{background:#fff;padding:20px;border-radius:18px;box-shadow:0 4px 16px #0001;text-align:center;}
+.car-card img{max-width:100%;height:auto;border-radius:14px;margin-bottom:14px;}
+.car-title{font-weight:700;color:#ff8800;margin:12px 0 4px 0;font-size:1.2rem;}
+.car-status{color:#03bb3f;font-weight:600;margin-bottom:5px;}
+.car-desc{color:#222;margin-bottom:5px;}
+.car-price{color:#d70000;font-weight:bold;font-size:1.2rem;}
+.btn-detail{display:block;background:#004bdb;color:#fff;padding:9px 0;margin:10px 0 0 0;border-radius:7px;text-decoration:none;font-weight:700;}
+.btn-main{background:#ff8800;color:#fff;padding:13px 38px;border-radius:8px;text-decoration:none;font-size:1.2rem;font-weight:bold;display:inline-block;}

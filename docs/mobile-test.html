@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link type="text/plain" rel="author" href="/humans.txt">
+<!-- Comprehensive Favicon System 2025 -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#f47b20">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    <meta name="theme-color" content="#f47b20">
+    <meta name="keywords" content="รถมือสอง, รถมือสองเชียงใหม่, ครูหนึ่งรถสวย, รถยนต์มือสอง, ขายรถมือสอง, ฟรีดาวน์, ส่งฟรีทั่วไทย, Toyota, Honda, Nissan, Ford, Mazda, Hyundai, Isuzu, Mitsubishi, BMW, Mercedes-Benz, รถเก๋ง, รถกระบะ, รถ SUV, รถ MPV, รถ Hybrid, รถดีเซล, รถเบนซิน, เกียร์ออโต้, เกียร์ธรรมดา, ฟรีดาวน์, ผ่อนง่าย, รับประกัน, ตรวจสภาพ, ส่งฟรี, จัดไฟแนนซ์, แลกเปลี่ยน">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Layout Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+        .test-info {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .grid-demo {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .demo-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            min-height: 380px;
+        }
+        .demo-img {
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(45deg, #3498db, #2ecc71);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        .demo-content {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .demo-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            overflow: hidden;
+        }
+        .demo-price {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h2>📱 Mobile Layout Test</h2>
+        <p><strong>Target:</strong> 2 คอลัมน์ 3 แถว (6 คัน)</p>
+        <p><strong>Card Height:</strong> 380px minimum</p>
+        <p><strong>Image Size:</strong> 160x160px</p>
+        <p><strong>Layout:</strong> CSS Grid + Flexbox</p>
+    </div>
+    
+    <div class="grid-demo">
+        <div class="demo-card">
+            <div class="demo-img">Car 1</div>
+            <div class="demo-content">
+                <div class="demo-title">Toyota Camry 2020 รถเก๋งสวยงาม</div>
+                <div class="demo-price">฿850,000</div>
+            </div>
+        </div>
+        <div class="demo-card">
+            <div class="demo-img">Car 2</div>
+            <div class="demo-content">
+                <div class="demo-title">Honda City เกียร์ออโต้</div>
+                <div class="demo-price">฿650,000</div>
+            </div>
+        </div>
+        <div class="demo-card">
+            <div class="demo-img">Car 3</div>
+            <div class="demo-content">
+                <div class="demo-title">Ford Ranger Double Cab Wildtrak</div>
+                <div class="demo-price">฿1,250,000</div>
+            </div>
+        </div>
+        <div class="demo-card">
+            <div class="demo-img">Car 4</div>
+            <div class="demo-content">
+                <div class="demo-title">Mazda 2 Hatchback สีแดง</div>
+                <div class="demo-price">฿450,000</div>
+            </div>
+        </div>
+        <div class="demo-card">
+            <div class="demo-img">Car 5</div>
+            <div class="demo-content">
+                <div class="demo-title">BMW 320d luxury sedan</div>
+                <div class="demo-price">฿1,850,000</div>
+            </div>
+        </div>
+        <div class="demo-card">
+            <div class="demo-img">Car 6</div>
+            <div class="demo-content">
+                <div class="demo-title">Isuzu MU-X Premier 2018</div>
+                <div class="demo-price">฿950,000</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

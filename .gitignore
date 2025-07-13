@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Reports
+*REPORT.md
+*-REPORT.md
+SUCCESS-*.md
+ERROR-*.md
+INDEX_*_REPORT.md
+FIX-*-REPORT.md
+
+# Development files
+validate_*.py
+fix_*.py
+check_*.py
+final_*.py
+test_*.py
+analyze_*.py
