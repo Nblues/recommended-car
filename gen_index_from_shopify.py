@@ -99,7 +99,7 @@ def generate_products_json_ld(cars_data):
         }
         products.append(product)
     
-    return json.dumps(products, ensure_ascii=False, indent=6)[1:-1]  # Remove outer brackets
+    return json.dumps(products, ensure_ascii=False, indent=6)  # Serialize entire list
 
 
 def generate_index_html():
