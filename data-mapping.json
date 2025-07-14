@@ -1,0 +1,160 @@
+{
+  "title": "การแมพข้อมูลรถยนต์ข้ามโปรเจค",
+  "description": "ไฟล์นี้เป็นมาตรฐานข้อมูลรถที่ใช้ร่วมกันทุกไฟล์ในโปรเจค",
+  "lastUpdated": "2024-12-14",
+  "cars": {
+    "toyota-eztima-hybrid-synergy-drive-2-4-e-four-g-ปี-2007-นำเข้า-2552": {
+      "id": "toyota-eztima-hybrid-synergy-drive-2-4-e-four-g-ปี-2007-นำเข้า-2552",
+      "title": "TOYOTA EZTIMA HYBRID SYNERGY DRIVE 2.4 E-Four G ปี 2007 (นำเข้า 2552)",
+      "brand": "Toyota",
+      "model": "Estima Hybrid",
+      "year": "2007",
+      "price": "419000",
+      "image": "https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_ee2a3ecd-09bf-433d-94c8-09063d62288b.jpg?v=1725842830",
+      "description": "(พรีเมี่ยมรถนำเข้าจากญี่ปุ่น) คนเล่นรถห้ามพลาด TOYOTA EZTIMA HYBRID SYNERGY DRIVE 2.4 E-Four G ปี 2007 (นำเข้า 2552 ) ตัวท็อปสุด รถนำเข้าสไตล์ญี่ปุ่น ระบบไฮบริดเทคโนโลยีสุดยอดเกินเบอร์มากครับ",
+      "handle": "toyota-eztima-hybrid-synergy-drive-2-4-e-four-g-ปี-2007-นำเข้า-2552",
+      "specs": {
+        "ยี่ห้อ": "Toyota",
+        "รุ่น": "Estima Hybrid",
+        "ปี": "2007 (นำเข้า 2552)",
+        "เครื่องยนต์": "2.4L Hybrid",
+        "เกียร์": "CVT",
+        "ระบบขับเคลื่อน": "4WD (E-Four)",
+        "สถานะ": "พร้อมใช้งาน"
+      },
+      "usedIn": ["car-widget-fixed.html", "all-cars.html", "car-detail.html"]
+    },
+    "ford-ranger-4dr-dcab-wildtrak-auto-10sp-2wd-2-0-turbo-dct": {
+      "id": "ford-ranger-4dr-dcab-wildtrak-auto-10sp-2wd-2-0-turbo-dct",
+      "title": "FORD RANGER 4dr DCab WildTrak Auto 10sp 2WD 2.0 Turbo DCT",
+      "brand": "Ford",
+      "model": "Ranger WildTrak",
+      "year": "2020",
+      "price": "559000",
+      "image": "https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_dad1423a-d88f-45e3-9447-2bf36bbd4121.jpg?v=1728001559",
+      "description": "พร้อมใช้งานครับ กระบะ4ประตู เกียร์ออโต้ มือแรกเดิมๆ สภาพดีเยี่ยม พร้อมใช้งานครับ FORD RANGER 4dr DCab WildTrak Auto 10sp 2WD 2.0 Turbo DCT เกียร์อัตโนมัต รถสวยเดิมๆ มือแรกออกห้างเลยครับ",
+      "handle": "ford-ranger-4dr-dcab-wildtrak-auto-10sp-2wd-2-0-turbo-dct",
+      "specs": {
+        "ยี่ห้อ": "Ford",
+        "รุ่น": "Ranger WildTrak",
+        "ปี": "2020",
+        "เครื่องยนต์": "2.0L Turbo",
+        "เกียร์": "10-Speed Auto",
+        "ระบบขับเคลื่อน": "2WD",
+        "จำนวนประตู": "4 ประตู",
+        "สถานะ": "มือแรกป้ายแดง"
+      },
+      "usedIn": ["car-widget-fixed.html", "all-cars.html", "car-detail.html"]
+    },
+    "toyota-chr-1-8-hv-hybrid-top-2019-ปี-2019": {
+      "id": "toyota-chr-1-8-hv-hybrid-top-2019-ปี-2019",
+      "title": "Toyota CHR 1.8 HV HYBRID TOP 2019 ปี 2019",
+      "brand": "Toyota",
+      "model": "C-HR Hybrid",
+      "year": "2019",
+      "price": "649000",
+      "image": "https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_5ad018db-8b9b-4086-b1c7-8ee568f1b8c4.jpg?v=1728002956",
+      "description": "Option ล้นล้น ประหยัดสุดๆ พร้อมป้ายมงคล Toyota CHR 1.8 HV HYBRID TOP AUTO 2019 ปี 2019 สี แดงแก้ว เกียร์ ออโต้ ราคา 649,000.- ออกรถ 0 บาท ผ่อน 10,000-/7 ปี เครื่องยนต์ เบนซิน 1,500cc. รถบ้านประวัติดี",
+      "handle": "toyota-chr-1-8-hv-hybrid-top-2019-ปี-2019",
+      "specs": {
+        "ยี่ห้อ": "Toyota",
+        "รุ่น": "C-HR Hybrid",
+        "ปี": "2019",
+        "เครื่องยนต์": "1.8L Hybrid",
+        "เกียร์": "CVT",
+        "สี": "แดงแก้ว",
+        "การผ่อน": "10,000/เดือน 7 ปี",
+        "สถานะ": "รถบ้านประวัติดี"
+      },
+      "usedIn": ["car-widget-fixed.html", "all-cars.html", "car-detail.html"]
+    },
+    "hyundai-h-1-elite-ns-ปี-2022": {
+      "id": "hyundai-h-1-elite-ns-ปี-2022",
+      "title": "Hyundai H-1 Elite NS ปี 2022",
+      "brand": "Hyundai",
+      "model": "H-1 Elite NS",
+      "year": "2022",
+      "price": "1169000",
+      "image": "https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_2fa17074-aa8b-47bd-bdf1-f6bbe0ff3762.jpg?v=1730925406",
+      "description": "Hyundai H-1 Elite NS ปี 2022วิ่งน้อยแค่ 21,xxx Km.รถมือเดียวป้ายแดงออกศูนย์เชียงใหม่ ใช้ป้ายกทม. ราคาเพียง 1,169,000 บาทเครดิตดี ดาวน์ 49,000 ผ่อน 21,xxx / 72 งวดเครดิตใหม่ ดาวน์ 279,000",
+      "handle": "hyundai-h-1-elite-ns-ปี-2022",
+      "specs": {
+        "ยี่ห้อ": "Hyundai",
+        "รุ่น": "H-1 Elite NS",
+        "ปี": "2022",
+        "เลขไมล์": "21,xxx กม.",
+        "จำนวนที่นั่ง": "11 ที่นั่ง",
+        "สถานะ": "มือเดียวป้ายแดง",
+        "ออกศูนย์": "เชียงใหม่",
+        "ดาวน์": "49,000 บาท",
+        "ผ่อน": "21,xxx/72 งวด"
+      },
+      "usedIn": ["car-widget-fixed.html", "all-cars.html", "car-detail.html"]
+    },
+    "d-max-hi-lander-2-5-x-series-ddi-i-teq-super-platinum-เกียร์ธรรมดา": {
+      "id": "d-max-hi-lander-2-5-x-series-ddi-i-teq-super-platinum-เกียร์ธรรมดา",
+      "title": "D-MAX Hi-Lander 2.5 X-SERIES Ddi i-TEQ SUPER PLATINUM เกียร์ธรรมดา",
+      "brand": "Isuzu",
+      "model": "D-MAX Hi-Lander",
+      "year": "2011",
+      "price": "289000",
+      "image": "https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_a28baac3-7e7e-4549-96e4-c86e00dd1f14.jpg?v=1733598390",
+      "description": "D-MAX Hi-Lander 2.5 X-SERIES Ddi i-TEQ SUPER PLATINUM เกียร์ธรรมดา รถสวยเดิมๆ พร้อมใช้งาน เครื่องยนต์ 2500 cc. DIESEL M/T 2011/2554 รถสวยสภาพดีมากๆ ระบบเครื่องยนต์ เกียร์ ช่วงล่าง ดีมากๆ พร้อมทะเบียนมงคล 7474",
+      "handle": "d-max-hi-lander-2-5-x-series-ddi-i-teq-super-platinum-เกียร์ธรรมดา",
+      "specs": {
+        "ยี่ห้อ": "Isuzu",
+        "รุ่น": "D-MAX Hi-Lander",
+        "ปี": "2011/2554",
+        "เครื่องยนต์": "2.5L Diesel",
+        "เกียร์": "Manual",
+        "รุ่นย่อย": "Super Platinum",
+        "ทะเบียน": "มงคล 7474",
+        "สถานะ": "พร้อมใช้งาน"
+      },
+      "usedIn": ["car-widget-fixed.html", "all-cars.html", "car-detail.html"]
+    },
+    "ford-ranger-2-2-cab-xlt-6sp-4wd": {
+      "id": "ford-ranger-2-2-cab-xlt-6sp-4wd",
+      "title": "FORD RANGER 2.2 Cab XLT 6sp 4WD",
+      "brand": "Ford",
+      "model": "Ranger Open Cab",
+      "year": "2018",
+      "price": "369000",
+      "image": "https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_ee25ea88-901f-4f0e-8331-10bf37d7ccbd.jpg?v=1734101780",
+      "description": "เข้าใหม่กระบะโอเพ่นแคป เกียร์ธรรมดา 4x4 (รถมือแรกเดิมๆ) สภาพดีมากพร้อมใช้งานครับ FORD RANGER 2.2 Cab XLT 6sp 4WD เกียร์ธรรมดา รถสวยเดิมๆ มือเดียวออกห้างเลยครับ เครื่องยนต์ 2.2 DIESEL AIRBAG ABS",
+      "handle": "ford-ranger-2-2-cab-xlt-6sp-4wd",
+      "specs": {
+        "ยี่ห้อ": "Ford",
+        "รุ่น": "Ranger Open Cab",
+        "ปี": "2018",
+        "เครื่องยนต์": "2.2L Diesel",
+        "เกียร์": "6-Speed Manual",
+        "ระบบขับเคลื่อน": "4WD",
+        "สถานะ": "มือแรกออกห้าง",
+        "ระบบความปลอดภัย": "AIRBAG, ABS"
+      },
+      "usedIn": ["car-widget-fixed.html", "all-cars.html", "car-detail.html"]
+    }
+  },
+  "summary": {
+    "totalCars": 6,
+    "filesUpdated": [
+      "car-widget-fixed.html",
+      "all-cars.html", 
+      "car-detail.html"
+    ],
+    "consistencyCheck": {
+      "allFilesHaveSameCars": true,
+      "allHandlesMatch": true,
+      "allPricesMatch": true,
+      "allImagesMatch": true,
+      "allDescriptionsMatch": true
+    }
+  },
+  "api": {
+    "shopifyDomain": "kn-goodcar.com",
+    "accessToken": "bb70cb008199a94b83c98df0e45ada67",
+    "endpoint": "https://kn-goodcar.com/api/2023-07/graphql.json",
+    "fallbackData": "ใช้ข้อมูลใน getFallbackCars() เมื่อ API ล้มเหลว"
+  }
+}
