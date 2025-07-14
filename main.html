@@ -423,13 +423,20 @@
             try {
                 console.log('🔄 กำลังดึงข้อมูลจาก Shopify API...');
                 
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 8000);
+                
                 const response = await fetch(CARS_API_ENDPOINT, {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json',
-                        'Cache-Control': 'no-cache'
-                    }
+                        'Cache-Control': 'no-cache, no-store, must-revalidate',
+                        'Pragma': 'no-cache'
+                    },
+                    signal: controller.signal
                 });
+                
+                clearTimeout(timeoutId);
                 
                 if (!response.ok) {
                     throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -438,7 +445,7 @@
                 const data = await response.json();
                 console.log('📦 API Data:', data);
                 
-                if (data && data.products && Array.isArray(data.products)) {
+                if (data && data.products && Array.isArray(data.products) && data.products.length > 0) {
                     // แปลงข้อมูลจาก Shopify format
                     carsData = data.products.map((product, index) => ({
                         id: product.id || index + 1,
@@ -448,21 +455,26 @@
                         mileage: generateMileage(),
                         fuel: detectFuelType(product.title),
                         transmission: detectTransmission(product.title),
-                        image: (product.images && product.images[0]) ? product.images[0] : `https://via.placeholder.com/400x250/e9ecef/6c757d?text=รถยนต์`,
+                        image: (product.images && product.images[0]) ? product.images[0] : `https://via.placeholder.com/400x250/e9ecef/6c757d?text=รถยนต์+${index + 1}`,
                         description: (product.body_html || 'รถสภาพดี พร้อมใช้งาน').replace(/<[^>]*>/g, ''),
                         handle: product.handle,
-                        status: 'พร้อมขาย'
+                        status: 'พร้อมขาย',
+                        original: product // เก็บข้อมูลต้นฉบับไว้
                     }));
                     
-                    console.log('✅ แปลงข้อมูลสำเร็จ:', carsData.length, 'คัน');
+                    console.log('✅ แปลงข้อมูลจาก API สำเร็จ:', carsData.length, 'คัน');
                     return carsData;
                 } else {
-                    throw new Error('ไม่พบข้อมูล products');
+                    console.warn('⚠️ API ไม่มีข้อมูล products หรือ products ว่าง');
+                    throw new Error('ไม่พบข้อมูล products หรือข้อมูลว่าง');
                 }
                 
             } catch (error) {
                 console.error('❌ API Error:', error.message);
                 console.log('🔄 ใช้ fallback data แทน...');
+                
+                // บังคับใช้ fallback data เมื่อ API มีปัญหา
+                carsData = fallbackCarsData;
                 return fallbackCarsData;
             }
         }
@@ -543,7 +555,7 @@
                                 ${car.status}
                             </span>
                             
-                            <a href="car-detail/${car.handle}.html" class="car-link" target="_blank">
+                            <a href="#" class="car-link" onclick="viewCarDetail('${car.handle}', ${car.id}); return false;">
                                 ดูรายละเอียด
                             </a>
                         </div>
@@ -562,6 +574,36 @@
                     </div>
                 `;
             }
+        }
+
+        // ฟังก์ชันดูรายละเอียดรถ
+        function viewCarDetail(handle, carId) {
+            // หาข้อมูลรถจาก carsData
+            const car = carsData.find(c => c.handle === handle || c.id === carId);
+            
+            if (!car) {
+                console.error('ไม่พบข้อมูลรถ:', handle, carId);
+                alert('ไม่พบข้อมูลรถที่เลือก');
+                return;
+            }
+            
+            // สร้าง URL parameters
+            const params = new URLSearchParams({
+                id: car.id,
+                handle: car.handle,
+                title: car.title,
+                price: car.price,
+                year: car.year,
+                mileage: car.mileage,
+                fuel: car.fuel,
+                transmission: car.transmission,
+                image: car.image,
+                description: car.description,
+                status: car.status
+            });
+            
+            // เปิดหน้า car detail
+            window.open(`car-detail.html?${params.toString()}`, '_blank');
         }
 
         // เริ่มต้นแอปพลิเคชัน

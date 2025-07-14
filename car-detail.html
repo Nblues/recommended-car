@@ -1,53 +1,553 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title id="seo-title">รายละเอียดรถมือสองเชียงใหม่ | ครูหนึ่งรถสวย</title>
-  <meta name="description" id="seo-desc" content="รถมือสองเชียงใหม่ ครูหนึ่งรถสวย รถบ้าน ฟรีดาวน์ ราคาถูก ผ่อนสบาย รถสวย เชียงใหม่ รถบ้านแท้ รับประกันคุณภาพ">
-  <meta name="robots" content="index, follow">
-  <meta name="keywords" content="รถมือสองเชียงใหม่, รถบ้านเชียงใหม่, รถฟรีดาวน์, รถมือสองฟรีดาวน์, รถยนต์มือสอง, รถมือสองราคาถูก, รถบ้านเจ้าของขายเอง, เต็นท์รถเชียงใหม่, รถใช้แล้วเชียงใหม่, ซื้อขายรถมือสอง, รถมือสองเกรดA, รถบ้านฟรีดาวน์, รถมือสองเชียงราย">
-  <link rel="canonical" id="seo-canonical" href="https://nblues.github.io/recommended-car/car-detail.html">
-  <meta property="og:title" id="og-title" content="รถมือสองเชียงใหม่ รถบ้านฟรีดาวน์ | ครูหนึ่งรถสวย">
-  <meta property="og:description" id="og-desc" content="รายละเอียดรถมือสองเชียงใหม่ รถบ้าน ฟรีดาวน์ ราคาถูก รถสวยคุณภาพดี โดยครูหนึ่งรถสวย เชียงใหม่">
-  <meta property="og:image" id="og-image" content="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_ee2a3ecd-09bf-433d-94c8-09063d62288b.jpg?v=1725842830">
-  <meta property="og:url" id="og-url" content="https://nblues.github.io/recommended-car/car-detail.html">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" id="tw-title" content="รถมือสองเชียงใหม่ รถบ้านฟรีดาวน์ | ครูหนึ่งรถสวย">
-  <meta name="twitter:description" id="tw-desc" content="รายละเอียดรถมือสองเชียงใหม่ รถบ้าน ฟรีดาวน์ ราคาถูก รถสวยคุณภาพดี โดยครูหนึ่งรถสวย เชียงใหม่">
-  <meta name="twitter:image" id="tw-image" content="https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_ee2a3ecd-09bf-433d-94c8-09063d62288b.jpg?v=1725842830">
-  
-  <!-- JSON-LD Breadcrumb -->
-  <script type="application/ld+json" id="breadcrumb-json">{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "รถมือสองเชียงใหม่", "item": "https://nblues.github.io/recommended-car/all-cars.html"},
-      {"@type": "ListItem", "position": 2, "name": "รายละเอียดรถ", "item": "https://nblues.github.io/recommended-car/car-detail.html"}
-    ]
-  }</script>
-  
-  <!-- Organization Schema -->
-  <script type="application/ld+json" id="org-json">{
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "ครูหนึ่งรถสวย",
-    "url": "https://nblues.github.io/recommended-car/",
-    "logo": "https://cdn.shopify.com/s/files/1/0718/1441/4580/files/logo.webp",
-    "sameAs": [
-      "https://www.facebook.com/KN2car",
-      "https://lin.ee/ng5yM32",
-      "https://www.tiktok.com/@krunueng_usedcar",
-      "https://youtube.com/@chiangraiusedcar",
-      "https://m.facebook.com/nuengblues/",
-      "https://g.co/kgs/NhBFNGr"
-    ],
-    "contactPoint": [{
-      "@type": "ContactPoint",
-      "telephone": "+66940649018",
-      "contactType": "customer service",
-      "areaServed": "TH",
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">รายละเอียดรถยนต์ - รถมือสองแนะนำ</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" id="pageDescription" content="รายละเอียดรถยนต์มือสอง ข้อมูลครบถ้วน ราคาดี สภาพดี">
+    <meta name="keywords" content="รถมือสอง, รายละเอียดรถ, ขายรถ, รถบ้าน">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" id="ogTitle" content="รายละเอียดรถยนต์ - รถมือสองแนะนำ">
+    <meta property="og:description" id="ogDescription" content="รายละเอียดรถยนต์มือสอง">
+    <meta property="og:type" content="product">
+    <meta property="og:image" id="ogImage" content="">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Sarabun', 'Kanit', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .back-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .car-detail-section {
+            padding: 40px 0;
+        }
+        
+        .car-detail-container {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .car-header {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .car-title {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .car-price {
+            font-size: 2em;
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+        
+        .car-status {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        
+        .car-status.available {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .car-status.sold {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .car-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px;
+        }
+        
+        .car-image-section {
+            text-align: center;
+        }
+        
+        .car-main-image {
+            width: 100%;
+            max-width: 500px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+        }
+        
+        .car-thumbnails {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .car-thumbnail {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .car-thumbnail:hover,
+        .car-thumbnail.active {
+            border-color: #3498db;
+            transform: scale(1.05);
+        }
+        
+        .car-details {
+            padding-left: 20px;
+        }
+        
+        .detail-section {
+            margin-bottom: 30px;
+        }
+        
+        .detail-title {
+            font-size: 1.5em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: bold;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .detail-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+        
+        .detail-value {
+            font-size: 1.1em;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .car-description {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #27ae60;
+            line-height: 1.8;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin: 30px 0;
+            border-radius: 15px;
+        }
+        
+        .contact-title {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .features-section {
+            background: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .feature-icon {
+            font-size: 2em;
+            margin-right: 15px;
+            color: #3498db;
+        }
+        
+        .feature-text {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 100px 20px;
+            color: #666;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .car-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+            
+            .car-details {
+                padding-left: 0;
+            }
+            
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .car-title {
+                font-size: 1.8em;
+            }
+            
+            .car-price {
+                font-size: 1.5em;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-btn {
+                width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">🚗 รถมือสองแนะนำ</div>
+            <a href="main.html" class="back-btn">← กลับหน้าหลัก</a>
+        </div>
+    </header>
+    
+    <main class="car-detail-section">
+        <div class="container">
+            <div id="carDetailContent" class="car-detail-container">
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>กำลังโหลดรายละเอียดรถยนต์...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // ฟังก์ชันดึงข้อมูลจาก URL parameters
+        function getCarDataFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            return {
+                id: urlParams.get('id'),
+                handle: urlParams.get('handle'),
+                title: urlParams.get('title'),
+                price: parseInt(urlParams.get('price')) || 0,
+                year: urlParams.get('year'),
+                mileage: urlParams.get('mileage'),
+                fuel: urlParams.get('fuel'),
+                transmission: urlParams.get('transmission'),
+                image: urlParams.get('image'),
+                description: urlParams.get('description'),
+                status: urlParams.get('status') || 'พร้อมขาย'
+            };
+        }
+
+        // ฟังก์ชันอัพเดต SEO meta tags
+        function updateSEOTags(car) {
+            // Update title
+            const title = `${car.title} - ราคา ฿${car.price.toLocaleString()} | รถมือสองแนะนำ`;
+            document.title = title;
+            document.getElementById('pageTitle').textContent = title;
+            
+            // Update description
+            const description = `${car.title} ปี ${car.year} ราคา ฿${car.price.toLocaleString()} ${car.description}`;
+            document.getElementById('pageDescription').setAttribute('content', description);
+            
+            // Update Open Graph
+            document.getElementById('ogTitle').setAttribute('content', title);
+            document.getElementById('ogDescription').setAttribute('content', description);
+            document.getElementById('ogImage').setAttribute('content', car.image);
+        }
+
+        // ฟังก์ชันแสดงรายละเอียดรถ
+        function displayCarDetail(car) {
+            const container = document.getElementById('carDetailContent');
+            
+            // สร้าง thumbnails (ในที่นี้ใช้รูปเดียว แต่สามารถขยายได้)
+            const thumbnails = [car.image, car.image, car.image]; // จำลองรูปหลายรูป
+            
+            const thumbnailsHTML = thumbnails.map((img, index) => 
+                `<img src="${img}" alt="รูปที่ ${index + 1}" class="car-thumbnail ${index === 0 ? 'active' : ''}" 
+                      onclick="changeMainImage('${img}', this)">`
+            ).join('');
+            
+            container.innerHTML = `
+                <div class="car-header">
+                    <h1 class="car-title">${car.title}</h1>
+                    <div class="car-price">฿${car.price.toLocaleString()}</div>
+                    <span class="car-status ${car.status === 'ขายแล้ว' ? 'sold' : 'available'}">
+                        ${car.status}
+                    </span>
+                </div>
+                
+                <div class="car-content">
+                    <div class="car-image-section">
+                        <img id="mainCarImage" src="${car.image}" alt="${car.title}" class="car-main-image"
+                             onerror="this.src='https://via.placeholder.com/500x350/e9ecef/6c757d?text=รถยนต์'">
+                        <div class="car-thumbnails">
+                            ${thumbnailsHTML}
+                        </div>
+                    </div>
+                    
+                    <div class="car-details">
+                        <div class="detail-section">
+                            <h2 class="detail-title">📋 ข้อมูลรถยนต์</h2>
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <div class="detail-label">ปีที่ผลิต</div>
+                                    <div class="detail-value">${car.year}</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">เลขไมล์</div>
+                                    <div class="detail-value">${car.mileage} กม.</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">เชื้อเพลิง</div>
+                                    <div class="detail-value">${car.fuel}</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">ระบบเกียร์</div>
+                                    <div class="detail-value">${car.transmission}</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">สถานะ</div>
+                                    <div class="detail-value">${car.status}</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">รหัสรถ</div>
+                                    <div class="detail-value">#${car.id}</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h2 class="detail-title">📝 รายละเอียด</h2>
+                            <div class="car-description">
+                                ${car.description}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="features-section">
+                    <h2 class="detail-title">✨ จุดเด่นของรถคันนี้</h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">✅</div>
+                            <div class="feature-text">ตรวจสอบสภาพแล้ว</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🔧</div>
+                            <div class="feature-text">เซอร์วิสประจำครบถ้วน</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">📄</div>
+                            <div class="feature-text">เอกสารครบถ้วน</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🚗</div>
+                            <div class="feature-text">พร้อมส่งมอบทันที</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">💰</div>
+                            <div class="feature-text">ราคาเป็นกันเอง</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🔒</div>
+                            <div class="feature-text">รับประกันคุณภาพ</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-section">
+                    <h2 class="contact-title">📞 สนใจรถคันนี้?</h2>
+                    <p>ติดต่อสอบถามได้ทันที พร้อมให้คำปรึกษา</p>
+                    <div class="contact-buttons">
+                        <a href="tel:099xxxxxxx" class="contact-btn">📞 โทรเลย</a>
+                        <a href="https://line.me/ti/p/~@recommended-car" class="contact-btn">💬 Line Chat</a>
+                        <a href="mailto:contact@recommended-car.com?subject=สอบถามรถ ${car.title}" class="contact-btn">📧 Email</a>
+                        <a href="https://wa.me/66999999999?text=สวัสดีครับ สนใจรถ ${car.title} ราคา ฿${car.price.toLocaleString()}" class="contact-btn">💬 WhatsApp</a>
+                    </div>
+                </div>
+            `;
+            
+            // อัพเดต SEO tags
+            updateSEOTags(car);
+        }
+
+        // ฟังก์ชันเปลี่ยนรูปหลัก
+        function changeMainImage(imageSrc, thumbnail) {
+            document.getElementById('mainCarImage').src = imageSrc;
+            
+            // อัพเดต active thumbnail
+            document.querySelectorAll('.car-thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            thumbnail.classList.add('active');
+        }
+
+        // เริ่มต้นแอปพลิเคชัน
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚗 เริ่มต้นหน้ารายละเอียดรถยนต์...');
+            
+            const carData = getCarDataFromURL();
+            
+            if (!carData.title || !carData.price) {
+                document.getElementById('carDetailContent').innerHTML = `
+                    <div style="text-align: center; padding: 100px 20px; color: #dc3545;">
+                        <h2>❌ ไม่พบข้อมูลรถยนต์</h2>
+                        <p>กรุณากลับไปเลือกรถใหม่</p>
+                        <a href="main.html" style="display: inline-block; margin-top: 20px; background: #3498db; color: white; text-decoration: none; padding: 12px 25px; border-radius: 25px;">← กลับหน้าหลัก</a>
+                    </div>
+                `;
+                return;
+            }
+            
+            setTimeout(() => {
+                displayCarDetail(carData);
+            }, 500);
+        });
+        
+        console.log('🚗 Car Detail System Ready - Version 1.0');
+    </script>
+</body>
+</html>
       "availableLanguage": ["Thai"]
     }]
   }</script>
