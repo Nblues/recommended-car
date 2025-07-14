@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>🚗 รถมือสองเชียงใหม่ เข้าใหม่ 6 คันล่าสุด ฟรีดาวน์</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .car-widget { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      background: #fffaf6; 
+      margin: 0; 
+      padding: 20px;
+      color: #202020; 
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .car-widget h1 { 
+      text-align: center; 
+      color: #fa6400; 
+      margin: 0 0 20px 0; 
+      font-size: 1.8em; 
+      font-weight: 700;
+    }
+    .car-list { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: 20px; 
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .car-card { 
+      background: #fff; 
+      border-radius: 12px; 
+      box-shadow: 0 2px 10px rgba(250, 100, 0, 0.15); 
+      overflow: hidden; 
+      border: 1px solid #ffeed8;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .car-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(250, 100, 0, 0.25);
+    }
+    .car-card img { 
+      width: 100%; 
+      height: 180px; 
+      object-fit: cover; 
+      border-bottom: 1px solid #ffe6be;
+    }
+    .car-info { 
+      padding: 15px;
+    }
+    .car-title { 
+      font-size: 1.1em; 
+      font-weight: 700; 
+      margin-bottom: 8px; 
+      color: #fa6400;
+      line-height: 1.3;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .car-price { 
+      color: #1b8801; 
+      font-weight: 700; 
+      font-size: 1.2em;
+      margin-bottom: 5px;
+    }
+    .car-status { 
+      font-size: 0.9em; 
+      color: #015fa7;
+      margin-bottom: 8px;
+    }
+    .car-desc { 
+      font-size: 0.9em; 
+      margin: 10px 0 15px 0; 
+      color: #505050;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .btn-detail { 
+      display: block; 
+      text-align: center; 
+      background: linear-gradient(135deg, #fa6400, #ff7a1a); 
+      color: #fff; 
+      border-radius: 8px; 
+      text-decoration: none; 
+      font-weight: 600; 
+      padding: 10px 0; 
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+    .btn-detail:hover {
+      background: linear-gradient(135deg, #e55a00, #fa6400);
+    }
+    .see-all-btn {
+      display: block; 
+      width: 250px; 
+      margin: 30px auto 0 auto; 
+      background: linear-gradient(135deg, #015fa7, #0d7bd9);
+      color: #fff; 
+      font-weight: 700; 
+      text-align: center; 
+      border-radius: 10px; 
+      padding: 15px 0; 
+      font-size: 1.1em; 
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .see-all-btn:hover {
+      background: linear-gradient(135deg, #014a85, #015fa7);
+    }
+    .widget-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.85em;
+      color: #888;
+    }
+    @media (max-width: 768px) {
+      .car-list { 
+        grid-template-columns: 1fr; 
+      }
+      .car-widget h1 {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="car-widget">
+    <h1>🚗 รถเข้าใหม่ 6 คันล่าสุด</h1>
+    
+    <div class="car-list" id="carList">
+      <!-- Cars will be loaded here -->
+    </div>
+    
+    <a class="see-all-btn" href="https://chiangraiusedcar.com/all-cars" target="_blank">ดูรถทั้งหมด →</a>
+    
+    <div class="widget-footer">
+      🚗 ครูหนึ่งรถสวย - รถมือสองเชียงใหม่
+    </div>
+  </div>
+
+  <script>
+    // ข้อมูลรถ 6 คันล่าสุด
+    const carsData = [
+      {
+        title: "TOYOTA EZTIMA HYBRID SYNERGY DRIVE 2.4 E-Four G ปี 2007",
+        price: "419,000",
+        status: "พร้อมส่งมอบ",
+        description: "(พรีเมี่ยมรถนำเข้าจากญี่ปุ่น) คนเล่นรถห้ามพลาด TOYOTA EZTIMA HYBRID SYNERGY DRIVE 2.4 E-Four G ปี 2007 ตัวท็อปสุด รถนำเข้าสไตล์ญี่ปุ่น ระบบไฮบริดเทคโนโลยีสุดยอด",
+        image: "https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_ee2a3ecd-09bf-433d-94c8-09063d62288b.jpg?v=1725842830",
+        link: "https://www.kn-goodcar.com/car-detail/toyota-eztima-hybrid-synergy-drive-2-4-e-four-g-ปี-2007-นำเข้า-2552"
+      },
+      {
+        title: "FORD RANGER 4dr DCab WildTrak Auto 10sp 2WD 2.0 Turbo DCT",
+        price: "559,000",
+        status: "พร้อมส่งมอบ",
+        description: "พร้อมใช้งานครับ กระบะ4ประตู เกียร์ออโต้ มือแรกเดิมๆ สภาพดีเยี่ยม พร้อมใช้งานครับ FORD RANGER 4dr DCab WildTrak Auto เครื่องยนต์ 2.0 TURBO DIESEL",
+        image: "https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_dad1423a-d88f-45e3-9447-2bf36bbd4121.jpg?v=1728001559",
+        link: "https://www.kn-goodcar.com/car-detail/ford-ranger-4dr-dcab-wildtrak-auto-10sp-2wd-2-0-turbo-dct"
+      },
+      {
+        title: "Toyota CHR 1.8 HV HYBRID TOP 2019 ปี 2019",
+        price: "649,000",
+        status: "พร้อมส่งมอบ",
+        description: "Option ล้นล้น ประหยัดสุดๆ พร้อมป้ายมงคล Toyota CHR 1.8 HV HYBRID TOP AUTO 2019 ปี 2019 สี แดงแก้ว เกียร์ ออโต้ ได้ตัวท็อป Option เต็ม",
+        image: "https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_5ad018db-8b9b-4086-b1c7-8ee568f1b8c4.jpg?v=1728002956",
+        link: "https://www.kn-goodcar.com/car-detail/toyota-chr-1-8-hv-hybrid-top-2019-ปี-2019"
+      },
+      {
+        title: "Hyundai H-1 Elite NS ปี 2022",
+        price: "1,169,000",
+        status: "พร้อมส่งมอบ",
+        description: "Hyundai H-1 Elite NS ปี 2022วิ่งน้อยแค่ 21,xxx Km.รถมือเดียวป้ายแดงออกศูนย์เชียงใหม่ ใช้ป้ายกทม. เกียร์ออโต้ 5 Speed + Sequential Shift",
+        image: "https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_2fa17074-aa8b-47bd-bdf1-f6bbe0ff3762.jpg?v=1730925406",
+        link: "https://www.kn-goodcar.com/car-detail/hyundai-h-1-elite-ns-ปี-2022"
+      },
+      {
+        title: "D-MAX Hi-Lander 2.5 X-SERIES Ddi i-TEQ SUPER PLATINUM",
+        price: "289,000",
+        status: "พร้อมส่งมอบ",
+        description: "D-MAX Hi-Lander 2.5 X-SERIES Ddi i-TEQ SUPER PLATINUM เกียร์ธรรมดา รถสวยเดิมๆ พร้อมใช้งาน เครื่องยนต์ 2500 cc. DIESEL M/T 2011/2554 พร้อมทะเบียนมงคล 7474",
+        image: "https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_a28baac3-7e7e-4549-96e4-c86e00dd1f14.jpg?v=1733598390",
+        link: "https://www.kn-goodcar.com/car-detail/d-max-hi-lander-2-5-x-series-ddi-i-teq-super-platinum-เกียร์ธรรมดา"
+      },
+      {
+        title: "FORD RANGER 2.2 Cab XLT 6sp 4WD",
+        price: "369,000",
+        status: "พร้อมส่งมอบ",
+        description: "เข้าใหม่กระบะโอเพ่นแคป เกียร์ธรรมดา 4x4 (รถมือแรกเดิมๆ) สภาพดีมากพร้อมใช้งานครับ FORD RANGER 2.2 Cab XLT 6sp 4WD เกียร์ธรรมดา รถสวยเดิมๆ มือเดียว",
+        image: "https://cdn.shopify.com/s/files/1/0718/1441/4580/files/rn-image_picker_lib_temp_ee25ea88-901f-4f0e-8331-10bf37d7ccbd.jpg?v=1734101780",
+        link: "https://www.kn-goodcar.com/car-detail/ford-ranger-2-2-cab-xlt-6sp-4wd"
+      }
+    ];
+
+    // สร้าง HTML สำหรับรถแต่ละคัน
+    function createCarCard(car) {
+      return `
+        <div class="car-card">
+          <img src="${car.image}" alt="${car.title}" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDI4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyODAiIGhlaWdodD0iMTgwIiBmaWxsPSIjRjVGNUY1Ii8+CjxwYXRoIGQ9Ik0xNDAuNSA5MC41TDEyMCAxMTBIMTYxTDE0MC41IDkwLjVaIiBmaWxsPSIjQ0NDQ0NDIi8+CjwvZGc+='">
+          <div class="car-info">
+            <div class="car-title">${car.title}</div>
+            <div class="car-price">฿${car.price}</div>
+            <div class="car-status">${car.status}</div>
+            <div class="car-desc">${car.description}</div>
+            <a href="${car.link}" class="btn-detail" target="_blank">ดูรายละเอียด</a>
+          </div>
+        </div>
+      `;
+    }
+
+    // โหลดรถทั้งหมด
+    function loadCars() {
+      const carList = document.getElementById('carList');
+      const carsHTML = carsData.map(car => createCarCard(car)).join('');
+      carList.innerHTML = carsHTML;
+    }
+
+    // โหลดรถเมื่อหน้าเว็บโหลดเสร็จ
+    document.addEventListener('DOMContentLoaded', loadCars);
+
+    // Fallback: โหลดรถหลังจาก 100ms
+    setTimeout(loadCars, 100);
+  </script>
+</body>
+</html>
