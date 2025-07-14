@@ -1,0 +1,70 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Toyota Camry 2020 เกียร์ออโต้ ไมล์น้อย",
+      "handle": "toyota-camry-2020",
+      "price": 850000,
+      "images": [
+        "https://via.placeholder.com/400x300/4299e1/white?text=Toyota+Camry"
+      ],
+      "body_html": "รถสวย ไมล์แท้ เซอร์วิสศูนย์ตลอด พร้อมใช้งาน เอกสารครบถ้วน",
+      "created_at": "2024-12-01T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "title": "Honda City 2021 เชียงใหม่ สภาพดี",
+      "handle": "honda-city-2021",
+      "price": 520000,
+      "images": [
+        "https://via.placeholder.com/400x300/38a169/white?text=Honda+City"
+      ],
+      "body_html": "รถป้ายแดงเชียงใหม่ สภาพนางฟ้า ไม่เคยชน ไม่เคยน้ำท่วม",
+      "created_at": "2024-12-02T11:00:00Z"
+    },
+    {
+      "id": 3,
+      "title": "Isuzu D-Max 2019 เชียงราย 4WD",
+      "handle": "isuzu-dmax-2019",
+      "price": 680000,
+      "images": [
+        "https://via.placeholder.com/400x300/f6ad55/white?text=Isuzu+D-Max"
+      ],
+      "body_html": "กระบะดีเซล 4WD เชียงราย ใช้งานน้อย เจ้าของใช้เอง",
+      "created_at": "2024-12-03T12:00:00Z"
+    },
+    {
+      "id": 4,
+      "title": "Mazda CX-5 2020 ลำพูน สีขาว",
+      "handle": "mazda-cx5-2020",
+      "price": 920000,
+      "images": [
+        "https://via.placeholder.com/400x300/e53e3e/white?text=Mazda+CX-5"
+      ],
+      "body_html": "SUV สวยๆ จากลำพูน สีขาวสุดหรู ออฟชั่นครบ",
+      "created_at": "2024-12-04T13:00:00Z"
+    },
+    {
+      "id": 5,
+      "title": "Ford Ranger 2021 ลำปาง Wildtrak",
+      "handle": "ford-ranger-2021",
+      "price": 780000,
+      "images": [
+        "https://via.placeholder.com/400x300/2c5282/white?text=Ford+Ranger"
+      ],
+      "body_html": "ปิคอัพสายลุย จากลำปาง รุ่น Wildtrak ออฟชั่นเต็ม",
+      "created_at": "2024-12-05T14:00:00Z"
+    },
+    {
+      "id": 6,
+      "title": "BMW 320d 2019 เชียงใหม่ เซอร์วิสศูนย์",
+      "handle": "bmw-320d-2019",
+      "price": 1250000,
+      "images": [
+        "https://via.placeholder.com/400x300/764ba2/white?text=BMW+320d"
+      ],
+      "body_html": "รถหรูจากเชียงใหม่ เซอร์วิสศูนย์ตลอด สภาพนางฟ้า",
+      "created_at": "2024-12-06T15:00:00Z"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "car-widgets-collection",
+  "version": "1.0.0",
+  "description": "Complete car widgets collection for websites",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "deploy": "npm run build && netlify deploy --prod",
+    "build": "echo 'No build required'"
+  },
+  "keywords": [
+    "car",
+    "widgets",
+    "thailand",
+    "chiang-mai",
+    "seo"
+  ],
+  "author": "Car Widgets Team",
+  "license": "MIT"
+}

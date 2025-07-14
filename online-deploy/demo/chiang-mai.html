@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 Demo: Chiang Mai Car Widget</title>
+    <meta name="description" content="รถมือสองเชียงใหม่ SEO Widget Demo - พร้อมใช้งานจริง">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body style="margin: 0; padding: 20px; background: #f0f4f8; font-family: 'Prompt', sans-serif;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h1 style="text-align: center; color: #2c5282; font-size: 2.5em; margin-bottom: 20px;">
+            🎯 Chiang Mai Car Widget Demo
+        </h1>
+        <p style="text-align: center; font-size: 1.2em; color: #4a5568; margin-bottom: 40px;">
+            SEO Optimized Widget สำหรับ "รถมือสองเชียงใหม่"
+        </p>
+        
+        <!-- Widget Container -->
+        <div id="widget-container">
+            <!-- Chiang Mai Widget จะถูกโหลดที่นี่ -->
+        </div>
+        
+        <div style="background: white; padding: 30px; border-radius: 15px; margin-top: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            <h2 style="color: #2c5282; margin-top: 0;">📋 How to Use This Widget</h2>
+            <ol style="font-size: 1.1em; line-height: 1.6;">
+                <li>Copy โค้ด widget ด้านล่าง</li>
+                <li>ไป GoDaddy Website Builder</li>
+                <li>เพิ่ม HTML Widget</li>
+                <li>Paste โค้ด</li>
+                <li>แก้ API URL ให้ตรงกับของคุณ</li>
+                <li>Save และ Publish</li>
+            </ol>
+            
+            <h3 style="color: #2c5282;">🔧 API URL Configuration</h3>
+            <pre style="background: #f8f9fa; padding: 20px; border-radius: 10px; overflow-x: auto;">
+// แก้ URL เหล่านี้ในโค้ด widget
+this.apiUrl = 'https://chiangraiusedcar.com/cars.json';
+this.fallbackApiUrl = 'https://kn-goodcar.com/cars.json';
+this.carDetailBaseUrl = 'https://chiangraiusedcar.com/car-detail/';
+this.viewAllUrl = 'https://chiangraiusedcar.com/cars';
+            </pre>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="/" style="background: #4299e1; color: white; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: bold; margin: 10px;">
+                    ← กลับไปหน้าหลัก
+                </a>
+                <a href="https://github.com/your-repo/car-widgets" style="background: #2c5282; color: white; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: bold; margin: 10px;">
+                    📋 Get Source Code
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    // Load Chiang Mai Widget จากหน้าหลัก
+    fetch('/')
+        .then(response => response.text())
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const widgetCode = doc.getElementById('chiang-mai-widget');
+            
+            if (widgetCode) {
+                const container = document.getElementById('widget-container');
+                container.innerHTML = widgetCode.textContent;
+                
+                // Execute script tags
+                const scripts = container.querySelectorAll('script');
+                scripts.forEach(script => {
+                    const newScript = document.createElement('script');
+                    newScript.textContent = script.textContent;
+                    document.body.appendChild(newScript);
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error loading widget:', error);
+            document.getElementById('widget-container').innerHTML = `
+                <div style="text-align: center; padding: 60px; color: #e53e3e;">
+                    <h3>❌ ไม่สามารถโหลด Widget ได้</h3>
+                    <p>กรุณาลองใหม่อีกครั้งหรือตรวจสอบการเชื่อมต่อ</p>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>

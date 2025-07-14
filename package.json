@@ -1,0 +1,16 @@
+{
+  "name": "car-widgets-online",
+  "version": "1.0.0",
+  "description": "Car widgets collection - ready for online deployment",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000 || php -S localhost:8000"
+  },
+  "keywords": [
+    "car",
+    "widgets",
+    "thailand",
+    "seo"
+  ],
+  "license": "MIT"
+}
