@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧪 Test Shopify API</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+        }
+        .success { border-color: #28a745; background: #f8fff9; }
+        .error { border-color: #dc3545; background: #fff8f8; }
+        .info { border-color: #17a2b8; background: #f8feff; }
+        
+        .api-result {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .car-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+        }
+        
+        .car-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .car-content {
+            padding: 15px;
+        }
+        
+        .car-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .car-price {
+            color: #28a745;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .car-desc {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        button:hover {
+            background: #0056b3;
+        }
+        
+        .status {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .status.loading {
+            background: #ffc107;
+            color: #856404;
+        }
+        
+        .status.success {
+            background: #28a745;
+            color: white;
+        }
+        
+        .status.error {
+            background: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 ทดสอบ Shopify API การแสดงรถยนต์</h1>
+        
+        <div class="test-section info">
+            <h3>📡 API Endpoint</h3>
+            <p><strong>URL:</strong> <code id="apiUrl">https://nblues.github.io/recommended-car/api/cars.json</code></p>
+            <p><strong>Status:</strong> <span id="apiStatus" class="status loading">กำลังทดสอบ...</span></p>
+            
+            <button onclick="testAPI()">🔄 ทดสอบ API</button>
+            <button onclick="testCORS()">🌐 ทดสอบ CORS</button>
+            <button onclick="displayCars()">🚗 แสดงรถยนต์</button>
+            <button onclick="clearResults()">🗑️ ล้างผลลัพธ์</button>
+        </div>
+        
+        <div class="test-section" id="apiTestResult">
+            <h3>📊 ผลการทดสอบ API</h3>
+            <div id="apiResult" class="api-result">คลิก "ทดสอบ API" เพื่อเริ่มทดสอบ...</div>
+        </div>
+        
+        <div class="test-section" id="carsDisplay">
+            <h3>🚗 แสดงรถยนต์จาก Shopify</h3>
+            <div id="carsGrid" class="car-grid">
+                คลิก "แสดงรถยนต์" เพื่อโหลดข้อมูล...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'https://nblues.github.io/recommended-car/api/cars.json';
+        let testResults = [];
+        let carsData = [];
+
+        // ทดสอบ API
+        async function testAPI() {
+            const statusEl = document.getElementById('apiStatus');
+            const resultEl = document.getElementById('apiResult');
+            
+            statusEl.textContent = 'กำลังทดสอบ...';
+            statusEl.className = 'status loading';
+            
+            let log = `🧪 เริ่มทดสอบ API ที่: ${new Date().toLocaleString('th-TH')}\n`;
+            log += `📡 URL: ${API_URL}\n\n`;
+            
+            try {
+                // Test 1: Basic fetch
+                log += `📋 ทดสอบที่ 1: Basic Fetch\n`;
+                const response = await fetch(API_URL, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Cache-Control': 'no-cache'
+                    }
+                });
+                
+                log += `✅ Response Status: ${response.status} ${response.statusText}\n`;
+                log += `📄 Content-Type: ${response.headers.get('content-type')}\n`;
+                log += `🔒 CORS: ${response.headers.get('access-control-allow-origin') || 'ไม่มี header'}\n`;
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                // Test 2: Parse JSON
+                log += `\n📋 ทดสอบที่ 2: Parse JSON\n`;
+                const rawText = await response.text();
+                log += `📦 Response Size: ${rawText.length} characters\n`;
+                log += `📝 First 200 chars: ${rawText.substring(0, 200)}...\n`;
+                
+                const data = JSON.parse(rawText);
+                log += `✅ JSON parsed successfully\n`;
+                log += `📊 Structure: ${Object.keys(data).join(', ')}\n`;
+                
+                // Test 3: Validate data
+                log += `\n📋 ทดสอบที่ 3: Validate Data\n`;
+                if (data.products && Array.isArray(data.products)) {
+                    log += `✅ Products array found: ${data.products.length} items\n`;
+                    
+                    data.products.forEach((product, index) => {
+                        log += `🚗 Car ${index + 1}: ${product.title} - ฿${product.price?.toLocaleString()}\n`;
+                    });
+                    
+                    carsData = data.products;
+                    statusEl.textContent = 'API ใช้งานได้ปกติ';
+                    statusEl.className = 'status success';
+                    document.getElementById('apiTestResult').className = 'test-section success';
+                } else {
+                    throw new Error('ไม่พบ products array ในข้อมูล');
+                }
+                
+                log += `\n✅ ทดสอบสำเร็จทั้งหมด!`;
+                
+            } catch (error) {
+                log += `\n❌ เกิดข้อผิดพลาด: ${error.message}\n`;
+                log += `🔍 Error Type: ${error.name}\n`;
+                log += `📚 Stack: ${error.stack}\n`;
+                
+                statusEl.textContent = 'API มีปัญหา';
+                statusEl.className = 'status error';
+                document.getElementById('apiTestResult').className = 'test-section error';
+            }
+            
+            resultEl.textContent = log;
+        }
+
+        // ทดสอบ CORS
+        async function testCORS() {
+            const resultEl = document.getElementById('apiResult');
+            let log = `🌐 ทดสอบ CORS ที่: ${new Date().toLocaleString('th-TH')}\n\n`;
+            
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'OPTIONS'
+                });
+                
+                log += `OPTIONS Response: ${response.status}\n`;
+                log += `CORS Headers:\n`;
+                log += `- Access-Control-Allow-Origin: ${response.headers.get('access-control-allow-origin')}\n`;
+                log += `- Access-Control-Allow-Methods: ${response.headers.get('access-control-allow-methods')}\n`;
+                log += `- Access-Control-Allow-Headers: ${response.headers.get('access-control-allow-headers')}\n`;
+                
+            } catch (error) {
+                log += `❌ CORS Error: ${error.message}\n`;
+            }
+            
+            resultEl.textContent = log;
+        }
+
+        // แสดงรถยนต์
+        async function displayCars() {
+            const gridEl = document.getElementById('carsGrid');
+            
+            try {
+                gridEl.innerHTML = '<div style="text-align: center; padding: 20px;">กำลังโหลดรถยนต์...</div>';
+                
+                // ถ้ายังไม่มีข้อมูล ให้ดึงจาก API ก่อน
+                if (carsData.length === 0) {
+                    await testAPI();
+                }
+                
+                if (carsData.length === 0) {
+                    gridEl.innerHTML = '<div style="text-align: center; padding: 20px; color: #dc3545;">ไม่พบข้อมูลรถยนต์</div>';
+                    return;
+                }
+                
+                const carsHTML = carsData.map((car, index) => `
+                    <div class="car-card">
+                        <img src="${car.images?.[0] || `https://via.placeholder.com/300x200/e9ecef/6c757d?text=รถยนต์+${index + 1}`}" 
+                             alt="${car.title}" 
+                             class="car-image"
+                             onerror="this.src='https://via.placeholder.com/300x200/e9ecef/6c757d?text=รถยนต์+${index + 1}'">
+                        <div class="car-content">
+                            <div class="car-title">${car.title}</div>
+                            <div class="car-price">฿${car.price?.toLocaleString()}</div>
+                            <div class="car-desc">${(car.body_html || 'ไม่มีรายละเอียด').replace(/<[^>]*>/g, '').substring(0, 100)}...</div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                gridEl.innerHTML = carsHTML;
+                document.getElementById('carsDisplay').className = 'test-section success';
+                
+            } catch (error) {
+                gridEl.innerHTML = `<div style="text-align: center; padding: 20px; color: #dc3545;">เกิดข้อผิดพลาด: ${error.message}</div>`;
+                document.getElementById('carsDisplay').className = 'test-section error';
+            }
+        }
+
+        // ล้างผลลัพธ์
+        function clearResults() {
+            document.getElementById('apiResult').textContent = 'คลิก "ทดสอบ API" เพื่อเริ่มทดสอบ...';
+            document.getElementById('carsGrid').innerHTML = 'คลิก "แสดงรถยนต์" เพื่อโหลดข้อมูล...';
+            document.getElementById('apiStatus').textContent = 'พร้อมทดสอบ';
+            document.getElementById('apiStatus').className = 'status loading';
+            document.getElementById('apiTestResult').className = 'test-section';
+            document.getElementById('carsDisplay').className = 'test-section';
+            carsData = [];
+        }
+
+        // เริ่มต้นทดสอบอัตโนมัติ
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(testAPI, 1000);
+        });
+    </script>
+</body>
+</html>

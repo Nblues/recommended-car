@@ -291,58 +291,138 @@
     let carsData = [];
     let isLoading = true;
 
-    // 🔄 ฟังก์ชันดึงข้อมูลจาก API
+    // 🔄 Fallback data (ข้อมูลจาก Shopify API)
+    const fallbackCarsData = [
+      {
+        title: 'Toyota Camry 2020 เกียร์ออโต้',
+        price: '฿850,000',
+        status: 'พร้อมขาย',
+        image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400',
+        description: 'รถสวย ไมล์น้อย เซอร์วิสศูนย์ตลอด',
+        link: 'car-detail/toyota-camry-2020.html'
+      },
+      {
+        title: 'Honda City 2021 เชียงใหม่',
+        price: '฿520,000',
+        status: 'พร้อมขาย',
+        image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400',
+        description: 'รถป้ายแดงเชียงใหม่ สภาพดีมาก',
+        link: 'car-detail/honda-city-2021.html'
+      },
+      {
+        title: 'Mazda CX-5 2020 สีขาว',
+        price: '฿920,000',
+        status: 'พร้อมขาย',
+        image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400',
+        description: 'SUV สวยๆ สีขาวสุดหรู ออฟชั่นครบ',
+        link: 'car-detail/mazda-cx5-2020.html'
+      },
+      {
+        title: 'Ford Ranger 2021 Wildtrak',
+        price: '฿780,000',
+        status: 'พร้อมขาย',
+        image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400',
+        description: 'ปิคอัพสายลุย รุ่น Wildtrak ออฟชั่นเต็ม',
+        link: 'car-detail/ford-ranger-2021.html'
+      },
+      {
+        title: 'BMW 320d 2019 เซอร์วิสศูนย์',
+        price: '฿1,250,000',
+        status: 'พร้อมขาย',
+        image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400',
+        description: 'รถหรู เซอร์วิสศูนย์ตลอด สภาพนางฟ้า',
+        link: 'car-detail/bmw-320d-2019.html'
+      },
+      {
+        title: 'Isuzu D-Max 2019 4WD',
+        price: '฿680,000',
+        status: 'พร้อมขาย',
+        image: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400',
+        description: 'กระบะดีเซล 4WD ใช้งานน้อย เจ้าของใช้เอง',
+        link: 'car-detail/isuzu-dmax-2019.html'
+      }
+    ];
+
+    // 🔄 ฟังก์ชันดึงข้อมูลจาก API (Shopify Format)
     async function fetchCarsFromAPI() {
       try {
-        console.log('🔄 กำลังดึงข้อมูลจาก API...');
+        console.log('🔄 กำลังดึงข้อมูลจาก Shopify API:', CARS_API_ENDPOINT);
         
-        const response = await fetch(CARS_API_ENDPOINT);
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 วินาที timeout
+        
+        const response = await fetch(CARS_API_ENDPOINT, {
+          signal: controller.signal,
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache',
+            'Expires': '0'
+          },
+          mode: 'cors'
+        });
+        
+        clearTimeout(timeoutId);
+        
+        console.log('📡 Shopify Response status:', response.status);
+        console.log('📡 Response headers:', Object.fromEntries(response.headers.entries()));
         
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);
         }
         
-        const data = await response.json();
+        const rawText = await response.text();
+        console.log('📦 Raw response text (first 200 chars):', rawText.substring(0, 200));
         
-        // แปลงข้อมูลจาก API format เป็น widget format
-        carsData = data.products.map(product => ({
-          title: product.title,
-          price: `฿${product.price.toLocaleString()}`,
-          status: 'พร้อมขาย',
-          image: product.images && product.images[0] ? product.images[0] : 'https://via.placeholder.com/300x200/f8f9fa/6c757d?text=รถยนต์',
-          description: product.body_html || 'ไม่มีรายละเอียด',
-          link: `car-detail.html?car=${product.handle}`
-        }));
+        let data;
+        try {
+          data = JSON.parse(rawText);
+        } catch (parseError) {
+          console.error('❌ JSON Parse Error:', parseError);
+          throw new Error('Invalid JSON response from API');
+        }
         
-        console.log('✅ ดึงข้อมูลสำเร็จ:', carsData.length, 'คัน');
-        return carsData;
+        console.log('📦 Parsed Shopify data:', data);
+        console.log('📊 Products count:', data?.products?.length || 0);
+        
+        // แปลงข้อมูลจาก Shopify format เป็น widget format
+        if (data && data.products && Array.isArray(data.products) && data.products.length > 0) {
+          const transformedCars = data.products.map((product, index) => {
+            console.log(`🚗 Processing car ${index + 1}:`, product.title);
+            
+            return {
+              title: product.title || `รถยนต์ ${index + 1}`,
+              price: `฿${(product.price || 0).toLocaleString()}`,
+              status: 'พร้อมขาย',
+              image: (product.images && product.images[0]) ? product.images[0] : `https://via.placeholder.com/300x200/e9ecef/6c757d?text=รถยนต์+${index + 1}`,
+              description: (product.body_html || 'ไม่มีรายละเอียด').replace(/<[^>]*>/g, ''), // ลบ HTML tags
+              link: `car-detail/${product.handle || `car-${index + 1}`}.html`
+            };
+          });
+          
+          console.log('✅ แปลงข้อมูล Shopify สำเร็จ:', transformedCars.length, 'คัน');
+          console.log('🚗 Transformed cars preview:', transformedCars.slice(0, 2));
+          
+          carsData = transformedCars;
+          return transformedCars;
+        } else {
+          console.warn('⚠️ ไม่พบข้อมูล products ใน API response');
+          throw new Error('No products found in API response');
+        }
         
       } catch (error) {
-        console.error('❌ Error fetching cars from API:', error);
+        console.error('❌ Error fetching from Shopify API:', error.message);
+        console.error('❌ Error details:', error);
+        console.log('🔄 กำลังใช้ fallback data แทน...');
         
-        // Fallback data กรณี API ล่ม
-        return [
-          {
-            title: 'Honda City Hatchback 1.0 Turbo SV 2021',
-            price: '฿599,000',
-            status: 'พร้อมขาย',
-            image: 'https://cdn.shopify.com/s/files/1/0609/4307/0588/files/honda-city-hatchback.jpg?v=1703840000',
-            description: 'สภาพดีเยี่ยม เกียร์ออโต้ CVT ประหยัดน้ำมัน รถมือสองคุณภาพ',
-            link: 'car-detail.html?car=honda-city-hatchback-1-0-turbo-รุ่น-sv-ปี-2021-เกียร์ออโต้'
-          },
-          {
-            title: 'Toyota Camry 2.5 Hybrid Premium 2020',
-            price: '฿1,290,000',
-            status: 'พร้อมขาย',
-            image: 'https://cdn.shopify.com/s/files/1/0609/4307/0588/files/toyota-camry-2020.jpg?v=1703840000',
-            description: 'สภาพป้ายแดง ประหยัดน้ำมัน รถบ้านมือเดียว รถซีดานหรู',
-            link: 'car-detail.html?car=toyota-camry-2020'
-          }
-        ];
+        // ใช้ fallback data
+        carsData = fallbackCarsData;
+        return fallbackCarsData;
       }
     }
 
-    // 📊 ฟังก์ชันแสดงรถยนต์ - รองรับ GoDaddy
+    // 📊 ฟังก์ชันแสดงรถยนต์
     async function displayCars() {
       const grid = document.getElementById('carsGrid');
       
@@ -353,28 +433,27 @@
       
       try {
         // แสดง loading
-        grid.innerHTML = '<div class="loading">กำลังโหลดข้อมูลจาก API...</div>';
+        grid.innerHTML = '<div class="loading">กำลังโหลดข้อมูล...</div>';
         
-        // ดึงข้อมูลจาก API
-        const cars = await fetchCarsFromAPI();
+        // ลองดึงจาก API ก่อน
+        console.log('🚀 เริ่มต้นการโหลดข้อมูล...');
+        let cars = await fetchCarsFromAPI();
         
+        // ถ้าไม่มีข้อมูล ใช้ fallback
         if (!cars || cars.length === 0) {
-          grid.innerHTML = `
-            <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #dc3545;">
-              <h3>ไม่พบข้อมูลรถยนต์</h3>
-              <p>กรุณาลองใหม่อีกครั้ง</p>
-            </div>
-          `;
-          return;
+          console.log('⚠️ ไม่มีข้อมูลจาก API, ใช้ fallback data');
+          cars = fallbackCarsData;
         }
         
+        console.log('📋 กำลังแสดงรถ:', cars.length, 'คัน');
+        
         const carsHTML = cars.map((car, index) => {
-          const safeTitle = car.title || 'ไม่มีชื่อ';
+          const safeTitle = car.title || `รถยนต์ ${index + 1}`;
           const safePrice = car.price || 'ราคาสอบถาม';
           const safeStatus = car.status || 'สอบถาม';
           const safeDescription = car.description || 'ไม่มีรายละเอียด';
           const safeLink = car.link || '#';
-          const safeImage = car.image || 'https://via.placeholder.com/300x200/f8f9fa/6c757d?text=รถยนต์';
+          const safeImage = car.image || `https://via.placeholder.com/300x200/f8f9fa/6c757d?text=รถยนต์+${index + 1}`;
           
           return `
             <div class="car-item" data-index="${index}">
@@ -389,7 +468,7 @@
                 <span class="car-status ${safeStatus === 'ขายแล้ว' ? 'sold' : 'available'}">
                   ${safeStatus}
                 </span>
-                <div class="car-desc">${safeDescription.substring(0, 100)}${safeDescription.length > 100 ? '...' : ''}</div>
+                <div class="car-desc">${safeDescription.length > 100 ? safeDescription.substring(0, 100) + '...' : safeDescription}</div>
                 <a href="${safeLink}" class="car-link" target="_blank">
                   ดูรายละเอียด
                 </a>
@@ -403,60 +482,60 @@
         
         console.log('✅ แสดงรถยนต์สำเร็จ:', cars.length, 'คัน');
         
-        // เพิ่ม event listener สำหรับ error handling
-        const images = grid.querySelectorAll('.car-image');
-        images.forEach((img, index) => {
-          img.addEventListener('error', function() {
-            this.src = `https://via.placeholder.com/300x200/e9ecef/6c757d?text=รถยนต์+${index + 1}`;
+        // เพิ่ม event listener สำหรับ error handling รูปภาพ
+        setTimeout(() => {
+          const images = grid.querySelectorAll('.car-image');
+          images.forEach((img, index) => {
+            img.addEventListener('error', function() {
+              console.log(`🖼️ Image error for car ${index + 1}, using placeholder`);
+              this.src = `https://via.placeholder.com/300x200/e9ecef/6c757d?text=รถยนต์+${index + 1}`;
+            });
           });
-        });
+        }, 100);
         
       } catch (error) {
-        console.error('❌ Error displaying cars:', error);
-        grid.innerHTML = `
-          <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #dc3545;">
-            <h3>เกิดข้อผิดพลาดในการโหลดข้อมูล</h3>
-            <p>กรุณาลองรีเฟรชหน้าเว็บ หรือติดต่อเรา</p>
-            <button onclick="displayCars()" style="margin-top: 10px; padding: 10px 20px; background: #3498db; color: white; border: none; border-radius: 4px; cursor: pointer;">
-              ลองโหลดใหม่
-            </button>
+        console.error('❌ Error in displayCars:', error);
+        
+        // แสดง fallback data แทน
+        grid.innerHTML = fallbackCarsData.map((car, index) => `
+          <div class="car-item">
+            <img src="${car.image}" alt="${car.title}" class="car-image" loading="lazy">
+            <div class="car-content">
+              <div class="car-title">${car.title}</div>
+              <div class="car-price">${car.price}</div>
+              <span class="car-status available">${car.status}</span>
+              <div class="car-desc">${car.description}</div>
+              <a href="${car.link}" class="car-link">ดูรายละเอียด</a>
+            </div>
           </div>
-        `;
+        `).join('');
+        
+        console.log('🔄 แสดง fallback data สำเร็จ');
       }
-    }
-
-    // 🔄 ฟังก์ชันรีเฟรชข้อมูล
-    function refreshCars() {
-      console.log('🔄 รีเฟรชข้อมูลรถยนต์...');
-      displayCars();
     }
 
     // เริ่มต้นแอปพลิเคชัน
     function initApp() {
-      // ตรวจสอบ DOM พร้อม
+      console.log('🚀 เริ่มต้นระบบ...');
+      
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
-          setTimeout(displayCars, 500);
+          console.log('📄 DOM พร้อมแล้ว');
+          setTimeout(displayCars, 100);
         });
       } else {
-        setTimeout(displayCars, 500);
+        console.log('📄 DOM พร้อมแล้ว (immediate)');
+        setTimeout(displayCars, 100);
       }
-      
-      // เพิ่ม error handler สำหรับ window
-      window.addEventListener('error', function(e) {
-        console.error('Window Error:', e.error);
-      });
-      
-      // เพิ่ม refresh button (ซ่อนไว้)
-      window.refreshCars = refreshCars;
     }
 
     // เรียกใช้งาน
     initApp();
     
     // Debug information
-    console.log('🚗 Car Widget API Ready - Version 2.0');
+    console.log('🚗 Car Widget API Ready - Version 2.1');
     console.log('🌐 API Endpoint:', CARS_API_ENDPOINT);
+    console.log('📊 Fallback Data Ready:', fallbackCarsData.length, 'cars');
   </script>
 </body>
 </html>
