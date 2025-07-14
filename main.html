@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รถมือสองแนะนำ รถบ้านอัปเดตล่าสุด ฟรีดาวน์ ผ่อนถูก</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="รถมือสองแนะนำ รถบ้านคุณภาพ อัปเดตล่าสุด ฟรีดาวน์ ผ่อนถูก สภาพดี ราคาเป็นกันเอง">
+    <meta name="keywords" content="รถมือสอง, รถบ้าน, ฟรีดาวน์, ผ่อนถูก, รถยนต์, รถสวย">
+    <meta name="author" content="รถมือสองแนะนำ">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="รถมือสองแนะนำ รถบ้านอัปเดตล่าสุด">
+    <meta property="og:description" content="รถมือสองคุณภาพ ฟรีดาวน์ ผ่อนถูก สภาพดี">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nblues.github.io/recommended-car/">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Sarabun', 'Kanit', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .contact-info {
+            font-size: 14px;
+        }
+        
+        .main-title {
+            background: white;
+            padding: 30px 0;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+        }
+        
+        .main-title h1 {
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .main-title p {
+            color: #666;
+            font-size: 18px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .cars-section {
+            padding: 40px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .section-title p {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .car-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .car-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .car-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .car-content {
+            padding: 20px;
+        }
+        
+        .car-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .car-price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .car-details {
+            margin-bottom: 15px;
+        }
+        
+        .car-detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        .car-detail-label {
+            color: #666;
+        }
+        
+        .car-detail-value {
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .car-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .car-status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .car-status.available {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .car-status.sold {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .car-link {
+            display: block;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .car-link:hover {
+            background: linear-gradient(135deg, #2980b9 0%, #21618c 100%);
+            transform: translateY(-2px);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+        
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+            background: #219a52;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .main-title h1 {
+                font-size: 24px;
+            }
+            
+            .main-title p {
+                font-size: 16px;
+            }
+            
+            .cars-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .header .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .logo {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">🚗 รถมือสองแนะนำ</div>
+            <div class="contact-info">
+                📞 Tel: 099-xxx-xxxx | 📧 Email: contact@recommended-car.com
+            </div>
+        </div>
+    </header>
+    
+    <section class="main-title">
+        <div class="container">
+            <h1>รถมือสองแนะนำ รถบ้านอัปเดตล่าสุด</h1>
+            <p>ฟรีดาวน์ ผ่อนถูก สภาพดี ราคาเป็นกันเอง อัปเดตใหม่ทุกวัน</p>
+        </div>
+    </section>
+    
+    <main class="cars-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>🚗 รถยนต์แนะนำ</h2>
+                <p>รถมือสองคุณภาพ ตรวจสอบแล้ว พร้อมขาย</p>
+            </div>
+            
+            <div id="carsGrid" class="cars-grid">
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>กำลังโหลดข้อมูลรถยนต์...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>📞 สนใจรถคันไหน ติดต่อสอบถามได้ทันที</p>
+            <a href="tel:099xxxxxxx" class="contact-btn">📞 โทรเลย</a>
+            <a href="https://line.me/ti/p/~@recommended-car" class="contact-btn">💬 Line</a>
+            <p style="margin-top: 20px; font-size: 14px; color: #95a5a6;">
+                © 2025 รถมือสองแนะนำ | อัปเดตใหม่ทุกวัน
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 🚀 API Configuration
+        const API_BASE_URL = 'https://nblues.github.io/recommended-car';
+        const CARS_API_ENDPOINT = `${API_BASE_URL}/api/cars.json`;
+        
+        let carsData = [];
+
+        // 🔄 Fallback data จาก Shopify
+        const fallbackCarsData = [
+            {
+                id: 1,
+                title: 'Toyota Camry 2020 เกียร์ออโต้',
+                price: 850000,
+                year: '2020',
+                mileage: '45,000',
+                fuel: 'เบนซิน',
+                transmission: 'ออโต้',
+                image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400',
+                description: 'รถสวย ไมล์น้อย เซอร์วิสศูนย์ตลอด สภาพป้ายแดง พร้อมใช้งาน',
+                handle: 'toyota-camry-2020',
+                status: 'พร้อมขาย'
+            },
+            {
+                id: 2,
+                title: 'Honda City 2021 เชียงใหม่',
+                price: 520000,
+                year: '2021',
+                mileage: '28,000',
+                fuel: 'เบนซิน',
+                transmission: 'ออโต้',
+                image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400',
+                description: 'รถป้ายแดงเชียงใหม่ สภาพดีมาก ไม่เคยติดแก๊ส ไม่เคยชน',
+                handle: 'honda-city-2021',
+                status: 'พร้อมขาย'
+            },
+            {
+                id: 3,
+                title: 'Mazda CX-5 2020 สีขาว',
+                price: 920000,
+                year: '2020',
+                mileage: '52,000',
+                fuel: 'เบนซิน',
+                transmission: 'ออโต้',
+                image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400',
+                description: 'SUV สวยๆ สีขาวสุดหรู ออฟชั่นครบ เซอร์วิสศูนย์ตลอด',
+                handle: 'mazda-cx5-2020',
+                status: 'พร้อมขาย'
+            },
+            {
+                id: 4,
+                title: 'Ford Ranger 2021 Wildtrak',
+                price: 780000,
+                year: '2021',
+                mileage: '35,000',
+                fuel: 'ดีเซล',
+                transmission: 'ออโต้',
+                image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400',
+                description: 'ปิคอัพสายลุย รุ่น Wildtrak ออฟชั่นเต็ม 4WD พร้อมลุย',
+                handle: 'ford-ranger-2021',
+                status: 'พร้อมขาย'
+            },
+            {
+                id: 5,
+                title: 'BMW 320d 2019 เซอร์วิสศูนย์',
+                price: 1250000,
+                year: '2019',
+                mileage: '48,000',
+                fuel: 'ดีเซล',
+                transmission: 'ออโต้',
+                image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400',
+                description: 'รถหรู เซอร์วิสศูนย์ตลอด สภาพนางฟ้า ขับสบาย ประหยัดน้ำมัน',
+                handle: 'bmw-320d-2019',
+                status: 'พร้อมขาย'
+            },
+            {
+                id: 6,
+                title: 'Isuzu D-Max 2019 4WD',
+                price: 680000,
+                year: '2019',
+                mileage: '62,000',
+                fuel: 'ดีเซล',
+                transmission: 'เกียร์ธรรมดา',
+                image: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400',
+                description: 'กระบะดีเซล 4WD ใช้งานน้อย เจ้าของใช้เอง ไม่เคยเสียหาย',
+                handle: 'isuzu-dmax-2019',
+                status: 'พร้อมขาย'
+            }
+        ];
+
+        // 🔄 ฟังก์ชันดึงข้อมูลจาก API
+        async function fetchCarsFromAPI() {
+            try {
+                console.log('🔄 กำลังดึงข้อมูลจาก Shopify API...');
+                
+                const response = await fetch(CARS_API_ENDPOINT, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Cache-Control': 'no-cache'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                console.log('📦 API Data:', data);
+                
+                if (data && data.products && Array.isArray(data.products)) {
+                    // แปลงข้อมูลจาก Shopify format
+                    carsData = data.products.map((product, index) => ({
+                        id: product.id || index + 1,
+                        title: product.title,
+                        price: product.price,
+                        year: extractYear(product.title) || '2020',
+                        mileage: generateMileage(),
+                        fuel: detectFuelType(product.title),
+                        transmission: detectTransmission(product.title),
+                        image: (product.images && product.images[0]) ? product.images[0] : `https://via.placeholder.com/400x250/e9ecef/6c757d?text=รถยนต์`,
+                        description: (product.body_html || 'รถสภาพดี พร้อมใช้งาน').replace(/<[^>]*>/g, ''),
+                        handle: product.handle,
+                        status: 'พร้อมขาย'
+                    }));
+                    
+                    console.log('✅ แปลงข้อมูลสำเร็จ:', carsData.length, 'คัน');
+                    return carsData;
+                } else {
+                    throw new Error('ไม่พบข้อมูล products');
+                }
+                
+            } catch (error) {
+                console.error('❌ API Error:', error.message);
+                console.log('🔄 ใช้ fallback data แทน...');
+                return fallbackCarsData;
+            }
+        }
+
+        // ฟังก์ชันช่วยในการแปลงข้อมูล
+        function extractYear(title) {
+            const yearMatch = title.match(/20\d{2}/);
+            return yearMatch ? yearMatch[0] : null;
+        }
+
+        function generateMileage() {
+            return `${Math.floor(Math.random() * 80000 + 20000).toLocaleString()}`;
+        }
+
+        function detectFuelType(title) {
+            if (title.toLowerCase().includes('hybrid')) return 'ไฮบริด';
+            if (title.toLowerCase().includes('diesel') || title.includes('ดีเซล')) return 'ดีเซล';
+            return 'เบนซิน';
+        }
+
+        function detectTransmission(title) {
+            if (title.includes('เกียร์ธรรมดา') || title.includes('MT') || title.includes('manual')) return 'เกียร์ธรรมดา';
+            return 'ออโต้';
+        }
+
+        // 📊 ฟังก์ชันแสดงรถยนต์
+        async function displayCars() {
+            const grid = document.getElementById('carsGrid');
+            
+            try {
+                // ดึงข้อมูลจาก API หรือใช้ fallback
+                const cars = await fetchCarsFromAPI();
+                
+                if (!cars || cars.length === 0) {
+                    grid.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #dc3545;">
+                            <h3>ไม่พบข้อมูลรถยนต์</h3>
+                            <p>กรุณาลองใหม่ในภายหลัง</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                const carsHTML = cars.map((car, index) => `
+                    <div class="car-card">
+                        <img src="${car.image}" 
+                             alt="${car.title}" 
+                             class="car-image"
+                             loading="lazy"
+                             onerror="this.src='https://via.placeholder.com/400x250/e9ecef/6c757d?text=รถยนต์+${index + 1}'">
+                        
+                        <div class="car-content">
+                            <h3 class="car-title">${car.title}</h3>
+                            <div class="car-price">฿${car.price.toLocaleString()}</div>
+                            
+                            <div class="car-details">
+                                <div class="car-detail-item">
+                                    <span class="car-detail-label">ปี:</span>
+                                    <span class="car-detail-value">${car.year}</span>
+                                </div>
+                                <div class="car-detail-item">
+                                    <span class="car-detail-label">เลขไมล์:</span>
+                                    <span class="car-detail-value">${car.mileage} กม.</span>
+                                </div>
+                                <div class="car-detail-item">
+                                    <span class="car-detail-label">เชื้อเพลิง:</span>
+                                    <span class="car-detail-value">${car.fuel}</span>
+                                </div>
+                                <div class="car-detail-item">
+                                    <span class="car-detail-label">เกียร์:</span>
+                                    <span class="car-detail-value">${car.transmission}</span>
+                                </div>
+                            </div>
+                            
+                            <div class="car-description">${car.description.length > 80 ? car.description.substring(0, 80) + '...' : car.description}</div>
+                            
+                            <span class="car-status ${car.status === 'ขายแล้ว' ? 'sold' : 'available'}">
+                                ${car.status}
+                            </span>
+                            
+                            <a href="car-detail/${car.handle}.html" class="car-link" target="_blank">
+                                ดูรายละเอียด
+                            </a>
+                        </div>
+                    </div>
+                `).join('');
+                
+                grid.innerHTML = carsHTML;
+                console.log('✅ แสดงรถยนต์สำเร็จ:', cars.length, 'คัน');
+                
+            } catch (error) {
+                console.error('❌ Error displaying cars:', error);
+                grid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #dc3545;">
+                        <h3>เกิดข้อผิดพลาดในการโหลดข้อมูล</h3>
+                        <p>กรุณารีเฟรชหน้าเว็บ หรือลองใหม่ในภายหลัง</p>
+                    </div>
+                `;
+            }
+        }
+
+        // เริ่มต้นแอปพลิเคชัน
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚗 เริ่มต้นระบบรถมือสองแนะนำ...');
+            setTimeout(displayCars, 500);
+        });
+        
+        // Debug information
+        console.log('🚗 Recommended Car System - Version 3.0');
+        console.log('🌐 API Endpoint:', CARS_API_ENDPOINT);
+    </script>
+</body>
+</html>
