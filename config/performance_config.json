@@ -1,0 +1,7 @@
+{
+  "enable_service_worker": true,
+  "cache_duration": 3600,
+  "enable_lazy_loading": true,
+  "enable_compression": true,
+  "auto_refresh_interval": 1800
+}

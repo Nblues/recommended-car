@@ -1,0 +1,18 @@
+{
+  "enable_webp": true,
+  "enable_cors_fallback": true,
+  "placeholder_url": "https://via.placeholder.com/300x200?text=Loading...",
+  "error_image_url": "https://via.placeholder.com/300x200?text=Error+Loading+Image",
+  "max_file_size": 5242880,
+  "allowed_formats": [
+    "jpg",
+    "jpeg",
+    "png",
+    "webp",
+    "avif"
+  ],
+  "cdn_domains": [
+    "cdn.shopify.com",
+    "images.unsplash.com"
+  ]
+}

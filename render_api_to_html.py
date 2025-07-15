@@ -4,14 +4,17 @@ Ultimate API-to-HTML Renderer 2025
 เรนเดอร์ HTML สดจาก API สำหรับ SEO และ Performance
 """
 
-import requests
 import json
 import datetime
 import os
 from pathlib import Path
 import asyncio
-import aiohttp
 from typing import Dict, List, Optional
+
+# Import enhanced modules
+from config_manager import config_manager
+from api_client import fetch_api_data
+from error_handler import handle_async_exception, log_error
 
 class APItoHTMLRenderer:
     def __init__(self):
@@ -19,39 +22,46 @@ class APItoHTMLRenderer:
         self.template_path = self.base_path / "templates"
         self.output_path = self.base_path / "docs"
         
-        # API configurations
-        self.api_configs = {
-            'shopify': {
-                'url': 'https://quickstart-f2f5a8c8.myshopify.com/admin/api/2023-10/products.json',
-                'headers': {'Content-Type': 'application/json'}
-            },
-            'local': {
-                'url': 'cars.json',
-                'headers': {}
-            },
-            'custom': {
-                'url': 'https://api.example.com/cars',
-                'headers': {'Authorization': 'Bearer YOUR_API_KEY'}
-            }
+        # Ensure output directory exists
+        self.output_path.mkdir(exist_ok=True)
+        
+        # Load templates with error handling
+        self.templates = self._load_templates()
+
+    def _load_templates(self) -> Dict[str, str]:
+        """โหลด HTML templates with enhanced error handling"""
+        templates = {}
+        template_files = {
+            'main': 'index-template.html',
+            'car_card': 'car-card-template.html', 
+            'car_detail': 'car-detail-template.html'
         }
         
-        # HTML Templates
-        self.templates = {
-            'main': self.load_template('index-template.html'),
-            'car_card': self.load_template('car-card-template.html'),
-            'car_detail': self.load_template('car-detail-template.html')
-        }
+        for template_name, filename in template_files.items():
+            try:
+                templates[template_name] = self.load_template(filename)
+            except Exception as e:
+                log_error(e, {'template': filename}, "WARNING")
+                templates[template_name] = self.get_default_template(filename)
+        
+        return templates
 
     def load_template(self, filename: str) -> str:
-        """โหลด HTML template"""
+        """โหลด HTML template with enhanced error handling"""
         try:
             template_file = self.template_path / filename
             if template_file.exists():
-                return template_file.read_text(encoding='utf-8')
+                with open(template_file, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    if not content.strip():
+                        raise ValueError(f"Template {filename} is empty")
+                    return content
             else:
+                print(f"⚠️ Template file {filename} not found, using default")
                 return self.get_default_template(filename)
         except Exception as e:
-            print(f"Error loading template {filename}: {e}")
+            log_error(e, {'template_file': filename}, "WARNING")
+            print(f"❌ Error loading template {filename}: {e}")
             return self.get_default_template(filename)
 
     def get_default_template(self, template_type: str) -> str:
@@ -128,60 +138,84 @@ class APItoHTMLRenderer:
 </body>
 </html>'''
 
+    @handle_async_exception("fetch_api_data")
     async def fetch_api_data(self, api_name: str) -> Optional[Dict]:
-        """ดึงข้อมูลจาก API แบบ async"""
+        """ดึงข้อมูลจาก API แบบ async with enhanced error handling"""
         try:
-            config = self.api_configs.get(api_name)
-            if not config:
-                raise ValueError(f"API config '{api_name}' not found")
-
-            if api_name == 'local':
-                # Read local JSON file
-                json_file = self.base_path / config['url']
-                with open(json_file, 'r', encoding='utf-8') as f:
-                    return json.load(f)
+            print(f"🔍 Fetching data from {api_name} API...")
+            
+            # Use enhanced API client
+            response = await fetch_api_data(api_name, use_cache=True)
+            
+            if response.success:
+                print(f"✅ Successfully fetched from {api_name}")
+                if response.from_cache:
+                    print("📋 Data served from cache")
+                else:
+                    print(f"⏱️ Response time: {response.response_time:.2f}s")
+                return response.data
             else:
-                # Fetch from remote API
-                async with aiohttp.ClientSession() as session:
-                    async with session.get(config['url'], headers=config['headers']) as response:
-                        if response.status == 200:
-                            return await response.json()
-                        else:
-                            raise Exception(f"API returned status {response.status}")
+                print(f"❌ API Error for {api_name}: {response.error}")
+                log_error(Exception(response.error), {
+                    'api_name': api_name,
+                    'status_code': response.status_code
+                }, "ERROR")
+                return None
 
         except Exception as e:
-            print(f"Error fetching data from {api_name}: {e}")
+            log_error(e, {'api_name': api_name}, "ERROR")
+            print(f"❌ Unexpected error fetching from {api_name}: {e}")
             return None
 
     def process_car_data(self, raw_data: Dict, api_source: str) -> List[Dict]:
-        """ประมวลผลข้อมูลรถจาก API"""
+        """ประมวลผลข้อมูลรถจาก API with enhanced error handling"""
         try:
             if api_source == 'shopify':
                 cars = raw_data.get('products', [])
             else:
-                cars = raw_data.get('products', raw_data)
+                # Handle both array and object formats
+                if isinstance(raw_data, list):
+                    cars = raw_data
+                else:
+                    cars = raw_data.get('products', raw_data)
 
             processed_cars = []
             for car in cars[:6]:  # เอาแค่ 6 คันแรก
-                processed_car = {
-                    'id': car.get('id', ''),
-                    'title': car.get('title', 'ไม่ระบุชื่อ'),
-                    'handle': car.get('handle', f"car-{car.get('id', 'unknown')}"),
-                    'description': self.clean_html(car.get('body_html', '')),
-                    'price': float(car.get('variants', [{}])[0].get('price', 0)),
-                    'status': car.get('status', 'พร้อมขาย'),
-                    'images': car.get('images', []),
-                    'created_at': car.get('created_at', ''),
-                    'updated_at': car.get('updated_at', '')
-                }
-                processed_cars.append(processed_car)
+                try:
+                    # Handle different price formats
+                    price = 0
+                    variants = car.get('variants', [])
+                    if variants:
+                        if isinstance(variants[0], dict):
+                            price = float(variants[0].get('price', 0))
+                        else:
+                            price = float(variants[0])
+                    
+                    processed_car = {
+                        'id': car.get('id', ''),
+                        'title': car.get('title', 'ไม่ระบุชื่อ'),
+                        'handle': car.get('handle', f"car-{car.get('id', 'unknown')}"),
+                        'description': self.clean_html(car.get('body_html', car.get('desc', ''))),
+                        'price': price,
+                        'status': car.get('status', 'พร้อมขาย'),
+                        'images': car.get('images', []),
+                        'created_at': car.get('created_at', ''),
+                        'updated_at': car.get('updated_at', '')
+                    }
+                    processed_cars.append(processed_car)
+                    
+                except Exception as e:
+                    log_error(e, {'car_data': car}, "WARNING")
+                    print(f"⚠️ Error processing car: {e}")
+                    continue
 
             # เรียงตามวันที่ใหม่ที่สุด
             processed_cars.sort(key=lambda x: x.get('created_at', ''), reverse=True)
             return processed_cars
 
         except Exception as e:
-            print(f"Error processing car data: {e}")
+            log_error(e, {'api_source': api_source}, "ERROR")
+            print(f"❌ Error processing car data: {e}")
             return []
 
     def clean_html(self, html_text: str) -> str:
@@ -222,22 +256,39 @@ class APItoHTMLRenderer:
         return json.dumps(schema, ensure_ascii=False, indent=2)
 
     def render_car_cards(self, cars: List[Dict]) -> str:
-        """เรนเดอร์ car cards HTML"""
+        """เรนเดอร์ car cards HTML with enhanced error handling"""
         cards_html = ""
         
         for car in cars:
-            image_url = car['images'][0]['src'] if car['images'] else 'https://via.placeholder.com/300x200'
-            detail_link = f"car-detail/{car['handle']}.html"
-            
-            card_html = self.templates['car_card'].format(
-                image_url=image_url,
-                car_title=car['title'],
-                formatted_price=self.format_price(car['price']),
-                car_status=car['status'],
-                car_description=car['description'],
-                detail_link=detail_link
-            )
-            cards_html += card_html
+            try:
+                # Handle different image formats
+                images = car.get('images', [])
+                if images:
+                    if isinstance(images[0], str):
+                        # Direct string URLs
+                        image_url = images[0]
+                    else:
+                        # Object format with src property
+                        image_url = images[0].get('src', 'https://via.placeholder.com/300x200')
+                else:
+                    image_url = 'https://via.placeholder.com/300x200'
+                
+                detail_link = f"car-detail/{car.get('handle', 'unknown')}.html"
+                
+                card_html = self.templates['car_card'].format(
+                    image_url=image_url,
+                    car_title=car.get('title', 'ไม่ระบุชื่อ'),
+                    formatted_price=self.format_price(car.get('price', 0)),
+                    car_status=car.get('status', 'พร้อมขาย'),
+                    car_description=car.get('description', ''),
+                    detail_link=detail_link
+                )
+                cards_html += card_html
+                
+            except Exception as e:
+                log_error(e, {'car_id': car.get('id', 'unknown')}, "WARNING")
+                print(f"⚠️ Error rendering car card for {car.get('title', 'unknown')}: {e}")
+                continue
         
         return cards_html
 

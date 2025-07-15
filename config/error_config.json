@@ -1,0 +1,7 @@
+{
+  "enable_error_logging": true,
+  "enable_error_tracking": true,
+  "error_log_file": "logs/errors.log",
+  "max_log_size": 10485760,
+  "enable_graceful_degradation": true
+}

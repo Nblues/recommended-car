@@ -5,7 +5,6 @@ Ultimate Python SSR 2025 - Server-Side Rendering
 """
 
 import asyncio
-import aiohttp
 import json
 import os
 import re
@@ -15,6 +14,10 @@ from typing import Dict, List, Optional, Any
 from dataclasses import dataclass
 import argparse
 import logging
+
+# Import our enhanced modules
+from config_manager import config_manager
+from api_client import fetch_api_data, EnhancedAPIClient
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -47,23 +50,10 @@ class PythonSSRGenerator:
         self.docs_path = self.base_path / "docs"
         self.templates_path = self.base_path / "templates"
         
-        # API Configuration
-        self.api_configs = {
-            'local': {
-                'url': 'cars.json',
-                'headers': {}
-            },
-            'shopify': {
-                'url': 'https://quickstart-f2f5a8c8.myshopify.com/admin/api/2023-10/products.json',
-                'headers': {'Content-Type': 'application/json'}
-            },
-            'custom': {
-                'url': 'https://api.example.com/cars',
-                'headers': {'Authorization': 'Bearer YOUR_API_KEY'}
-            }
-        }
+        # Ensure docs directory exists
+        self.docs_path.mkdir(exist_ok=True)
         
-        # SEO Configuration
+        # SEO Configuration - can be moved to config_manager later
         self.seo_config = {
             'site_name': 'ครูหนึ่งรถสวย',
             'site_description': 'รถมือสองเชียงใหม่ ฟรีดาวน์ ผ่อนง่าย รถบ้านสวย ส่งฟรีทั่วไทย',
@@ -76,40 +66,35 @@ class PythonSSRGenerator:
         }
 
     async def fetch_api_data(self, api_source: str) -> Optional[Dict[str, Any]]:
-        """ดึงข้อมูลจาก API แบบ async"""
+        """ดึงข้อมูลจาก API แบบ async with enhanced error handling"""
         logger.info(f"🔍 Fetching data from {api_source} API...")
         
         try:
-            config = self.api_configs.get(api_source)
-            if not config:
-                raise ValueError(f"Unknown API source: {api_source}")
-
-            if api_source == 'local':
-                # Read local JSON file
-                json_file = self.docs_path / config['url']
-                if not json_file.exists():
-                    json_file = self.base_path / config['url']
-                
-                with open(json_file, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                    # Handle both array format and object format
-                    if isinstance(data, list):
-                        data = {'products': data}
-                    logger.info(f"✅ Successfully loaded local data: {len(data.get('products', []))} products")
-                    return data
+            # Use enhanced API client
+            response = await fetch_api_data(api_source, use_cache=True)
+            
+            if response.success:
+                logger.info(f"✅ Successfully fetched from {api_source}: {len(response.data.get('products', []))} products")
+                if response.from_cache:
+                    logger.info("📋 Data served from cache")
+                else:
+                    logger.info(f"⏱️ Response time: {response.response_time:.2f}s")
+                return response.data
             else:
-                # Fetch from remote API
-                async with aiohttp.ClientSession() as session:
-                    async with session.get(config['url'], headers=config['headers'], timeout=30) as response:
-                        if response.status == 200:
-                            data = await response.json()
-                            logger.info(f"✅ Successfully fetched from {api_source}: {response.status}")
-                            return data
-                        else:
-                            raise Exception(f"API returned status {response.status}")
+                logger.error(f"❌ API Error for {api_source}: {response.error}")
+                
+                # Try to return cached data as fallback
+                if not response.from_cache:
+                    logger.info("🔄 Attempting to use cached data as fallback...")
+                    fallback_response = await fetch_api_data(api_source, use_cache=True)
+                    if fallback_response.success and fallback_response.from_cache:
+                        logger.warning("⚠️ Using stale cached data due to API failure")
+                        return fallback_response.data
+                
+                return None
 
         except Exception as e:
-            logger.error(f"❌ Error fetching from {api_source}: {str(e)}")
+            logger.error(f"❌ Unexpected error fetching from {api_source}: {str(e)}")
             return None
 
     def process_car_data(self, raw_data: Dict[str, Any], api_source: str) -> List[CarData]:
