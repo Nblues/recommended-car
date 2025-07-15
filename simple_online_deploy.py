@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🚀 SIMPLE ONLINE DEPLOYMENT - Ready to Go!
+🚀 ENHANCED SIMPLE ONLINE DEPLOYMENT - Ready to Go!
 ==========================================
-Deploy Car Widgets ออนไลน์แบบง่ายๆ
+Deploy Car Widgets ออนไลน์แบบง่ายๆ with improved error handling
 """
 
 import os
@@ -11,12 +11,36 @@ import shutil
 import json
 from datetime import datetime
 from pathlib import Path
+import logging
 
+# Import enhanced modules
+from config_manager import config_manager
+from error_handler import handle_exception, log_error
+from config_validator import ConfigValidator
+
+# Setup logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+@handle_exception("create_online_deployment")
 def create_online_deployment():
-    """สร้าง deployment ที่พร้อมใช้งานออนไลน์"""
+    """สร้าง deployment ที่พร้อมใช้งานออนไลน์ with enhanced features"""
     
-    print("🚀 Creating Online Deployment Package")
-    print("=" * 40)
+    print("🚀 Creating Enhanced Online Deployment Package")
+    print("=" * 50)
+    
+    # Validate configuration first
+    validator = ConfigValidator()
+    validation_results = validator.validate_all()
+    
+    if validation_results['summary']['total_errors'] > 0:
+        print("⚠️ Configuration errors detected:")
+        for section, data in validation_results.items():
+            if isinstance(data, dict) and 'issues' in data:
+                for issue in data['issues']:
+                    print(f"  {issue}")
+        print("\n💡 Run: python config_validator.py --setup-guide")
+        print("🔄 Continuing with deployment anyway...")
     
     # Setup paths
     project_root = Path(__file__).parent
@@ -24,34 +48,72 @@ def create_online_deployment():
     
     # Create directory
     if deploy_dir.exists():
-        shutil.rmtree(deploy_dir)
-    deploy_dir.mkdir(parents=True)
+        try:
+            shutil.rmtree(deploy_dir)
+        except Exception as e:
+            log_error(e, {'action': 'remove_deploy_dir'}, "WARNING")
+            print(f"⚠️ Could not remove existing deploy directory: {e}")
     
-    print(f"📁 Created deployment folder: {deploy_dir}")
+    try:
+        deploy_dir.mkdir(parents=True, exist_ok=True)
+        print(f"📁 Created deployment folder: {deploy_dir}")
+    except Exception as e:
+        log_error(e, {'action': 'create_deploy_dir'}, "ERROR")
+        print(f"❌ Failed to create deployment directory: {e}")
+        return None
     
-    # 1. Copy main widget file as index.html
-    main_widget = project_root / "COPY-PASTE-WIDGETS.html"
-    if main_widget.exists():
-        shutil.copy2(main_widget, deploy_dir / "index.html")
-        print("✅ Main widget page copied as index.html")
+    # 1. Copy main widget file as index.html with error handling
+    try:
+        main_widget = project_root / "car-widget-fixed.html"
+        if main_widget.exists():
+            shutil.copy2(main_widget, deploy_dir / "index.html")
+            print("✅ Main widget page copied as index.html")
+        else:
+            # Fallback to other widget files
+            fallback_files = ["car-widget-minimal.html", "car-widget-clean.html", "main.html", "index.html"]
+            copied = False
+            for fallback in fallback_files:
+                fallback_path = project_root / fallback
+                if fallback_path.exists():
+                    shutil.copy2(fallback_path, deploy_dir / "index.html")
+                    print(f"✅ Used fallback widget: {fallback}")
+                    copied = True
+                    break
+            
+            if not copied:
+                print("⚠️ No main widget file found, creating basic HTML")
+                create_basic_index_html(deploy_dir)
+    except Exception as e:
+        log_error(e, {'action': 'copy_main_widget'}, "WARNING")
+        print(f"⚠️ Error copying main widget: {e}")
+        create_basic_index_html(deploy_dir)
     
-    # 2. Create demo directory and files
+    # 2. Copy essential files
+    copy_essential_files(project_root, deploy_dir)
+    
+    # 3. Create demo directory and files
     create_demo_files(deploy_dir)
     
-    # 3. Create API endpoints
+    # 4. Create API endpoints
     create_api_files(deploy_dir)
     
-    # 4. Create platform configs
+    # 5. Create platform configs
     create_platform_configs(deploy_dir)
     
-    # 5. Create deployment instructions
+    # 6. Create service worker
+    create_service_worker(deploy_dir)
+    
+    # 7. Create deployment instructions
     create_deployment_instructions(deploy_dir)
     
-    # 6. Create simple deployment script
+    # 8. Create simple deployment script
     create_simple_deploy_script(deploy_dir)
     
-    print("\n🎉 ONLINE DEPLOYMENT READY!")
-    print("=" * 40)
+    # 9. Copy configuration files
+    copy_config_files(project_root, deploy_dir)
+    
+    print("\n🎉 ENHANCED ONLINE DEPLOYMENT READY!")
+    print("=" * 50)
     print(f"📁 Location: {deploy_dir.absolute()}")
     print("\n🌐 Deployment Options:")
     print("   1. GitHub Pages - ฟรี hosting")
@@ -62,8 +124,155 @@ def create_online_deployment():
     print(f"   1. cd {deploy_dir}")
     print("   2. Follow DEPLOYMENT-GUIDE.md")
     print("   3. Your widgets will be LIVE online!")
+    print("\n🔧 Enhanced Features:")
+    print("   ✅ Error handling and retry logic")
+    print("   ✅ Service worker for offline support")
+    print("   ✅ Image optimization and CORS support")
+    print("   ✅ Configuration validation")
+    print("   ✅ Performance monitoring")
     
     return deploy_dir
+
+@handle_exception("create_basic_index_html")
+def create_basic_index_html(deploy_dir):
+    """Create basic index.html if no widget files found"""
+    basic_html = '''<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚗 Car Widget Collection</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .widget { background: #f5f5f5; padding: 20px; margin: 20px 0; border-radius: 10px; }
+        .btn { background: #007cba; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>🚗 Car Widget Collection</h1>
+    <p>Ready-to-use car widgets for any website</p>
+    
+    <div class="widget">
+        <h2>🎯 Quick Setup</h2>
+        <p>This is a basic setup. Add your widget files to enable full functionality.</p>
+        <button class="btn" onclick="alert('Add your widget HTML files!')">Get Started</button>
+    </div>
+    
+    <div class="widget">
+        <h2>📝 Setup Instructions</h2>
+        <ol>
+            <li>Add your widget HTML files</li>
+            <li>Configure API endpoints</li>
+            <li>Deploy to your hosting platform</li>
+        </ol>
+    </div>
+</body>
+</html>'''
+    
+    try:
+        with open(deploy_dir / "index.html", "w", encoding="utf-8") as f:
+            f.write(basic_html)
+        print("✅ Created basic index.html")
+    except Exception as e:
+        log_error(e, {'action': 'create_basic_html'}, "ERROR")
+        print(f"❌ Failed to create basic HTML: {e}")
+
+@handle_exception("copy_essential_files")
+def copy_essential_files(project_root, deploy_dir):
+    """Copy essential files with error handling"""
+    essential_files = [
+        "style.css",
+        "sw.js", 
+        "cars.json",
+        "package.json"
+    ]
+    
+    print("📄 Copying essential files...")
+    for file_name in essential_files:
+        try:
+            source_file = project_root / file_name
+            if source_file.exists():
+                shutil.copy2(source_file, deploy_dir / file_name)
+                print(f"✅ Copied {file_name}")
+            else:
+                print(f"⚠️ {file_name} not found, skipping")
+        except Exception as e:
+            log_error(e, {'file': file_name}, "WARNING")
+            print(f"⚠️ Error copying {file_name}: {e}")
+
+@handle_exception("copy_config_files") 
+def copy_config_files(project_root, deploy_dir):
+    """Copy configuration files"""
+    print("⚙️ Copying configuration files...")
+    
+    # Copy config directory
+    config_src = project_root / "config"
+    if config_src.exists():
+        try:
+            config_dest = deploy_dir / "config"
+            if config_dest.exists():
+                shutil.rmtree(config_dest)
+            shutil.copytree(config_src, config_dest)
+            print("✅ Copied configuration files")
+        except Exception as e:
+            log_error(e, {'action': 'copy_config'}, "WARNING")
+            print(f"⚠️ Error copying config: {e}")
+    
+    # Copy docs directory
+    docs_src = project_root / "docs"
+    if docs_src.exists():
+        try:
+            docs_dest = deploy_dir / "docs"
+            if docs_dest.exists():
+                shutil.rmtree(docs_dest)
+            shutil.copytree(docs_src, docs_dest)
+            print("✅ Copied docs directory")
+        except Exception as e:
+            log_error(e, {'action': 'copy_docs'}, "WARNING")
+            print(f"⚠️ Error copying docs: {e}")
+
+@handle_exception("create_service_worker")
+def create_service_worker(deploy_dir):
+    """Copy or create service worker"""
+    print("⚡ Setting up service worker...")
+    
+    try:
+        sw_source = Path("sw.js")
+        if sw_source.exists():
+            shutil.copy2(sw_source, deploy_dir / "sw.js")
+            print("✅ Service worker copied")
+        else:
+            # Create basic service worker
+            basic_sw = '''
+// Basic Service Worker for Car Widgets
+const CACHE_NAME = 'car-widget-v1';
+
+self.addEventListener('install', (event) => {
+  console.log('SW: Installing');
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+  console.log('SW: Activating');
+  self.clients.claim();
+});
+
+self.addEventListener('fetch', (event) => {
+  if (event.request.method === 'GET') {
+    event.respondWith(
+      caches.match(event.request)
+        .then(response => response || fetch(event.request))
+    );
+  }
+});
+'''
+            with open(deploy_dir / "sw.js", "w") as f:
+                f.write(basic_sw)
+            print("✅ Basic service worker created")
+            
+    except Exception as e:
+        log_error(e, {'action': 'create_service_worker'}, "WARNING")
+        print(f"⚠️ Error setting up service worker: {e}")
 
 def create_demo_files(deploy_dir):
     """สร้างไฟล์ demo"""

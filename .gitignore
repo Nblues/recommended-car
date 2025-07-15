@@ -28,10 +28,36 @@ Thumbs.db
 
 # Logs
 *.log
+logs/
+
+# Cache
+cache/
+.cache/
+
+# Environment variables
+.env
+.env.local
+.env.production
 
 # Temporary files
 *.tmp
 *.temp
+tmp/
+temp/
+
+# Build artifacts
+node_modules/
+dist/
+build/
+
+# Deployment
+online-ready/
+
+# Test files
+test_*.html
+*-test.html
+*-ssr.html
+*-render.html
 
 # Reports
 *REPORT.md
@@ -48,3 +74,21 @@ check_*.py
 final_*.py
 test_*.py
 analyze_*.py
+
+# Configuration backup
+config/*.bak
+config/*.backup
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Backup files
+*.bak
+*.backup
+*~
